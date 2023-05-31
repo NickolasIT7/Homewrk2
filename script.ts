@@ -287,3 +287,87 @@
 // let CurrentDifference = `${hours}:${minutes}:${seconds}`
 // return CurrentDifference;
 // }
+
+// const car = {
+// carBrand: 'toyota',
+// model: 'Camry',
+// year: 2022,
+// AverageSpeed: 100
+// }
+// function(carBrand,model,year,AverageSpeed)
+// console.log(car)
+// function time(AverageSpeed) {
+// let distance = +(prompt("Введите растояние") as string)
+// let hours = distance/AverageSpeed 
+// if (hours % 4 ==0) {
+// return hours + Math.floor((hours-1) / 4);    
+// }
+// return hours + Math.floor(hours / 4);
+// }
+// console.log (time(10));
+
+// const fraction = {
+// chisl: 1,
+// znam: 4,   
+// }
+// function add() {
+// }
+
+// let CurrentTime = {
+// hours:11,
+// minutes:47,
+// seconds:50,    
+// }
+// function CurrTime(hours,minutes,seconds) {
+// alert (CurrentTime)    
+// }
+// function CurrTimeAndSeconds (hours,minutes,seconds) {
+// let TimeInSeconds = hours*3600 + minutes*60 +seconds
+// let AboutSeconds = prompt ('на сколько увеличить время в секундах')
+// let NewTimeInSeconds = TimeInSeconds + AboutSeconds
+// let hours2 = (NewTimeInSeconds/3600)
+// let minutes2 = ((NewTimeInSeconds-(hours2*3600))/60)
+// let seconds2 = (NewTimeInSeconds-(NewTimeInSeconds-hours2*3600)-(minutes2*60))
+// let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
+// return NewCurrentTime;
+// console.log(NewCurrentTime)
+// }
+
+// function CurrTimeAndMinutes (hours,minutes,seconds) {
+//     let TimeInSeconds = hours*3600 + minutes*60 +seconds
+//     let AboutMinutes = +(prompt ('на сколько увеличить время в минутах') as string)
+//     let NewTimeInSeconds = TimeInSeconds + (AboutMinutes*60)
+//     let hours2 = (NewTimeInSeconds/3600)
+//     let minutes2 = ((NewTimeInSeconds-(hours2*3600))/60)
+//     let seconds2 = (NewTimeInSeconds-(NewTimeInSeconds-hours2*3600)-(minutes2*60))
+//     let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
+//     return NewCurrentTime;
+//     console.log(NewCurrentTime)
+//     }
+
+//     function CurrTimeAndHours (hours,minutes,seconds) {
+//         let TimeInSeconds = hours*3600 + minutes*60 +seconds
+//         let AboutHours = +(prompt ('на сколько увеличить время в часах') as string)
+//         let NewTimeInSeconds = TimeInSeconds + (AboutHours*3600)
+//         let hours2 = (NewTimeInSeconds/3600)
+//         let minutes2 = ((NewTimeInSeconds-(hours2*3600))/60)
+//         let seconds2 = (NewTimeInSeconds-(NewTimeInSeconds-hours2*3600)-(minutes2*60))
+//         let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
+//         return NewCurrentTime;
+//         console.log(NewCurrentTime)
+//     }
+   
+//     let rectangle = {
+//     leftx: 5,
+//     lefty:7,
+//     rightx:11,
+//     righty:3,   
+//     }
+// function rectangle1(leftx,lefty,rightx,righty) {
+// console.log(rectangle1(leftx,lefty,rightx,righty))
+// }
+
+// function width (rightx,righty) {
+// let w = rightx - righty
+// console.log(w)
+// }
