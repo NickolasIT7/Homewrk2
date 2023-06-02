@@ -256,24 +256,28 @@
 //Написать функцию, которая принимает часы, минуты и
 //секунды и возвращает это время в секундах.
 
-// function time1 (a,b,c) {
-// let timeToSeconds = a*3600 + b*60 + c;
-// return timeToSeconds;    
-// alert(timeToSeconds);
+// function time1 (hours,minutes,seconds) {
+// let timeToSeconds = hours*3600 + minutes*60 + seconds;
+// console.log(timeToSeconds); 
 // }
+// time1(12,40,10)
 
 
 //Написать функцию, которая принимает количество секунд,
 // переводит их в часы, минуты и секунды и возвращает в виде строки «чч:мм:сс»
 
-// function time2 (a) {
-// let hours = (a/3600)
-// let minutes = ((a-(hours*3600))/60)
-// let seconds = (a-(a-hours*3600)-(minutes*60))
-// let CurrentTime = `${hours}:${minutes}:${seconds}`
-// return CurrentTime;
+// function currTimeAndSeconds(hours, minutes, seconds) {
+//     var timeInSeconds = hours * 3600 + minutes * 60 + seconds;
+//     var aboutSeconds = +(prompt('на сколько увеличить время в секундах') as string)
+//     var newTimeInSeconds = timeInSeconds + aboutSeconds;
+//     var hours2 = Math.floor(newTimeInSeconds / 3600);
+//     var minutes2 = Math.floor((newTimeInSeconds - (hours2 * 3600)) / 60);
+//     var seconds2 = Math.floor(newTimeInSeconds % 60);
+//     var newCurrentTime = hours2 + ":" + minutes2 + ":" + seconds2;
+//    
+//     console.log(newCurrentTime);
 // }
-
+// currTimeAndSeconds(12, 10, 15);
 // Написать функцию, которая считает разницу между датами.
 // Функция принимает 6 параметров, которые описывают 2 даты, и возвращает результат в виде строки «чч:мм:сс»
 
@@ -281,13 +285,19 @@
 // let timeToSeconds = a1*3600 + b1*60 +c1
 // let timeToSeconds2 = a2*3600 + a2*60 +c2
 // let dateDifference = timeToSeconds - timeToSeconds2
-// let hours = (dateDifference/3600)
-// let minutes = ((dateDifference-(hours*3600))/60)
-// let seconds = (dateDifference-(dateDifference-hours*3600)-(minutes*60))
-// let CurrentDifference = `${hours}:${minutes}:${seconds}`
-// return CurrentDifference;
+// let hours = Math.floor(dateDifference/3600)
+// let minutes = Math.floor((dateDifference-(hours*3600))/60)
+// let seconds = Math.floor(dateDifference % 60);
+// let currentDifference = `${hours}:${minutes}:${seconds}`
+// console.log(currentDifference)
 // }
+// timeDifference(15,10,10,15,0,10)
 
+
+// Создать объект, описывающий автомобиль и  функции для работы с этим объектом.
+// 1 Функция для вывода на экран информации об автомобиле.
+// 2 Функция для подсчета необходимого времени для преодоления переданного расстояния со средней скоростью.
+// Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час
 // const car = {
 // carBrand: 'toyota',
 // model: 'Camry',
@@ -306,32 +316,115 @@
 // }
 // console.log (time(10));
 
-// const fraction = {
-// chisl: 1,
-// znam: 4,   
-// }
-// function add() {
-// }
 
-// let CurrentTime = {
+// Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, 
+// и следующие функции для работы с этим объ-ектом.
+// 1 Функция сложения 2-х объектов-дробей.
+// 2 Функция вычитания 2-х объектов-дробей.
+// 3 Функция умножения 2-х объектов-дробей.
+// 4 Функция деления 2-х объектов-дробей.
+// 5 Функция сокращения объекта-дроби.
+
+// var fraction1 = {
+//     numerator: 1,
+//     denominator: 4
+// };
+// var fraction2 = {
+//     numerator: 1,
+//     denominator: 6
+// };
+// console.log(fraction1.numerator + "/" + fraction1.denominator + " and " + fraction2.numerator + "/" + fraction2.denominator);
+// function maxDenominator(f) {
+//     var min = f.numerator < f.denominator ? f.numerator : f.denominator;
+//     for (var i = min; i > 1; i--) {
+//         if (f.numerator % i == 0 && f.denominator % i == 0)
+//             return i;
+//     }
+//     return 1;
+// }
+// function fractionReduction(f) {
+//     var denominator = maxDenominator(f);
+//     f.numerator /= denominator;
+//     f.denominator /= denominator;
+//     return f;
+// }
+// function fractionSubstraction(f1, f2) {
+//     var ajusted = fractionAjust(f1, f2);
+//     var sub = {
+//         numerator: ajusted.f1.numerator - ajusted.f2.numerator,
+//         denominator: f1.denominator
+//     };
+//     return fractionReduction(sub);
+// }
+// function fractionAjust(f1, f2) {
+//     var f1D = f1.denominator;
+//     var f2D = f2.denominator;
+//     f1.numerator *= f2D;
+//     f1.denominator *= f2D;
+//     f2.numerator *= f1D;
+//     f2.denominator *= f1D;
+//     return { f1: f1, f2: f2 };
+// }
+// function fractionMultiplication(f1, f2) {
+//     var mult = {
+//         numerator: f1.numerator * f2.numerator,
+//         denominator: f1.denominator * f2.denominator
+//     };
+//     return fractionReduction(mult);
+// }
+// function fractionDivision(f1, f2) {
+//     var div = {
+//         numerator: f1.numerator * f2.denominator,
+//         donominator: f1.denominator * f2.numerator
+//     };
+//     return fractionReduction(div);
+// }
+// function fractionSum(f1, f2) {
+//     var ajusted = fractionAjust(f1, f2);
+//     var sum = {
+//         numerator: ajusted.f1.numerator + ajusted.f2.numerator,
+//         denominator: ajusted.f1.denominator
+//     };
+//     return fractionReduction(sum);
+// }
+// var sumResult = fractionSum(fraction1, fraction2);
+// var subResult = fractionSubstraction(fraction1, fraction2);
+// var multResult = fractionMultiplication(fraction1, fraction2);
+// var divResult = fractionDivision(fraction1, fraction2);
+// console.log("sum = " + sumResult.numerator + "/ " + sumResult.denominator);
+// console.log("sub = " + subResult.numerator + "/ " + subResult.denominator);
+// console.log("mult = " + multResult.numerator + "/ " + multResult.denominator);
+// console.log("div = " + divResult.numerator + "/ " + divResult.denominator);
+
+// Создать объект, описывающий время (часы, минуты, секунды), и функции для работы с этим объектом.
+// 1 Функция вывода времени на экран.
+// 2 Функция изменения времени на переданное количество
+// секунд.
+// 3 Функция изменения времени на переданное количество
+// минут.
+// 4 Функция изменения времени на переданное количество
+// часов.
+
+// let currentTime = {
 // hours:11,
 // minutes:47,
 // seconds:50,    
 // }
-// function CurrTime(hours,minutes,seconds) {
-// alert (CurrentTime)    
+// function currTime(hours,minutes,seconds) {
+// alert (currentTime)    
 // }
-// function CurrTimeAndSeconds (hours,minutes,seconds) {
-// let TimeInSeconds = hours*3600 + minutes*60 +seconds
-// let AboutSeconds = prompt ('на сколько увеличить время в секундах')
-// let NewTimeInSeconds = TimeInSeconds + AboutSeconds
-// let hours2 = (NewTimeInSeconds/3600)
-// let minutes2 = ((NewTimeInSeconds-(hours2*3600))/60)
-// let seconds2 = (NewTimeInSeconds-(NewTimeInSeconds-hours2*3600)-(minutes2*60))
+// function currTimeAndSeconds (hours,minutes,seconds) {
+// let timeInSeconds = hours*3600 + minutes*60 +seconds
+// let aboutSeconds = prompt ('на сколько увеличить время в секундах')
+// let newTimeInSeconds = timeInSeconds + aboutSeconds
+// let hours2 = (newTimeInSeconds/3600)
+// let minutes2 = ((newTimeInSeconds-(hours2*3600))/60)
+// let seconds2 = (newTimeInSeconds-(newTimeInSeconds-hours2*3600)-(minutes2*60))
 // let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
-// return NewCurrentTime;
 // console.log(NewCurrentTime)
 // }
+// console.log(currentTime)
+
 
 // function CurrTimeAndMinutes (hours,minutes,seconds) {
 //     let TimeInSeconds = hours*3600 + minutes*60 +seconds
