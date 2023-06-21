@@ -492,13 +492,14 @@
 // координаты точки.
 
 //     let rectangle = {
-//     leftx: 5,
-//     lefty:7,
-//     rightx:11,
-//     righty:3,   
+//     lefttopx: 5,
+//     leftopy:7,
+//     rightdownx:11,
+//     rightdowny:3,   
 //     }
-// function rectangle1(leftx,lefty,rightx,righty) {
-// console.log(rectangle1(leftx,lefty,rightx,righty))
+// function rectangle1(lefttopx,lefttopy,leftdownx,leftdowny,righttopx,righttopy,leftdowny,leftdowny ) {
+// let lefttop = 
+// 
 // }
 // var rectangle1
 // function width (rightx,righty) {
