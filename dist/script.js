@@ -447,54 +447,74 @@ var rectangle = {
     x2: 11,
     y2: 1
 };
-function gerRectangle(rectangle) {
+// 1
+function getRectangle(rectangle) {
     return rectangle;
 }
+// 2
 function getRectWidth(rectangle) {
     return rectangle.x2 - rectangle.x1;
 }
+// 3
 function getRectHeight(rectangle) {
     return rectangle.y1 - rectangle.y2;
 }
+// 4
 function getRectArea(rectangle) {
     return getRectWidth(rectangle) * getRectHeight(rectangle);
 }
+// 5
 function getRectPerimeter(rectangle) {
     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2;
 }
+// 6
 function changeWidth(rectangle) {
     var addWidth = +prompt('на сколько увеличить ширину прямоугольника');
     return addWidth;
     // getRectWidth + addWidth    
 }
+// 7
 function changeHeight(rectangle) {
     var addHeight = +prompt('на сколько увеличить высоту прямоугольника');
     return addHeight;
     //getRectHeight + addHeight
 }
+// 8
 function change(rectangle) {
     var addHeight = +prompt('на сколько увеличить высоту прямоугольника');
     var addWidth = +prompt('на сколько увеличить ширину прямоугольника');
     return addHeight;
     return addWidth;
 }
+// 9 
 function changex(rectangle) {
     var x3 = +prompt('на сколько сдвинуть прямоугольник по оси x');
 }
+// 10
 function changey(rectangle) {
     var y3 = +prompt('на сколько сдвинуть прямоугольник по оси y');
 }
+// 11
 function changexy(rectangle) {
     var x3 = +prompt('на сколько сдвинуть прямоугольник по оси x');
     var y3 = +prompt('на сколько сдвинуть прямоугольник по оси y');
 }
-function point(rectangle) {
-    var x4 = +prompt('введите координаты точки по оси x');
-    var y4 = +promtp('введите координаты точки по оси y');
-    if ((x4 > x1 && x4 < x2) && (y4 > y1 && y4 < y2)) {
-        alert('точка внутри');
-    }
-    else {
-        alert('точка снаружи');
-    }
-}
+// 12
+// function point(rectangle) {
+// const x4 =+(prompt('введите координаты точки по оси x')as string)
+// const y4 =+(promtp('введите координаты точки по оси y')as string)
+//     if ((x4>x1 && x4<x2)&&(y4>y1 && y4<y2)) {
+//     alert('точка внутри') 
+//      } else {
+//     alert ('точка снаружи')    
+//     }   
+//     }   
+console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2);
+var width = getRectangle;
+console.log('ширина', width);
+var height = getRectHeight;
+console.log('высота', height);
+var area = getRectArea;
+console.log('площадь', area);
+var perimeter = getRectPerimeter;
+console.log('периметр', perimeter);

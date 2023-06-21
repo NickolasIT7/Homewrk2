@@ -498,59 +498,77 @@ var rectangle = {
     x2: 11,
     y2: 1
 }
-function gerRectangle(rectangle) {
+// 1
+function getRectangle(rectangle) {
  return rectangle   
 }
-
+// 2
 function getRectWidth(rectangle) {
     return rectangle.x2 - rectangle.x1
 }
+// 3
 function getRectHeight(rectangle) {
     return rectangle.y1 - rectangle.y2
 }
+// 4
 function getRectArea(rectangle) {
     return getRectWidth(rectangle) * getRectHeight(rectangle)
 }
+// 5
 function getRectPerimeter(rectangle) {
     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
 }
-
+// 6
 function changeWidth (rectangle) {
 const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
 return addWidth
 // getRectWidth + addWidth    
 }
-
+// 7
 function changeHeight(rectangle) {
     const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
     return addHeight
 //getRectHeight + addHeight
 }
+// 8
 function change (rectangle) {
     const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
     const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
     return addHeight
     return addWidth
     }
+// 9 
 function changex(rectangle) {
 const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
 }
 
+// 10
 function changey(rectangle) {
 const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
 }
 
+// 11
 function changexy(rectangle) {
 const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
 const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
 }
+// 12
+// function point(rectangle) {
+// const x4 =+(prompt('введите координаты точки по оси x')as string)
+// const y4 =+(promtp('введите координаты точки по оси y')as string)
+//     if ((x4>x1 && x4<x2)&&(y4>y1 && y4<y2)) {
+//     alert('точка внутри') 
+//      } else {
+//     alert ('точка снаружи')    
+//     }   
+//     }   
 
-function point(rectangle) {
-const x4 =+(prompt('введите координаты точки по оси x')as string)
-const y4 =+(promtp('введите координаты точки по оси y')as string)
-    if ((x4>x1 && x4<x2)&&(y4>y1 && y4<y2)) {
-    alert('точка внутри') 
-     } else {
-    alert ('точка снаружи')    
-    }   
-    }   
+console.log(rectangle.x1,rectangle.y1,rectangle.x2,rectangle.y2)
+let width = getRectangle
+console.log('ширина', width)
+let height = getRectHeight
+console.log('высота',height)
+let area = getRectArea
+console.log('площадь',area)
+let perimeter = getRectPerimeter
+console.log('периметр',perimeter)
