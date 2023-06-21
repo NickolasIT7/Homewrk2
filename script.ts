@@ -405,51 +405,92 @@
 // 4 Функция изменения времени на переданное количество
 // часов.
 
-// let currentTime = {
-// hours:11,
-// minutes:47,
-// seconds:50,    
-// }
-// function currTime(hours,minutes,seconds) {
-// alert (currentTime)    
-// }
-// function currTimeAndSeconds (hours,minutes,seconds) {
-// let timeInSeconds = hours*3600 + minutes*60 +seconds
-// let aboutSeconds = prompt ('на сколько увеличить время в секундах')
-// let newTimeInSeconds = timeInSeconds + aboutSeconds
-// let hours2 = (newTimeInSeconds/3600)
-// let minutes2 = ((newTimeInSeconds-(hours2*3600))/60)
-// let seconds2 = (newTimeInSeconds-(newTimeInSeconds-hours2*3600)-(minutes2*60))
-// let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
-// console.log(NewCurrentTime)
-// }
-// console.log(currentTime)
-
-
-// function CurrTimeAndMinutes (hours,minutes,seconds) {
-//     let TimeInSeconds = hours*3600 + minutes*60 +seconds
-//     let AboutMinutes = +(prompt ('на сколько увеличить время в минутах') as string)
-//     let NewTimeInSeconds = TimeInSeconds + (AboutMinutes*60)
-//     let hours2 = (NewTimeInSeconds/3600)
-//     let minutes2 = ((NewTimeInSeconds-(hours2*3600))/60)
-//     let seconds2 = (NewTimeInSeconds-(NewTimeInSeconds-hours2*3600)-(minutes2*60))
-//     let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
-//     return NewCurrentTime;
-//     console.log(NewCurrentTime)
+let currentTime = {
+hours:11,
+minutes:47,
+seconds:50,    
+}
+function currTime(time:any) {
+    return `${time.hours}:${time.minutes}:${time.seconds}`
+  }
+//   function addSeconds(time:any, seconds:number) {
+//     let hours = time.hours
+//     let minutes = time.minutes
+//     let newSeconds = time.seconds + seconds
+//     if (newSeconds>59) {
+//       minutes += Math.floor(newSeconds/60)
+//       newSeconds %= 60 
 //     }
-
-//     function CurrTimeAndHours (hours,minutes,seconds) {
-//         let TimeInSeconds = hours*3600 + minutes*60 +seconds
-//         let AboutHours = +(prompt ('на сколько увеличить время в часах') as string)
-//         let NewTimeInSeconds = TimeInSeconds + (AboutHours*3600)
-//         let hours2 = (NewTimeInSeconds/3600)
-//         let minutes2 = ((NewTimeInSeconds-(hours2*3600))/60)
-//         let seconds2 = (NewTimeInSeconds-(NewTimeInSeconds-hours2*3600)-(minutes2*60))
-//         let NewCurrentTime = `${hours2}:${minutes2}:${seconds2}`
-//         return NewCurrentTime;
-//         console.log(NewCurrentTime)
+//     return {
+//       hours:hours,
+//       minutes:minutes,
+//       seconds:newSeconds,    
 //     }
-   
+//   }
+//   console.log(currTime(currentTime))
+//   const seconds = +(prompt('на сколько увеличить время в секундах') as string)
+//   console.log(currTime(addSeconds(currentTime, seconds)))
+  
+// function addMinutes(time:any, minutes:number) {
+//   let hours = time.hours 
+//   let newMinutes = time.minutes + minutes
+//   if (newMinutes>59) {
+//     hours += Math.floor(newMinutes/60)
+//     newMinutes %= 60 
+//   }
+//   return {
+//     hours:hours,
+//     minutes:newMinutes,
+//     seconds:seconds,    
+//   }
+// }
+// console.log(currTime(currentTime))
+// const minutes = +(prompt('на сколько увеличить время в минутах') as string)
+// console.log(currTime(addMinutes(currentTime, minutes)))
+
+//     function addHours(time:any, hours:number) {
+//     let newHours = time.hours + hours
+//     let minutes = time.minutes
+//     let seconds = time.seconds 
+    
+//     return {
+//       hours:newHours,
+//       minutes:minutes,
+//       seconds:seconds,    
+//     }
+// }
+//   console.log(currTime(currentTime))
+//   const hours = +(prompt('на сколько увеличить время в часах') as string)
+//   console.log(currTime(addHours(currentTime, hours)))
+// console.log(currTime(currentTime))
+
+// Создать объект, описывающий прямоугольник (хранит координаты левой верхней и правой нижней точек), и написать следующие функции для работы с таким объектом.
+// 1. Функция принимает объект-прямоугольник и выводит
+// информацию о нем (где какая точка расположена).
+// 2. Функция принимает объект-прямоугольник и возвращает
+// его ширину.
+// 3. Функция принимает объект-прямоугольник и возвращает
+// его высоту.
+// 4. Функция принимает объект-прямоугольник и возвращает
+// его площадь.
+// 5. Функция принимает объект-прямоугольник и возвращает
+// его периметр.
+// 6. Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить
+// ширину.
+// 7. Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить
+// высоту.
+// 8. Функция изменения ширины и высоты прямоугольника.
+// Она принимает объект-прямоугольник и два значения –
+// для изменения ширины и высоты.
+// 9. Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его
+// сдвинуть.
+// 10. Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его
+// сдвинуть.
+// 11. Функция смещения прямоугольника и по оси X и по
+// оси Y. Она принимает объект-прямоугольник и два значения: сдвиг по оси X и сдвиг по оси Y.
+// 12. Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и
+// координаты точки.
+
 //     let rectangle = {
 //     leftx: 5,
 //     lefty:7,
@@ -459,8 +500,9 @@
 // function rectangle1(leftx,lefty,rightx,righty) {
 // console.log(rectangle1(leftx,lefty,rightx,righty))
 // }
-
+// var rectangle1
 // function width (rightx,righty) {
 // let w = rightx - righty
 // console.log(w)
 // }
+
