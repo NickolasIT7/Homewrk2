@@ -19,11 +19,11 @@
 // }
 // alert (a)
 
-// // let c =+(prompt ('введите число') as string)
-// // for (let i = 2; i * 2 <= c; i++) {
-// //  if (c % i == 0) {
-// //  alert (`${i}`)  
-// //  } 
+// let c =+(prompt ('введите число') as string)
+// for (let i = 2; i * 2 <= c; i++) {
+//  if (c % i == 0) {
+//  alert (`${i}`)  
+//  } 
 // }
 
 // let d = +(prompt ('введите число') as string) 
@@ -491,19 +491,66 @@
 // 12. Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и
 // координаты точки.
 
-//     let rectangle = {
-//     lefttopx: 5,
-//     leftopy:7,
-//     rightdownx:11,
-//     rightdowny:3,   
-//     }
-// function rectangle1(lefttopx,lefttopy,leftdownx,leftdowny,righttopx,righttopy,leftdowny,leftdowny ) {
-// let lefttop = 
-// 
-// }
-// var rectangle1
-// function width (rightx,righty) {
-// let w = rightx - righty
-// console.log(w)
-// }
 
+var rectangle = {
+    x1: 5,
+    y1: 7,
+    x2: 11,
+    y2: 1
+}
+function gerRectangle(rectangle) {
+ return rectangle   
+}
+
+function getRectWidth(rectangle) {
+    return rectangle.x2 - rectangle.x1
+}
+function getRectHeight(rectangle) {
+    return rectangle.y1 - rectangle.y2
+}
+function getRectArea(rectangle) {
+    return getRectWidth(rectangle) * getRectHeight(rectangle)
+}
+function getRectPerimeter(rectangle) {
+    return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
+}
+
+function changeWidth (rectangle) {
+const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
+return addWidth
+// getRectWidth + addWidth    
+}
+
+function changeHeight(rectangle) {
+    const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
+    return addHeight
+//getRectHeight + addHeight
+}
+function change (rectangle) {
+    const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
+    const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
+    return addHeight
+    return addWidth
+    }
+function changex(rectangle) {
+const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
+}
+
+function changey(rectangle) {
+const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
+}
+
+function changexy(rectangle) {
+const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
+const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
+}
+
+function point(rectangle) {
+const x4 =+(prompt('введите координаты точки по оси x')as string)
+const y4 =+(promtp('введите координаты точки по оси y')as string)
+    if ((x4>x1 && x4<x2)&&(y4>y1 && y4<y2)) {
+    alert('точка внутри') 
+     } else {
+    alert ('точка снаружи')    
+    }   
+    }   
