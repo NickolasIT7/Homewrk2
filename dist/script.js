@@ -360,14 +360,14 @@
 // минут.
 // 4 Функция изменения времени на переданное количество
 // часов.
-var currentTime = {
-    hours: 11,
-    minutes: 47,
-    seconds: 50
-};
-function currTime(time) {
-    return time.hours + ":" + time.minutes + ":" + time.seconds;
-}
+// let currentTime = {
+// hours:11,
+// minutes:47,
+// seconds:50,    
+// }
+// function currTime(time:any) {
+//     return `${time.hours}:${time.minutes}:${time.seconds}`
+//   }
 //   function addSeconds(time:any, seconds:number) {
 //     let hours = time.hours
 //     let minutes = time.minutes
