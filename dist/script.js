@@ -25,7 +25,7 @@
 // for (let i = 2; i * 2 <= c; i++) {
 //  if (c % i == 0) {
 //  console.log (`${i}`)  
-//  } 
+//  } aA
 // }
 // 4 Определить количество цифр в введенном числе.
 // let userNumber = +(prompt(' Введите число') as string)
@@ -105,6 +105,28 @@
 // }   
 // document.write ('<br>')
 // }
+// 10 Игра «Угадай число». Предложить пользователю загадать число от 0 до 100 и отгадать его следующим способом: каждую итерацию цикла делите диапазон чисел пополам,
+// записываете результат в N и спрашиваете у пользователя «Ваше число > N, < N или == N?». В зависимости от того что указал пользователь, уменьшаете диапазон. Начальный
+// диапазон от 0 до 100, поделили пополам и получили 50. Если пользователь указал, что его число > 50, то изменили диапазон на от 51 до 100.
+//  И так до тех пор, пока пользователь не выберет == N.
+// let userConfirmGht
+// let userConfirmSht
+// let userConfirmEqls
+// let N0 = 51
+// let N1 = 100
+// alert ('загадать число от 0 до 100')
+// do {
+//   let userConfirmGht = confirm (`Ваше число больше ${N0} и меньше ${N1}?`)
+// if (userConfirmGht) {
+// N0 = N1/2 
+// N1 = N0 + N1/2 
+// }
+// else {
+// N1 = N0 
+// N0 /= 2 
+// }
+// }while(N0!=N1)
+// alert ('Ваше число ${N0}')
 // praktice
 // let i = +(prompt('сколько раз вывести #')as string)
 // while ()
@@ -146,7 +168,7 @@
 // console.log(i)    
 // }
 //Функции
-//Написать функцию, которая принимает 2 числа и возвращает -1, если первое меньше,
+//1 Написать функцию, которая принимает 2 числа и возвращает -1, если первое меньше,
 //чем второе; 1 - если первое больше, чем второе; и 0 - если числа равны.
 // let a = +(prompt('введите первое число') as string)
 // let b = +(prompt('введите второе число') as string)
@@ -158,7 +180,9 @@
 // else (a == b) 
 // return 0;
 // }
-// Написать функцию, которая вычисляет факториал переданного ей числа
+// const comp = compare(a,b)
+// console.log(comp)
+// 2 Написать функцию, которая вычисляет факториал переданного ей числа
 // function factorial(a) {
 // let fact = 1
 // if (a ==0) return fact
@@ -167,8 +191,8 @@
 // }
 // return fact;
 // }
-// alert( factorial(5));
-// Написать функцию, которая принимает три отдельные цифры и превращает их в одно число.
+// console.log( factorial(5));
+// 3 Написать функцию, которая принимает три отдельные цифры и превращает их в одно число.
 // let a = +(prompt('введите первое число') as string)
 // let b = +(prompt('введите второе число') as string)
 // let c = +(prompt('введите третье число') as string)
@@ -176,7 +200,7 @@
 // f = ((a*100)+(b*10)+c)
 // return f;
 // }
-//  console.log (f)
+//  console.log (sum(f))
 //Написать функцию, которая принимает длину и ширину прямоугольника и вычисляет его площадь.
 //Если в функцию передали 1 параметр, то она вычисляет площать квадрата.
 // function square(a,b) {
@@ -463,52 +487,52 @@
 //     x2: 11,
 //     y2: 1
 // }
-// // 1
+//1
 // function getRectangle(rectangle) {
 //  return rectangle   
 // }
-// // 2
+// 2
 // function getRectWidth(rectangle) {
 //     return rectangle.x2 - rectangle.x1
 // }
-// // 3
+// 3
 // function getRectHeight(rectangle) {
 //     return rectangle.y1 - rectangle.y2
 // }
-// // 4
+// 4
 // function getRectArea(rectangle) {
 //     return getRectWidth(rectangle) * getRectHeight(rectangle)
 // }
-// // 5
+// 5
 // function getRectPerimeter(rectangle) {
 //     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
 // }
-// // 6
+// 6
 // function changeWidth (rectangle) {
 // return addWidth
 // }
 // const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// // 7
+// 7
 // function changeHeight(rectangle) {
 //    return addHeight
 // }
 // const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-// // 8
+// 8
 // function change (rectangle) {
 //     return addHeight
 //     return addWidth
 //     }
 //     const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника')as string)
 //     const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// // 9 
+// 9 
 // function changex(rectangle) {
 // const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
 // }
-// // 10
+// 10
 // function changey(rectangle) {
 // const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
 // }
-// // 11
+// 11
 // function changexy(rectangle) {
 // }
 // const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
