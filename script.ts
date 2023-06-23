@@ -41,33 +41,33 @@
 
 // 5 Запросить у пользователя 10 чисел и подсчитать, сколькоон ввел положительных, отрицательных и нулей. При этом
 // также посчитать, сколько четных и нечетных. Вывести статистику на экран.
-    // let positive = 0;
-    // let negative = 0;
-    // let zero = 0;
-    // let even = 0;
-    // let odd = 0;
+// let positive = 0;
+// let negative = 0;
+// let zero = 0;
+// let even = 0;
+// let odd = 0;
 
-    // for (let i = 1; i <= 10; i++ ) {
-    //     const num = +(prompt("Введите число") as string)
-        
-    //     if (num > 0) {
-    //     positive++;
-    //     }
-    //     if (num < 0) {
-    //     negative++;
-    //     }
-    //     if (num == 0) {
-    //     zero++;
-    //     }
-    //     if (num % 2 == 0) {
-    //     even++;
-    //     }
-    //     if (num % 2 !== 0) {
-    //     odd++;
-    //     }
-    // }
+// for (let i = 1; i <= 10; i++ ) {
+//     const num = +(prompt("Введите число") as string)
 
-    // console.log(` цифры - положительные: ${positive}, отрицательные: ${negative}, нули: ${zero}, четные: ${even}, нечетные: ${odd}.`)
+//     if (num > 0) {
+//     positive++;
+//     }
+//     if (num < 0) {
+//     negative++;
+//     }
+//     if (num == 0) {
+//     zero++;
+//     }
+//     if (num % 2 == 0) {
+//     even++;
+//     }
+//     if (num % 2 !== 0) {
+//     odd++;
+//     }
+// }
+
+// console.log(` цифры - положительные: ${positive}, отрицательные: ${negative}, нули: ${zero}, четные: ${even}, нечетные: ${odd}.`)
 
 // 6 Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, хочет ли он решить еще один пример. И так до тех пор, пока
 // пользователь не откажется.
@@ -77,7 +77,7 @@
 //     let operator = prompt(' Введите  оператор', '+, -, *, /')
 //     let answer = eval(`${firstNumber} ${operator} ${secondNumber}`)
 //     alert(answer);
-    
+
 // } while (confirm(' Решить еще один пример?'));
 
 // 7 Запросить у пользователя число и на сколько цифр егосдвинуть. Сдвинуть цифрычисла и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
@@ -108,7 +108,7 @@
 //     }        
 
 // } while (nextDay)
-            
+
 // 9 Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.
 // let i
 // let j
@@ -188,7 +188,7 @@
 // let i
 // let number4 =+(prompt ('введите число')as string)
 // for (i = 1; i<100; i++) {
-    
+
 // console.log(i)    
 // }
 
@@ -477,7 +477,7 @@
 //   console.log(currTime(currentTime))
 //   const seconds = +(prompt('на сколько увеличить время в секундах') as string)
 //   console.log(currTime(addSeconds(currentTime, seconds)))
-  
+
 // function addMinutes(time:any, minutes:number) {
 //   let hours = time.hours 
 //   let newMinutes = time.minutes + minutes
@@ -499,7 +499,7 @@
 //     let newHours = time.hours + hours
 //     let minutes = time.minutes
 //     let seconds = time.seconds 
-    
+
 //     return {
 //       hours:newHours,
 //       minutes:minutes,
@@ -539,97 +539,98 @@
 // координаты точки.
 
 
-// var rectangle = {
-//     x1: 5,
-//     y1: 7,
-//     x2: 11,
-//     y2: 1
-// }
-//1
-// function getRectangle(rectangle) {
-//  return rectangle   
-// }
-// 2
-// function getRectWidth(rectangle) {
-//     return rectangle.x2 - rectangle.x1
-// }
-// 3
-// function getRectHeight(rectangle) {
-//     return rectangle.y1 - rectangle.y2
-// }
-// 4
-// function getRectArea(rectangle) {
-//     return getRectWidth(rectangle) * getRectHeight(rectangle)
-// }
-// 5
-// function getRectPerimeter(rectangle) {
-//     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
-// }
-// 6
-// function changeWidth (rectangle) {
+var rectangle = {
+    x1: 5,
+    y1: 7,
+    x2: 11,
+    y2: 1
+}
+1
+function getRectangle(rectangle) {
+    console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
+}
+2
+function getRectWidth(rectangle) {
+    return rectangle.x2 - rectangle.x1
+}
+3
+function getRectHeight(rectangle) {
+    return rectangle.y1 - rectangle.y2
+}
+4
+function getRectArea(rectangle) {
+    return getRectWidth(rectangle) * getRectHeight(rectangle)
+}
+5
+function getRectPerimeter(rectangle) {
+    return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
+}
+6
+function changeWidth(rectangle) {
 
-// return addWidth
+    return addWidth
 
-// }
-// const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 7
-// function changeHeight(rectangle) {
-//    return addHeight
-// }
-// const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-// 8
-// function change (rectangle) {
-    
-//     return addHeight
-//     return addWidth
-//     }
-//     const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-//     const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 9 
-// function changex(rectangle) {
-// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
-// }
+}
+const addWidth = +(prompt('на сколько увеличить ширину прямоугольника') as string)
+7
+function changeHeight(rectangle) {
+    return addHeight
+}
+const addHeight = +(prompt('на сколько увеличить высоту прямоугольника') as string)
+8
+function change(rectangle) {
 
-// 10
-// function changey(rectangle) {
-// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
-// }
+    return addHeight
+    return addWidth
+}
+const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника') as string)
+const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника') as string)
+9
+function changex(rectangle) {
+    const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x') as string)
+}
 
-// 11
-// function changexy(rectangle) {
+10
+function changey(rectangle) {
+    const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
+}
 
-// }
-// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
-// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
-// 12
-// function point(rectangle) {
-// const x4 =+(prompt('введите координаты точки по оси x')as string)
-// const y4 =+(prompt('введите координаты точки по оси y')as string)
-//     if ((x4>rectangle.x1 && x4<rectangle.x2)&&(y4>rectangle.y1 && y4<rectangle.y2)) {
-//     alert('точка внутри') 
-//      } else {
-//     alert ('точка снаружи')    
-//     }   
-//     }   
+11
+function changexy(rectangle) {
 
-// console.log(rectangle.x1,rectangle.y1,rectangle.x2,rectangle.y2)
-// let width = getRectangle
-// console.log('ширина', width)
-// let height = getRectHeight
-// console.log('высота',height)
-// let area = getRectArea
-// console.log('площадь',area)
-// let perimeter = getRectPerimeter
-// console.log('периметр',perimeter)
-// let newWidth = +getRectWidth + addWidth
-// console.log (newWidth)
-// let newHeight = +getRectHeight + addHeight
-// console.log (newHeight)
-// let newWidth1 = +getRectWidth + addWidth
-// console.log (newWidth1)
-// let newHeight1 = +getRectHeight + addHeight1
-// console.log(newHeight1)
-// let x4= rectangle.x2 + x3 
-// console.log(x4)
-// let y4 = rectangle.y2 + y3
-// console.log(y4)
+}
+const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x') as string)
+const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
+12
+function point(rectangle) {
+    const x = +(prompt('введите координаты точки по оси x') as string)
+    const y = +(prompt('введите координаты точки по оси y') as string)
+    if ((rectangle.x1<=x && rectangle.x2>=x) && (rectangle.y1>=y && rectangle.y2<=y)) {
+        alert('точка внутри')
+    } else {
+        alert('точка снаружи')
+    }
+}
+
+
+getRectangle(rectangle)
+console.log('ширина', getRectWidth(rectangle))
+let height = getRectHeight(rectangle)
+console.log('высота', height)
+let area = getRectArea(rectangle)
+console.log('площадь', area)
+let perimeter = getRectPerimeter(rectangle)
+console.log('периметр', perimeter)
+let newWidth = +getRectWidth(rectangle) + addWidth
+console.log(newWidth)
+let newHeight = +getRectHeight(rectangle) + addHeight
+console.log(newHeight)
+let newWidth1 = +getRectWidth(rectangle) + addWidth
+console.log(newWidth1)
+let newHeight1 = +getRectHeight(rectangle) + addHeight1
+console.log(newHeight1)
+let x4 = rectangle.x2 + x3
+console.log(x4)
+let y4 = rectangle.y2 + y3
+console.log(y4)
+point(rectangle)

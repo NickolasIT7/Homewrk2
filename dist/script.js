@@ -481,90 +481,91 @@
 // оси Y. Она принимает объект-прямоугольник и два значения: сдвиг по оси X и сдвиг по оси Y.
 // 12. Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и
 // координаты точки.
-// var rectangle = {
-//     x1: 5,
-//     y1: 7,
-//     x2: 11,
-//     y2: 1
-// }
-//1
-// function getRectangle(rectangle) {
-//  return rectangle   
-// }
-// 2
-// function getRectWidth(rectangle) {
-//     return rectangle.x2 - rectangle.x1
-// }
-// 3
-// function getRectHeight(rectangle) {
-//     return rectangle.y1 - rectangle.y2
-// }
-// 4
-// function getRectArea(rectangle) {
-//     return getRectWidth(rectangle) * getRectHeight(rectangle)
-// }
-// 5
-// function getRectPerimeter(rectangle) {
-//     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
-// }
-// 6
-// function changeWidth (rectangle) {
-// return addWidth
-// }
-// const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 7
-// function changeHeight(rectangle) {
-//    return addHeight
-// }
-// const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-// 8
-// function change (rectangle) {
-//     return addHeight
-//     return addWidth
-//     }
-//     const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-//     const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 9 
-// function changex(rectangle) {
-// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
-// }
-// 10
-// function changey(rectangle) {
-// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
-// }
-// 11
-// function changexy(rectangle) {
-// }
-// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
-// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
-// 12
-// function point(rectangle) {
-// const x4 =+(prompt('введите координаты точки по оси x')as string)
-// const y4 =+(prompt('введите координаты точки по оси y')as string)
-//     if ((x4>rectangle.x1 && x4<rectangle.x2)&&(y4>rectangle.y1 && y4<rectangle.y2)) {
-//     alert('точка внутри') 
-//      } else {
-//     alert ('точка снаружи')    
-//     }   
-//     }   
-// console.log(rectangle.x1,rectangle.y1,rectangle.x2,rectangle.y2)
-// let width = getRectangle
-// console.log('ширина', width)
-// let height = getRectHeight
-// console.log('высота',height)
-// let area = getRectArea
-// console.log('площадь',area)
-// let perimeter = getRectPerimeter
-// console.log('периметр',perimeter)
-// let newWidth = +getRectWidth + addWidth
-// console.log (newWidth)
-// let newHeight = +getRectHeight + addHeight
-// console.log (newHeight)
-// let newWidth1 = +getRectWidth + addWidth
-// console.log (newWidth1)
-// let newHeight1 = +getRectHeight + addHeight1
-// console.log(newHeight1)
-// let x4= rectangle.x2 + x3 
-// console.log(x4)
-// let y4 = rectangle.y2 + y3
-// console.log(y4)
+var rectangle = {
+    x1: 5,
+    y1: 7,
+    x2: 11,
+    y2: 1
+};
+1;
+function getRectangle(rectangle) {
+    console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2);
+}
+2;
+function getRectWidth(rectangle) {
+    return rectangle.x2 - rectangle.x1;
+}
+3;
+function getRectHeight(rectangle) {
+    return rectangle.y1 - rectangle.y2;
+}
+4;
+function getRectArea(rectangle) {
+    return getRectWidth(rectangle) * getRectHeight(rectangle);
+}
+5;
+function getRectPerimeter(rectangle) {
+    return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2;
+}
+6;
+function changeWidth(rectangle) {
+    return addWidth;
+}
+var addWidth = +prompt('на сколько увеличить ширину прямоугольника');
+7;
+function changeHeight(rectangle) {
+    return addHeight;
+}
+var addHeight = +prompt('на сколько увеличить высоту прямоугольника');
+8;
+function change(rectangle) {
+    return addHeight;
+    return addWidth;
+}
+var addHeight1 = +prompt('на сколько увеличить высоту прямоугольника');
+var addWidth1 = +prompt('на сколько увеличить ширину прямоугольника');
+9;
+function changex(rectangle) {
+    var x3 = +prompt('на сколько сдвинуть прямоугольник по оси x');
+}
+10;
+function changey(rectangle) {
+    var y3 = +prompt('на сколько сдвинуть прямоугольник по оси y');
+}
+11;
+function changexy(rectangle) {
+}
+var x3 = +prompt('на сколько сдвинуть прямоугольник по оси x');
+var y3 = +prompt('на сколько сдвинуть прямоугольник по оси y');
+12;
+function point(rectangle) {
+    var x = +prompt('введите координаты точки по оси x');
+    var y = +prompt('введите координаты точки по оси y');
+    if ((rectangle.x1 <= x && rectangle.x2 >= x) && (rectangle.y1 >= y && rectangle.y2 <= y)) {
+        alert('точка внутри');
+    }
+    else {
+        alert('точка снаружи');
+    }
+}
+getRectangle(rectangle);
+console.log('ширина', getRectWidth(rectangle));
+var height = getRectHeight(rectangle);
+console.log('высота', height);
+var area = getRectArea(rectangle);
+console.log('площадь', area);
+var perimeter = getRectPerimeter(rectangle);
+console.log('периметр', perimeter);
+var newWidth = +getRectWidth(rectangle) + addWidth;
+console.log(newWidth);
+var newHeight = +getRectHeight(rectangle) + addHeight;
+console.log(newHeight);
+var newWidth1 = +getRectWidth(rectangle) + addWidth;
+console.log(newWidth1);
+var newHeight1 = +getRectHeight(rectangle) + addHeight1;
+console.log(newHeight1);
+var x4 = rectangle.x2 + x3;
+console.log(x4);
+var y4 = rectangle.y2 + y3;
+console.log(y4);
+point(rectangle);
