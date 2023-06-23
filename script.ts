@@ -1,12 +1,16 @@
-// let a = +(prompt ('введите начало диапазона') as string)
-// let b = +(prompt ('введите конец диапозона') as string)
-// let sum = 0;
-// while (a <= b) {
-// sum+=a
-// a++
-// }
-// alert (sum);
 
+// dz3-module1
+// 1 Подсчитать сумму всех чисел в заданном пользователем диапазоне. 
+// let range1 = +(prompt ('введите начало диапазона') as string)
+// let range2 = +(prompt ('введите конец диапозона') as string)
+// let sum = 0;
+// while (range1 <= range2) {
+// sum+=range1
+// range1++
+// }
+// console.log (sum);
+
+//2 Запросить 2 числа и найти только наибольший общий делитель.
 // let a = +(prompt ('введите первое число') as string)
 // let b = +(prompt ('введите второе число') as string)
 // while (a!=b) {
@@ -17,57 +21,66 @@
 // b = b - a  
 //  }
 // }
-// alert (a)
+// console.log (a)
 
+// 3 Запросить у пользователя число и вывести все делители этого числа.
 // let c =+(prompt ('введите число') as string)
 // for (let i = 2; i * 2 <= c; i++) {
 //  if (c % i == 0) {
-//  alert (`${i}`)  
+//  console.log (`${i}`)  
 //  } 
 // }
 
-// let d = +(prompt ('введите число') as string) 
+// 4 Определить количество цифр в введенном числе.
+// let userNumber = +(prompt(' Введите число') as string)
+//     let count = 0;
+//   for (let i = 0; i < +userNumber.length; i++) {
+//         count += 1;
+//     };
+//     console.log(` Число состоит из ${count} цифр`);
+
+// 5 Запросить у пользователя 10 чисел и подсчитать, сколькоон ввел положительных, отрицательных и нулей. При этом
+// также посчитать, сколько четных и нечетных. Вывести статистику на экран.
+    // let positive = 0;
+    // let negative = 0;
+    // let zero = 0;
+    // let even = 0;
+    // let odd = 0;
+
+    // for (let i = 1; i <= 10; i++ ) {
+    //     const num = +(prompt("Введите число") as string)
+        
+    //     if (num > 0) {
+    //     positive++;
+    //     }
+    //     if (num < 0) {
+    //     negative++;
+    //     }
+    //     if (num == 0) {
+    //     zero++;
+    //     }
+    //     if (num % 2 == 0) {
+    //     even++;
+    //     }
+    //     if (num % 2 !== 0) {
+    //     odd++;
+    //     }
+    // }
+
+    // console.log(` цифры - положительные: ${positive}, отрицательные: ${negative}, нули: ${zero}, четные: ${even}, нечетные: ${odd}.`)
+
+// 6 Зациклить калькулятор. Запросить у пользователя 2 числа и знак, решить пример, вывести результат и спросить, хочет ли он решить еще один пример. И так до тех пор, пока
+// пользователь не откажется.
 // do {
-// d % 10    
-// }
-// while (d>0)
-// alert (d)
+//     let firstNumber = +(prompt(' Введите первое число') as string)
+//     let secondNumber = +(prompt(' Введите второе число') as string)
+//     let operator = prompt(' Введите  оператор', '+, -, *, /')
+//     let answer = eval(`${firstNumber} ${operator} ${secondNumber}`)
+//     alert(answer);
+    
+// } while (confirm(' Решить еще один пример?'));
 
-
-// var i, N, Q1, Q2;
-//  for(i=0; i<10;++i)
-//  {
-//   N= prompt('введите 10 чисел: ', )
-//     if (N > 0 )Q1++
-//     else
-//     if (N < 0 )Q2++
-//  }
-//  if(Q1>0)alert('Количество положительных: ' +Q1)
-//  else alert('Положительных чисел нет')
-//  if(Q1>0)alert('Количество отрицательных: ' +Q2)
-//  else alert('Отрицательных чисел нет')
-
-// do {
-// let a = +(prompt ('введите первое число') as string)
-// let b = +(prompt ('введите второе число') as string)
-// let t = +(prompt ('выберите знак - + / *') as string)
-// let prime = +(prompt ('хотите решить еще один пример?', Y/N) as string)
-// if (prime==Y) {
-//   switch (result) {
-//     case '-': result = a - b
-//     break 
-//     case '+': result = a + b
-//     break
-//     case '/': result = a / b
-//     break
-//     case '*': result = a * b
-//     break
-//       }
-//   alert (result)
-// }
-// }
-//  while (c!=N)
-
+// 7 Запросить у пользователя число и на сколько цифр егосдвинуть. Сдвинуть цифрычисла и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
 // let input 
 // do {
 // input = prompt ('введите число') as string
@@ -80,15 +93,23 @@
 // for (let i=shift-1;i>=0;i--) {
 // newNumber += input [i]   
 // }
-// alert (newNumber)
+// console.log(newNumber)
 
-// let day = ('понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье')
-// let d = 0
-// while (confirm ('хотите увидеть следующий день?')) {
-// d = (d+1)
-// }
-// alert (d)
+// 8 Зациклить вывод дней недели таким образом: «День недели. Хотите увидеть следующий день?» и так до тех пор, пока пользователь нажимает OK. 
+// let day = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
+// let currentDay = 0
+// let nextDay
+// do {
+//     alert(`День недели - ${day[currentDay]}.`)
+//     nextDay = confirm(' Хотите увидеть следующий день?')
+//     currentDay++     
+//     if (currentDay === day.length) {
+//         currentDay = 0;
+//     }        
 
+// } while (nextDay)
+            
+// 9 Вывести таблицу умножения для всех чисел от 2 до 9. Каждое число необходимо умножить на числа от 1 до 10.
 // let i
 // let j
 // for (i=2;i<10;i++) {
@@ -115,7 +136,7 @@
 // let number = +(prompt('введите число')as string)
 // let degree = +(prompt('степень')as string)
 // while (degree>0) {
-// alert (number**degree)
+// console.log (number**degree)
 // break
 // }
 
@@ -492,97 +513,97 @@
 // координаты точки.
 
 
-var rectangle = {
-    x1: 5,
-    y1: 7,
-    x2: 11,
-    y2: 1
-}
-// 1
-function getRectangle(rectangle) {
- return rectangle   
-}
-// 2
-function getRectWidth(rectangle) {
-    return rectangle.x2 - rectangle.x1
-}
-// 3
-function getRectHeight(rectangle) {
-    return rectangle.y1 - rectangle.y2
-}
-// 4
-function getRectArea(rectangle) {
-    return getRectWidth(rectangle) * getRectHeight(rectangle)
-}
-// 5
-function getRectPerimeter(rectangle) {
-    return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
-}
-// 6
-function changeWidth (rectangle) {
+// var rectangle = {
+//     x1: 5,
+//     y1: 7,
+//     x2: 11,
+//     y2: 1
+// }
+// // 1
+// function getRectangle(rectangle) {
+//  return rectangle   
+// }
+// // 2
+// function getRectWidth(rectangle) {
+//     return rectangle.x2 - rectangle.x1
+// }
+// // 3
+// function getRectHeight(rectangle) {
+//     return rectangle.y1 - rectangle.y2
+// }
+// // 4
+// function getRectArea(rectangle) {
+//     return getRectWidth(rectangle) * getRectHeight(rectangle)
+// }
+// // 5
+// function getRectPerimeter(rectangle) {
+//     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
+// }
+// // 6
+// function changeWidth (rectangle) {
 
-return addWidth
+// return addWidth
 
-}
-const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 7
-function changeHeight(rectangle) {
-   return addHeight
-}
-const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-// 8
-function change (rectangle) {
+// }
+// const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
+// // 7
+// function changeHeight(rectangle) {
+//    return addHeight
+// }
+// const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
+// // 8
+// function change (rectangle) {
     
-    return addHeight
-    return addWidth
-    }
-    const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-    const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 9 
-function changex(rectangle) {
-const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
-}
+//     return addHeight
+//     return addWidth
+//     }
+//     const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника')as string)
+//     const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника')as string)
+// // 9 
+// function changex(rectangle) {
+// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
+// }
 
-// 10
-function changey(rectangle) {
-const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
-}
+// // 10
+// function changey(rectangle) {
+// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
+// }
 
-// 11
-function changexy(rectangle) {
+// // 11
+// function changexy(rectangle) {
 
-}
-const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
-const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
-12
-function point(rectangle) {
-const x4 =+(prompt('введите координаты точки по оси x')as string)
-const y4 =+(prompt('введите координаты точки по оси y')as string)
-    if ((x4>rectangle.x1 && x4<rectangle.x2)&&(y4>rectangle.y1 && y4<rectangle.y2)) {
-    alert('точка внутри') 
-     } else {
-    alert ('точка снаружи')    
-    }   
-    }   
+// }
+// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
+// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
+// 12
+// function point(rectangle) {
+// const x4 =+(prompt('введите координаты точки по оси x')as string)
+// const y4 =+(prompt('введите координаты точки по оси y')as string)
+//     if ((x4>rectangle.x1 && x4<rectangle.x2)&&(y4>rectangle.y1 && y4<rectangle.y2)) {
+//     alert('точка внутри') 
+//      } else {
+//     alert ('точка снаружи')    
+//     }   
+//     }   
 
-console.log(rectangle.x1,rectangle.y1,rectangle.x2,rectangle.y2)
-let width = getRectangle
-console.log('ширина', width)
-let height = getRectHeight
-console.log('высота',height)
-let area = getRectArea
-console.log('площадь',area)
-let perimeter = getRectPerimeter
-console.log('периметр',perimeter)
-let newWidth = +getRectWidth + addWidth
-console.log (newWidth)
-let newHeight = +getRectHeight + addHeight
-console.log (newHeight)
-let newWidth1 = +getRectWidth + addWidth
-console.log (newWidth1)
-let newHeight1 = +getRectHeight + addHeight1
-console.log(newHeight1)
-let x4= rectangle.x2 + x3 
-console.log(x4)
-let y4 = rectangle.y2 + y3
-console.log(y4)
+// console.log(rectangle.x1,rectangle.y1,rectangle.x2,rectangle.y2)
+// let width = getRectangle
+// console.log('ширина', width)
+// let height = getRectHeight
+// console.log('высота',height)
+// let area = getRectArea
+// console.log('площадь',area)
+// let perimeter = getRectPerimeter
+// console.log('периметр',perimeter)
+// let newWidth = +getRectWidth + addWidth
+// console.log (newWidth)
+// let newHeight = +getRectHeight + addHeight
+// console.log (newHeight)
+// let newWidth1 = +getRectWidth + addWidth
+// console.log (newWidth1)
+// let newHeight1 = +getRectHeight + addHeight1
+// console.log(newHeight1)
+// let x4= rectangle.x2 + x3 
+// console.log(x4)
+// let y4 = rectangle.y2 + y3
+// console.log(y4)
