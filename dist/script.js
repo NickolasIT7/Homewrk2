@@ -532,8 +532,6 @@
 // function changey(rectangle) {
 //     const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
 // }
-// 11
-// function changexy(rectangle) {
 // }
 // const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x') as string)
 // const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
