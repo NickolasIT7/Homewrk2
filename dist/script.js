@@ -487,9 +487,9 @@
 //     x2: 11,
 //     y2: 1
 // }
-//1
+// 1
 // function getRectangle(rectangle) {
-//  return rectangle   
+//     console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
 // }
 // 2
 // function getRectWidth(rectangle) {
@@ -508,63 +508,197 @@
 //     return getRectWidth(rectangle) * 2 + getRectHeight(rectangle) * 2
 // }
 // 6
-// function changeWidth (rectangle) {
-// return addWidth
+// function changeWidth(rectangle) {
+//     return addWidth
 // }
-// const addWidth = +(prompt('на сколько увеличить ширину прямоугольника')as string)
+// const addWidth = +(prompt('на сколько увеличить ширину прямоугольника') as string)
 // 7
 // function changeHeight(rectangle) {
-//    return addHeight
+//     return addHeight
 // }
-// const addHeight = +(prompt('на сколько увеличить высоту прямоугольника')as string)
+// const addHeight = +(prompt('на сколько увеличить высоту прямоугольника') as string)
 // 8
-// function change (rectangle) {
+// function change(rectangle) {
 //     return addHeight
 //     return addWidth
-//     }
-//     const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника')as string)
-//     const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника')as string)
-// 9 
+// }
+// const addHeight1 = +(prompt('на сколько увеличить высоту прямоугольника') as string)
+// const addWidth1 = +(prompt('на сколько увеличить ширину прямоугольника') as string)
+// 9
 // function changex(rectangle) {
-// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string) 
+//     const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x') as string)
 // }
 // 10
 // function changey(rectangle) {
-// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string)     
+//     const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
 // }
 // 11
 // function changexy(rectangle) {
 // }
-// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x')as string)  
-// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y')as string) 
+// const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x') as string)
+// const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
 // 12
 // function point(rectangle) {
-// const x4 =+(prompt('введите координаты точки по оси x')as string)
-// const y4 =+(prompt('введите координаты точки по оси y')as string)
-//     if ((x4>rectangle.x1 && x4<rectangle.x2)&&(y4>rectangle.y1 && y4<rectangle.y2)) {
-//     alert('точка внутри') 
-//      } else {
-//     alert ('точка снаружи')    
-//     }   
-//     }   
-// console.log(rectangle.x1,rectangle.y1,rectangle.x2,rectangle.y2)
-// let width = getRectangle
-// console.log('ширина', width)
-// let height = getRectHeight
-// console.log('высота',height)
-// let area = getRectArea
-// console.log('площадь',area)
-// let perimeter = getRectPerimeter
-// console.log('периметр',perimeter)
-// let newWidth = +getRectWidth + addWidth
-// console.log (newWidth)
-// let newHeight = +getRectHeight + addHeight
-// console.log (newHeight)
-// let newWidth1 = +getRectWidth + addWidth
-// console.log (newWidth1)
-// let newHeight1 = +getRectHeight + addHeight1
+//     const x = +(prompt('введите координаты точки по оси x') as string)
+//     const y = +(prompt('введите координаты точки по оси y') as string)
+//     if ((rectangle.x1 <= x && rectangle.x2 >= x) && (rectangle.y1 >= y && rectangle.y2 <= y)) {
+//         alert('точка внутри')
+//     } else {
+//         alert('точка снаружи')
+//     }
+// }
+// console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
+// let width = getRectangle(rectangle)
+// console.log('ширина', getRectWidth(rectangle))
+// let height = getRectHeight(rectangle)
+// console.log('высота', height)
+// let area = getRectArea(rectangle)
+// console.log('площадь', area)
+// let perimeter = getRectPerimeter(rectangle)
+// console.log('периметр', perimeter)
+// let newWidth = +getRectWidth(rectangle) + addWidth
+// console.log(newWidth)
+// let newHeight = +getRectHeight(rectangle) + addHeight
+// console.log(newHeight)
+// let newWidth1 = +getRectWidth(rectangle) + addWidth
+// console.log(newWidth1)
+// let newHeight1 = +getRectHeight(rectangle) + addHeight1
 // console.log(newHeight1)
-// let x4= rectangle.x2 + x3 
-// console.log(x4)
-// let y4 = rectangle.y2 + y3
-// console.log(y4)
+// let x = rectangle.x2 + x3
+// console.log(x)
+// console.log(x)
+// let y = rectangle.y2 + y3
+// console.log(y)
+// point(rectangle)
+// pz3-2 
+// 1 Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
+// строке больше символов, чем во второй; -1 – если во второй больше символов, чем в первой; или 0 – если строки
+// одинаковой длины
+// 1.1
+// let firstString = prompt('введите 1 строку')
+// let secondString = prompt('введите 2 строку')
+// function degree(firstString, secondString) {
+//     if (firstString.length > secondString.length)
+//         return 1
+//     if (firstString.length < secondString.length)
+//         return -1
+//     if (firstString.length = secondString.length)
+//         return 0
+// }
+// console.log(degree(firstString, secondString))
+// 1.2
+// let firstString = '34'
+// let secondString = '41341'
+// let degree = (firstString, secondString) => {
+//     if (firstString.length > secondString.length)
+//         return 1
+//     if (firstString.length < secondString.length)
+//         return -1
+//     if (firstString.length = secondString.length)
+//         return 0
+// }
+// console.log(degree(firstString, secondString))
+//2 Написать функцию, которая переводит в верхний регистр первый символ переданной строки.
+// let string1 = 'хетафе'
+// let UpperString = (string1: any) => {
+//     let newString = string1[0].toUpperCase() + string1.slice(1, 6)
+//     return newString
+// }
+// console.log(UpperString(string1))
+// 3 Написать функцию, которая считает количество гласных букв в переданной строке.
+// let string2 = 'Getafe'
+// function vowels(string2) {
+//     let vowels = ["a", "e", "i", "o", "u"];
+//   let vowelCount = 0
+//     for(let j = 0; j < string2.length; j++) {
+//         if(vowels[j] === string2){
+// 		vowelCount+=1
+//     }
+//     }
+//     return vowelCount
+// }
+// console.log(vowels(string2));
+//4 Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка содержит спам. 
+// Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх. Функция должна быть нечувствительна к регистру.
+// function checkSpam(string1: any) {
+//     let lowString = string1.toLowerCase(string1)
+//     if (lowString.includes('100% бесплатно') || lowString.includes('100% бесплатно') || lowString.includes('увеличение продаж') || lowString.includes('только сегодня') ||
+//         lowString.includes('не удаляйте') || lowString.includes('ххх')) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+// console.log(checkSpam('100 % бесплатно и только сегодня предложение'));
+//5 Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки больше, чем максимальная, то необходимо отбросить
+// лишние символы, добавив вместо них троеточие. Например: truncate(“Hello, world!”, 8) должна вернуть “Hello...”
+// let str = 'i know what you did this summer'
+// function reduction(str) {
+//     let maxlength = 5
+//     if (str.length > maxlength) {
+//         return str.slice(0, maxlength + 2)
+//     }
+// }
+// console.log(reduction(str))
+//6 Написать функцию, которая проверяет, является ли переданная строка палиндромом.
+// function isStrPalindrome(str) {
+//     let n = str.length;
+//     for(let i = 0; i < n/2; i++)
+//     {  
+//        if (str.charAt(i) !== str.charAt(n-1-i))
+//          return false;
+//     }
+//     return true;
+// }
+// console.log(isStrPalindrome('AnnA'))
+//7 Написать функцию, которая считает количество слов в предложении
+// 7.1 
+// let offer = prompt('введите предложение')
+// function countWords(str) {
+//     return str.split(' ').length
+// }
+// console.log(countWords(offer))
+//7.2
+// function countWords(str) {
+//     return str.split(' ').length
+// }
+// console.log(countWords('как у вас дела'))
+//8 Написать функцию, которая возвращает самое длинное слово из предложения.
+// let offer = prompt('введите предложение')
+// function longestWord(offer) {
+//     const stringSplit = offer.split(' ')
+//     let longestWord = ""
+//     for (const word of stringSplit) {
+//         if (word.length > longestWord.length) {
+//             longestWord = word
+//         }
+//     }
+//     return longestWord
+// }    
+// console.log (longestWord(offer))
+//9 Написать функцию, которая считает среднюю длину слова в предложении.
+// let offer = prompt('введите предложение')
+// function countAverageWord(offer) {
+// offer = offer.split(' ')
+// let averageWord = 0
+// let sumOffer = 0 
+// for (let i=0; i <offer.length;i++) {
+// const el = offer[i]
+// sumOffer =sumOffer+el.length
+// }
+// averageWord=sumOffer/offer.length     
+// return averageWord
+// }   
+// console.log(countAverageWord(offer))
+// 10 Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
+// строке. Также вывести, сколько всего раз встречается этот символ в строке.
+// function findSymbol(str,symb) {
+// let result = 0
+// let char = str.split(' ')
+// for (let i=0; i <char.length; i++) {
+// let count = result[char[i]]?result[char[i]] : 0
+// result[char[i]] = count +1
+// }
+// return result
+// }
+// console.log (findSymbol('как у вас дела','к'));
