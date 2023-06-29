@@ -801,3 +801,240 @@
 // а не добавлять новую.
 // 3 Покупка продукта. Функция принимает название продукта
 // и отмечает его как купленный.
+
+// const purchase = [
+//     {
+//       name: 'a',
+//       count: 10,
+//       purchased: true,
+//     },
+//     {
+//       name: 'b',
+//       count: 5,
+//       purchased: false,
+//     },
+//     {
+//       name: 'c',
+//       count: 3,
+//       purchased: true,
+//     },
+//     {
+//       name: 'd',
+//       count: 1,
+//       purchased: true,
+//     },
+//   ]
+//   const purchasedol = document.querySelector('.purchase')
+//   const showPurchaseButton = document.querySelector('.showPurchase')
+//   const addPurchaseButton = document.querySelector('.addPurchase')
+//   const setPurchasedButton = document.querySelector('.setPurchased')
+  
+//   function showPurchase() {
+//     if (purchasedol) {
+//       purchasedol.innerHTML = ``
+//     }
+//     for (let el of purchase) {
+//       if (!el.purchased) {
+//         if (purchasedol) {
+//           purchasedol.innerHTML += `<li>${el.name} необходимо купить ${el.count} штук </li>`
+//         }
+//       }
+//     }
+//     for (let el of purchase) {
+//       if (el.purchased) {
+//         if (purchasedol) {
+//           purchasedol.innerHTML += `<li>${el.name} куплено ${el.count} штук </li>`
+//         }
+//       }
+//     }
+//   }
+  
+//   function addPurchase() {
+//     const name = prompt('Введите название покупки') as string
+//     const count = +(prompt('Введите количество') as string)
+//     let find = false
+//     for (let el of purchase) {
+//       if (el.name == name) {
+//         find = true
+//         el.count += count
+//       }
+//     }
+//     if (!find) {
+//       purchase.push({
+//         name,
+//         count,
+//         purchased: false
+//       })
+//     }
+//     showPurchase()
+//   }
+//   function setPurchased() {
+//     const name = prompt('Введите название покупки')
+//     for (let el of purchase) {
+//       if (el.name == name) {
+//         el.purchased = true;
+//       }
+//       showPurchase()
+//     }
+//   }
+  
+//   showPurchaseButton?.addEventListener('click', showPurchase)
+//   addPurchaseButton?.addEventListener('click', addPurchase)
+//   setPurchasedButton?.addEventListener('click', setPurchased)
+
+//Задание 2
+// Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за единицу товара. Написать следующие функции.
+// 1. Распечатка чека на экран.
+// 2. Подсчет общей суммы покупки.
+// 3. Получение самой дорогой покупки в чеке.
+// 4. Подсчет средней стоимости одного товара в чеке. 
+
+// const check = [
+//     {
+//       product: 'bread',
+//       count: '1',
+//       price: '50',
+//     },
+//     {
+//       product: 'chop',
+//       count: '2',
+//       price: '160',
+//     },
+//     {
+//       product: 'cheese',
+//       count: '2',
+//       price: '80',
+//     },
+//   ]
+  
+//   function showCheck(arr: any[]) {
+//     console.log(arr)
+//   }
+//   showCheck(check)
+  
+  
+//   function getSum(arr: any[]) {
+//     let sum = 0
+//     for (let el of arr) {
+//       sum += el.count * parseFloat(el.price)
+//     }
+//     return sum
+//   }
+//   console.log(getSum(check))
+  
+//   function maxPurchase(arr: any[]) {
+//     let res = [...arr];
+//     let maxCost = 0;
+//     for (const product of res) {
+//       let cost = product.price * product.count
+//       if (cost > maxCost) {
+//         maxCost = cost;
+//       }
+//     }
+//     return maxCost;
+//   }
+  
+//   console.log(maxPurchase(check))
+  
+//   function averagePurchase(arr: any[]) {
+//     let res = [...arr];
+//     let averagePurch = 0
+//     let sum = 0
+//     for (const product of res) {
+//       sum += product.price * product.count;
+//     }
+  
+//     return (sum / res.length).toFixed(2);
+//   }
+//   console.log(averagePurchase(check));
+
+// 3 Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объект, состоящий из двух свойств: название стиля и значение стиля.
+// Написать функцию, которая принимает массив стилей и текст, и выводит этот текст с помощью document.write() в тегах <p></p>, 
+// добавив в открывающий тег атрибут style со всеми стилями, перечисленными в массиве.
+
+// const styleRed = [
+//     {
+//       name: 'color',
+//       value: 'red',
+//     },
+//     {
+//       name: 'text-decoration',
+//       value: 'underline'
+//     },
+//   ]
+//   const styleGreen = [
+//     {
+//       name: 'color',
+//       value: 'green',
+//     },
+//     {
+//       name: 'font-size',
+//       value: '20px'
+//     },
+//   ]
+  
+//   const printTextDiv = document.querySelector('.print.Text')
+  
+//   function printText(style: any[], text: string) {
+//     let styleStr = ''
+//     for (let el of style) {
+//       styleStr += `${el.name}:${el.value};`
+//     }
+//     if (printTextDiv) {
+//       printTextDiv.innerHTML += `<p style= ${styleStr}${text} </p>`
+//     }
+//   }
+//   printText(styleRed, 'Хетафе ');
+//   printText(styleGreen, 'Мадрид ');
+
+// 4 Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и названия факультета, для которого она предназначена.
+// Написать несколько функций для работы с ним.
+// 1. Вывод на экран всех аудиторий.
+// 2. Вывод на экран аудиторий для указанного факультета.
+// 3. Вывод на экран только тех аудиторий, которые подходят для переданной группы. Объект-группа состоит из названия, количества студентов и названия факультета. 
+
+// const audience = [
+//     {
+//       name: 'yandex',
+//       count: '20',
+//       faculty: 'html',
+//     },
+//     {
+//       name: 'mail',
+//       count: '12',
+//       faculty: '1c',
+//     },
+//     {
+//       name: 'rambler',
+//       count: '18',
+//       faculty: 'mysql',
+//     }
+//   ]
+//   function showAudience(arr: any[]) {
+//     console.log(arr)
+//   }
+//   showAudience(audience)
+  
+//   function showAudienceForFaculty(arr: any[]) {
+//     let faculty = prompt('Введите название факультета') as string
+//     const auditories = [] as any
+//     for (let el of arr) {
+//       if (el.faculty == faculty) {
+//         auditories.push(el)
+//       }
+//     }
+//     return auditories
+//   }
+//   console.log(showAudienceForFaculty(audience));
+  
+//   function showAudienceForGroup(arr: any[]) {
+//     let students = +(prompt('Введите количество студентов') as string)
+//     const group = [] as any
+//     for (let el of arr) {
+//       if (el.count > students) {
+//         group.push(el)
+//       }
+//     }
+//     return group
+//   }
+//   console.log(showAudienceForGroup(audience))
