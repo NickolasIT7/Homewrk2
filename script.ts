@@ -647,7 +647,7 @@
 //         return 1
 //     if (firstString.length < secondString.length)
 //         return -1
-//     if (firstString.length = secondString.length)
+//     if (firstString.length == secondString.length)
 //         return 0
 // }
 // console.log(degree(firstString, secondString))
@@ -661,7 +661,7 @@
 //         return 1
 //     if (firstString.length < secondString.length)
 //         return -1
-//     if (firstString.length = secondString.length)
+//     if (firstString.length == secondString.length)
 //         return 0
 // }
 // console.log(degree(firstString, secondString))
@@ -670,7 +670,7 @@
 
 // let string1 = 'хетафе'
 // let UpperString = (string1: any) => {
-//     let newString = string1[0].toUpperCase() + string1.slice(1, 6)
+//     let newString = string1[0].toUpperCase() + string1.slice(1)
 //     return newString
 // }
 // console.log(UpperString(string1))
@@ -678,17 +678,20 @@
 // 3 Написать функцию, которая считает количество гласных букв в переданной строке.
 
 // let string2 = 'Getafe'
-// function vowels(string2) {
+//  function vowels(string2) {
+    
 //     let vowels = ["a", "e", "i", "o", "u"];
-//   let vowelCount = 0
-//     for(let j = 0; j < string2.length; j++) {
+//    let vowelCount = 0
+//     for(let j = 0; j < string2.length; j++) 
+//  for(let i=0; i < vowels.length; i++)
+// {
 //         if(vowels[j] === string2){
-// 		vowelCount+=1
-//     }
-//     }
-//     return vowelCount
-// }
-// console.log(vowels(string2));
+//  		vowelCount+=1
+//      }
+//      }
+//      return vowelCount
+//  }
+//  console.log(vowels(string2));
 
 //4 Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка содержит спам. 
 // Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх. Функция должна быть нечувствительна к регистру.
@@ -1038,3 +1041,51 @@
 //     return group
 //   }
 //   console.log(showAudienceForGroup(audience))
+
+// pz2-2
+// Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
+// 1 Функция принимает массив и выводит его на экран.
+// 2 Функция принимает массив и выводит только четные элементы.
+// 3 Функция принимает массив и возвращает сумму всех элементов массива.
+// 4 Функция принимает массив и возвращает его максимальный элемент.
+// 5 Функция добавления нового элемента в массив по указанному индексу.
+// 6 Функция удаления элемента из массива по указанному индексу.
+
+// 1 
+let arr = [3,6,7,2,5,5,7,3,6,4]
+function showArr (arr) {
+return arr    
+}
+console.log(showArr(arr))
+
+// 2  
+function even (arr) {
+for (let i = 2; i <=arr.length; i++)   
+{ 
+if (arr[i] % 2 == 0) 
+return (arr[i])    
+}
+}
+console.log(even(arr))
+
+// 3
+function sum (arr) {
+let sum = 0
+for (let i in arr) {
+sum = sum + arr[i]    
+}    
+return sum
+}
+console.log(sum(arr))
+
+//4 
+function maxElement (arr) {
+ for (let i = 0; i <arr.length; i++) {
+ if(arr[i] > arr[0]) {
+ arr[0] = arr[i]   
+ }  
+ }   
+}
+
+// 5
+// function addElement (arr,index, element) 
