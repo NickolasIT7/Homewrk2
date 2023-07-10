@@ -534,8 +534,6 @@
 // function changey(rectangle) {
 //     const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
 // }
-// 11
-// function changexy(rectangle) {
 // }
 // const x3 = +(prompt('на сколько сдвинуть прямоугольник по оси x') as string)
 // const y3 = +(prompt('на сколько сдвинуть прямоугольник по оси y') as string)
@@ -573,16 +571,489 @@
 // console.log(y)
 // point(rectangle)
 // pz3-2 
-// Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
+// 1 Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
 // строке больше символов, чем во второй; -1 – если во второй больше символов, чем в первой; или 0 – если строки
 // одинаковой длины
-var firstString = +prompt('введите 1 строку');
-var secondString = +prompt('введите 2 строку');
+// 1.1
+// let firstString = prompt('введите 1 строку')
+// let secondString = prompt('введите 2 строку')
+// function degree(firstString, secondString) {
+//     if (firstString.length > secondString.length)
+//         return 1
+//     if (firstString.length < secondString.length)
+//         return -1
+//     if (firstString.length == secondString.length)
+//         return 0
+// }
+// console.log(degree(firstString, secondString))
+// 1.2
+// let firstString = '34'
+// let secondString = '41341'
+// let degree = (firstString, secondString) => {
+//     if (firstString.length > secondString.length)
+//         return 1
+//     if (firstString.length < secondString.length)
+//         return -1
+//     if (firstString.length == secondString.length)
+//         return 0
+// }
+// console.log(degree(firstString, secondString))
+//2 Написать функцию, которая переводит в верхний регистр первый символ переданной строки.
+// let string1 = 'хетафе'
+// let UpperString = (string1: any) => {
+//     let newString = string1[0].toUpperCase() + string1.slice(1)
+//     return newString
+// }
+// console.log(UpperString(string1))
+// 3 Написать функцию, которая считает количество гласных букв в переданной строке.
+// let string2 = 'Getafe'
+//  function vowels(string2) {
+//     let vowels = ["a", "e", "i", "o", "u"];
+//    let vowelCount = 0
+//     for(let j = 0; j < string2.length; j++) 
+//  for(let i=0; i < vowels.length; i++)
+// {
+//         if(vowels[j] === string2){
+//  		vowelCount+=1
+//      }
+//      }
+//      return vowelCount
+//  }
+//  console.log(vowels(string2));
+//4 Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка содержит спам. 
+// Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх. Функция должна быть нечувствительна к регистру.
+// function checkSpam(string1: any) {
+//     let lowString = string1.toLowerCase(string1)
+//     if (lowString.includes('100% бесплатно') || lowString.includes('100% бесплатно') || lowString.includes('увеличение продаж') || lowString.includes('только сегодня') ||
+//         lowString.includes('не удаляйте') || lowString.includes('ххх')) {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+// console.log(checkSpam('100 % бесплатно и только сегодня предложение'));
+//5 Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки больше, чем максимальная, то необходимо отбросить
+// лишние символы, добавив вместо них троеточие. Например: truncate(“Hello, world!”, 8) должна вернуть “Hello...”
+// let str = 'i know what you did this summer'
+// function reduction(str) {
+//     let maxlength = 5
+//     if (str.length > maxlength) {
+//         return str.slice(0, maxlength + 2)
+//     }
+// }
+// console.log(reduction(str))
+//6 Написать функцию, которая проверяет, является ли переданная строка палиндромом.
+// function isStrPalindrome(str) {
+//     let n = str.length;
+//     for(let i = 0; i < n/2; i++)
+//     {  
+//        if (str.charAt(i) !== str.charAt(n-1-i))
+//          return false;
+//     }
+//     return true;
+// }
+// console.log(isStrPalindrome('AnnA'))
+//7 Написать функцию, которая считает количество слов в предложении
+// 7.1 
+// let offer = prompt('введите предложение')
+// function countWords(str) {
+//     return str.split(' ').length
+// }
+// console.log(countWords(offer))
+//7.2
+// function countWords(str) {
+//     return str.split(' ').length
+// }
+// console.log(countWords('как у вас дела'))
+//8 Написать функцию, которая возвращает самое длинное слово из предложения.
+// let offer = prompt('введите предложение')
+// function longestWord(offer) {
+//     const stringSplit = offer.split(' ')
+//     let longestWord = ""
+//     for (const word of stringSplit) {
+//         if (word.length > longestWord.length) {
+//             longestWord = word
+//         }
+//     }
+//     return longestWord
+// }    
+// console.log (longestWord(offer))
+//9 Написать функцию, которая считает среднюю длину слова в предложении.
+// let offer = prompt('введите предложение')
+// function countAverageWord(offer) {
+// offer = offer.split(' ')
+// let averageWord = 0
+// let sumOffer = 0 
+// for (let i=0; i <offer.length;i++) {
+// const el = offer[i]
+// sumOffer =sumOffer+el.length
+// }
+// averageWord=sumOffer/offer.length     
+// return averageWord
+// }   
+// console.log(countAverageWord(offer))
+// 10 Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
+// строке. Также вывести, сколько всего раз встречается этот символ в строке.
+// function findSymbol(str,symb) {
+// let result = 0
+// let char = str.split(' ')
+// for (let i=0; i <char.length; i++) {
+// let count = result[char[i]]?result[char[i]] : 0
+// result[char[i]] = count +1
+// }
+// return result
+// }
+// console.log (findSymbol('как у вас дела','к'));
+// 1 Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необходимое количество и куплен или нет. 
+// Написать несколько функций для работы с таким массивом.
+// 1 Вывод всего списка на экран таким образом, чтобы сначала
+// шли некупленные продукты, а потом – купленные.
+// 2 Добавление покупки в список. Учтите, что при добавлении
+// покупки с уже существующим в списке продуктом, необходимо увеличивать количество в существующей покупке,
+// а не добавлять новую.
+// 3 Покупка продукта. Функция принимает название продукта
+// и отмечает его как купленный.
+// const purchase = [
+//     {
+//       name: 'a',
+//       count: 10,
+//       purchased: true,
+//     },
+//     {
+//       name: 'b',
+//       count: 5,
+//       purchased: false,
+//     },
+//     {
+//       name: 'c',
+//       count: 3,
+//       purchased: true,
+//     },
+//     {
+//       name: 'd',
+//       count: 1,
+//       purchased: true,
+//     },
+//   ]
+//   const purchasedol = document.querySelector('.purchase')
+//   const showPurchaseButton = document.querySelector('.showPurchase')
+//   const addPurchaseButton = document.querySelector('.addPurchase')
+//   const setPurchasedButton = document.querySelector('.setPurchased')
+//   function showPurchase() {
+//     if (purchasedol) {
+//       purchasedol.innerHTML = ``
+//     }
+//     for (let el of purchase) {
+//       if (!el.purchased) {
+//         if (purchasedol) {
+//           purchasedol.innerHTML += `<li>${el.name} необходимо купить ${el.count} штук </li>`
+//         }
+//       }
+//     }
+//     for (let el of purchase) {
+//       if (el.purchased) {
+//         if (purchasedol) {
+//           purchasedol.innerHTML += `<li>${el.name} куплено ${el.count} штук </li>`
+//         }
+//       }
+//     }
+//   }
+//   function addPurchase() {
+//     const name = prompt('Введите название покупки') as string
+//     const count = +(prompt('Введите количество') as string)
+//     let find = false
+//     for (let el of purchase) {
+//       if (el.name == name) {
+//         find = true
+//         el.count += count
+//       }
+//     }
+//     if (!find) {
+//       purchase.push({
+//         name,
+//         count,
+//         purchased: false
+//       })
+//     }
+//     showPurchase()
+//   }
+//   function setPurchased() {
+//     const name = prompt('Введите название покупки')
+//     for (let el of purchase) {
+//       if (el.name == name) {
+//         el.purchased = true;
+//       }
+//       showPurchase()
+//     }
+//   }
+//   showPurchaseButton?.addEventListener('click', showPurchase)
+//   addPurchaseButton?.addEventListener('click', addPurchase)
+//   setPurchasedButton?.addEventListener('click', setPurchased)
+//Задание 2
+// Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за единицу товара. Написать следующие функции.
+// 1. Распечатка чека на экран.
+// 2. Подсчет общей суммы покупки.
+// 3. Получение самой дорогой покупки в чеке.
+// 4. Подсчет средней стоимости одного товара в чеке. 
+// const check = [
+//     {
+//       product: 'bread',
+//       count: '1',
+//       price: '50',
+//     },
+//     {
+//       product: 'chop',
+//       count: '2',
+//       price: '160',
+//     },
+//     {
+//       product: 'cheese',
+//       count: '2',
+//       price: '80',
+//     },
+//   ]
+//   function showCheck(arr: any[]) {
+//     console.log(arr)
+//   }
+//   showCheck(check)
+//   function getSum(arr: any[]) {
+//     let sum = 0
+//     for (let el of arr) {
+//       sum += el.count * parseFloat(el.price)
+//     }
+//     return sum
+//   }
+//   console.log(getSum(check))
+//   function maxPurchase(arr: any[]) {
+//     let res = [...arr];
+//     let maxCost = 0;
+//     for (const product of res) {
+//       let cost = product.price * product.count
+//       if (cost > maxCost) {
+//         maxCost = cost;
+//       }
+//     }
+//     return maxCost;
+//   }
+//   console.log(maxPurchase(check))
+//   function averagePurchase(arr: any[]) {
+//     let res = [...arr];
+//     let averagePurch = 0
+//     let sum = 0
+//     for (const product of res) {
+//       sum += product.price * product.count;
+//     }
+//     return (sum / res.length).toFixed(2);
+//   }
+//   console.log(averagePurchase(check));
+// 3 Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объект, состоящий из двух свойств: название стиля и значение стиля.
+// Написать функцию, которая принимает массив стилей и текст, и выводит этот текст с помощью document.write() в тегах <p></p>, 
+// добавив в открывающий тег атрибут style со всеми стилями, перечисленными в массиве.
+// const styleRed = [
+//     {
+//       name: 'color',
+//       value: 'red',
+//     },
+//     {
+//       name: 'text-decoration',
+//       value: 'underline'
+//     },
+//   ]
+//   const styleGreen = [
+//     {
+//       name: 'color',
+//       value: 'green',
+//     },
+//     {
+//       name: 'font-size',
+//       value: '20px'
+//     },
+//   ]
+//   const printTextDiv = document.querySelector('.print.Text')
+//   function printText(style: any[], text: string) {
+//     let styleStr = ''
+//     for (let el of style) {
+//       styleStr += `${el.name}:${el.value};`
+//     }
+//     if (printTextDiv) {
+//       printTextDiv.innerHTML += `<p style= ${styleStr}${text} </p>`
+//     }
+//   }
+//   printText(styleRed, 'Хетафе ');
+//   printText(styleGreen, 'Мадрид ');
+// 4 Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и названия факультета, для которого она предназначена.
+// Написать несколько функций для работы с ним.
+// 1. Вывод на экран всех аудиторий.
+// 2. Вывод на экран аудиторий для указанного факультета.
+// 3. Вывод на экран только тех аудиторий, которые подходят для переданной группы. Объект-группа состоит из названия, количества студентов и названия факультета. 
+// const audience = [
+//     {
+//       name: 'yandex',
+//       count: '20',
+//       faculty: 'html',
+//     },
+//     {
+//       name: 'mail',
+//       count: '12',
+//       faculty: '1c',
+//     },
+//     {
+//       name: 'rambler',
+//       count: '18',
+//       faculty: 'mysql',
+//     }
+//   ]
+//   function showAudience(arr: any[]) {
+//     console.log(arr)
+//   }
+//   showAudience(audience)
+//   function showAudienceForFaculty(arr: any[]) {
+//     let faculty = prompt('Введите название факультета') as string
+//     const auditories = [] as any
+//     for (let el of arr) {
+//       if (el.faculty == faculty) {
+//         auditories.push(el)
+//       }
+//     }
+//     return auditories
+//   }
+//   console.log(showAudienceForFaculty(audience));
+//   function showAudienceForGroup(arr: any[]) {
+//     let students = +(prompt('Введите количество студентов') as string)
+//     const group = [] as any
+//     for (let el of arr) {
+//       if (el.count > students) {
+//         group.push(el)
+//       }
+//     }
+//     return group
+//   }
+//   console.log(showAudienceForGroup(audience))
+// pz2-2
+// Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
+// 1 Функция принимает массив и выводит его на экран.
+// 2 Функция принимает массив и выводит только четные элементы.
+// 3 Функция принимает массив и возвращает сумму всех элементов массива.
+// 4 Функция принимает массив и возвращает его максимальный элемент.
+// 5 Функция добавления нового элемента в массив по указанному индексу.
+// 6 Функция удаления элемента из массива по указанному индексу.
+// 1 
+var arr = [3, 6, 7, 2, 5, 5, 7, 3, 6, 4];
 
-var degree = function degree(firstString, secondString) {
-  if (firstString.length > secondString.length) return 1;
-  if (firstString.length < secondString.length) return -1;
-  if (firstString.length = secondString.length) return 0;
-};
+function showArr(arr) {
+  return arr;
+}
 
-console.log(degree(firstString, secondString));
+console.log(showArr(arr)); // 2  
+
+function even(arr) {
+  for (var i = 2; i <= arr.length; i++) {
+    if (arr[i] % 2 == 0) return arr[i];
+  }
+}
+
+console.log(even(arr)); // 3
+
+function sum(arr) {
+  var sum = 0;
+
+  for (var i in arr) {
+    sum = sum + arr[i];
+  }
+
+  return sum;
+}
+
+console.log(sum(arr)); //4 
+
+function maxElement(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[0]) {
+      arr[0] = arr[i];
+    }
+  }
+} // 5
+
+
+var arr4 = [3, 6, 7, 2, 5, 5, 7, 3, 6, 4];
+
+function addElement(arr, index, value) {
+  arr.splice(index, 0, value);
+}
+
+addElement(arr4, 0, 6);
+console.log('arr', arr4); // 6
+
+function delElement(arr, index) {
+  return arr.splice(index, 1);
+}
+
+delElement(arr4, 3);
+console.log('arr', arr4); //Создать еще один массив из 5 случайных чисел и написать следующие функции
+//1 Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
+//2 Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы, которые встречаются и в первом и во втором массивах) без повторений
+//3 Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива, которых нет во втором массиве
+// 1
+
+var arr1 = [1, 1, 2, 3, 5, 8, 7, 9, 10, 7];
+var arr2 = [5, 1, 6, 3, 2];
+
+function getUnicArray(a, b) {
+  var arr = [];
+
+  for (var _i = 0, a_1 = a; _i < a_1.length; _i++) {
+    var el = a_1[_i];
+    if (!arr.includes(el)) arr.push(el);
+  }
+
+  for (var _a = 0, b_1 = b; _a < b_1.length; _a++) {
+    var el = b_1[_a];
+
+    for (var i = 0; i < arr.lenght; i++) {
+      console.log('arr[+i+],arr[i]');
+    }
+
+    if (!arr.includes(el)) arr.push(el);
+  }
+
+  return arr;
+}
+
+console.log(getUnicArray(arr1, arr2)); // 2
+
+var arr02 = [5, 1, 6, 3, 2];
+
+function getNewUniqueArray(arr1, arr2) {
+  var arr = [];
+  arr1.forEach(function (el) {
+    if (!arr.includes(el) && arr2.includes(el)) {
+      arr.push(el);
+    }
+  });
+  return arr;
+}
+
+console.log(getNewUniqueArray(arr4, arr02)); // 3
+
+function newMassive(arr1, arr2) {
+  var unique = arr1.filter(function (item) {
+    return arr2.indexOf(item) == -1;
+  });
+  return unique;
+}
+
+console.log(arr02);
+console.log(arr4);
+console.log(newMassive(arr4, arr02)); // Создать массив фруктов и отсортировать его по алфавиту. Написать следующие функции.
+// 1. Вывод на экран с помощью document.write() в виде списка (с помощью тегов ul и li).
+// 2. Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1, если не найден. Поиск должен быть нерегистрозависимым
+// 1  
+
+var fruits = ['Яблоко', 'Апельсин', 'Мандарин', 'Клубника', 'Груша'];
+
+function sortFruits(arr) {
+  arr.sort(fruits);
+  return sortFruits;
+}
+
+console.log(sortFruits(fruits));

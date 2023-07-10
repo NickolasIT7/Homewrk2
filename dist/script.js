@@ -967,4 +967,80 @@ function maxElement(arr) {
     }
 }
 // 5
-// function addElement (arr,index, element) 
+var arr4 = [3, 6, 7, 2, 5, 5, 7, 3, 6, 4];
+function addElement(arr, index, value) {
+    arr.splice(index, 0, value);
+}
+addElement(arr4, 0, 6);
+console.log('arr', arr4);
+// 6
+function delElement(arr, index) {
+    return arr.splice(index, 1);
+}
+delElement(arr4, 3);
+console.log('arr', arr4);
+//Создать еще один массив из 5 случайных чисел и написать следующие функции
+//1 Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
+//2 Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы, которые встречаются и в первом и во втором массивах) без повторений
+//3 Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива, которых нет во втором массиве
+// 1
+var arr1 = [1, 1, 2, 3, 5, 8, 7, 9, 10, 7];
+var arr2 = [5, 1, 6, 3, 2];
+function getUnicArray(a, b) {
+    var arr = [];
+    for (var _i = 0, a_1 = a; _i < a_1.length; _i++) {
+        var el = a_1[_i];
+        if (!arr.includes(el))
+            arr.push(el);
+    }
+    for (var _a = 0, b_1 = b; _a < b_1.length; _a++) {
+        var el = b_1[_a];
+        for (var i = 0; i < arr.lenght; i++)
+            console.log('arr[+i+],arr[i]');
+        if (!arr.includes(el))
+            arr.push(el);
+    }
+    return arr;
+}
+console.log(getUnicArray(arr1, arr2));
+// 2
+var arr02 = [5, 1, 6, 3, 2];
+function getNewUniqueArray(arr1, arr2) {
+    var arr = [];
+    arr1.forEach(function (el) {
+        if (!arr.includes(el) && arr2.includes(el)) {
+            arr.push(el);
+        }
+    });
+    return arr;
+}
+console.log(getNewUniqueArray(arr4, arr02));
+// 3
+function newMassive(arr1, arr2) {
+    var unique = arr1.filter(function (item) { return arr2.indexOf(item) == -1; });
+    return unique;
+}
+console.log(arr02);
+console.log(arr4);
+console.log(newMassive(arr4, arr02));
+// Создать массив фруктов и отсортировать его по алфавиту. Написать следующие функции.
+// 1. Вывод на экран с помощью document.write() в виде списка (с помощью тегов ul и li).
+// 2. Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1, если не найден. Поиск должен быть нерегистрозависимым
+// 1  
+var fruits = ['Яблоко', 'Апельсин', 'Мандарин', 'Клубника', 'Груша'];
+function sortFruits(arr) {
+    fruits.sort(arr);
+    return sortFruits;
+}
+console.log(sortFruits(function (a, b) { return a > b; }));
+//2 
+function findFruits(a, b) {
+    if (a.toLowerCase() < b.toLowerCase()) {
+        return -1;
+    }
+    if (a.toLowerCase() > b.toLowerCase()) {
+        return 1;
+    }
+    return 0;
+}
+console.log(fruits.indexOf('Мандарин'));
