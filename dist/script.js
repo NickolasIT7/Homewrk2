@@ -1044,7 +1044,7 @@ function findFruits(a, b) {
     return 0;
 }
 console.log(fruits.indexOf('Мандарин'));
-// pz5-1
+// pz1-5
 // Во всех заданиях обязательно использовать рекурсию.
 // 1 Написать функцию, которая вычисляет факториал заданного числа.
 // 2 Написать функцию, которая выводит все числа из заданного пользователем диапазона в прямом порядке. И еще одну функцию – для вывода в обратном порядке.
@@ -1076,12 +1076,16 @@ function reverseNumber(f) {
 }
 console.log(reverseNumber(6421));
 //4
-// function sumNumber(s) {
-// if (s.length == 1) 
-// return +s
-// return +s[0] + sumNumber(s.slice(1))
-// }
-// console.log(sumNumber(8751))
+function sumNumber(s) {
+    var ss = s.toString();
+    if (ss.length == 1) {
+        return s;
+    }
+    else {
+        return +ss[0] + sumNumber(+ss.slice(1));
+    }
+}
+console.log(sumNumber(8751));
 //5
 function sumBracket(s) {
     if (s == 0)
@@ -1089,3 +1093,68 @@ function sumBracket(s) {
     return '(' + sumBracket(s - 1) + ')';
 }
 console.log(sumBracket(3));
+//  dz1-5
+// Во всех заданиях обязательно использовать рекурсию
+//  1 Написать функцию возведения числа в степень.
+//  2 Написать функцию поиска наибольшего общего делителя.
+//  3 Написать функцию для поиска максимальной цифры в числе.
+//  4 Написать функцию, которая определяет простое ли переданное число.
+//  5 Написать функцию для вывода всех множителей переданного числа в возрастающем порядке.
+//  Например: число 18 – множители 2 * 3 * 3
+//  6 Написать функцию, которая возвращает число Фибоначчи по переданному порядковому номеру.
+//  Числа Фибоначчи: 1, 1, 2, 3, 5, 8, 13… Ряд основывается на том, что каждое число равно сумме двух предыдущих чисел.
+//  Например: порядковый номер 3 – число 2, порядковый номер 6 – число 8
+// 1  
+function pow(x, n) {
+    if (n == 1) {
+        return x;
+    }
+    else {
+        return x * pow(x, n - 1);
+    }
+}
+console.log(pow(4, 3));
+// 2 
+function maxDevider(a, b) {
+    if (b > a)
+        return maxDevider(b, a);
+    if (!b)
+        return a;
+    return maxDevider(b, a % b);
+}
+console.log(maxDevider(5, 15));
+// 3
+// let num = 1463
+// function maxNumber(arrElements) {
+//  let arr = [] 
+//  arr.push(arrElements)
+//  while(arr.length>0)
+//  arrElements = arr.pop()
+// for (let s=0; s < arr.length; s++)
+// {
+// let el = arr[s]
+// if(arr.isArray(el)) {
+// arr.push(el)
+// continue  
+// }
+// if (el>max) {
+// max=el  
+// }
+// }
+// return max
+// }
+// console.log(maxNumber(arrElements))
+// 4
+function primeNumber(n) {
+    var i = 2;
+    if (n == i && n % i == 0) {
+        return 'Простое число';
+    }
+    else if (n > i && n % i == 0) {
+        return 'Составное число';
+    }
+    else {
+        return primeNumber(n);
+    }
+}
+console.log(primeNumber(16));
