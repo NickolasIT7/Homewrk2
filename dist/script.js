@@ -1158,3 +1158,28 @@ function primeNumber(n) {
     }
 }
 console.log(primeNumber(16));
+//5 
+function getPrimeFactors(n) {
+    function primeNumber(n) {
+        var i;
+        for (i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    var i, sequence = [];
+    for (i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0 && primeNumber(i)) {
+        }
+    }
+    return sequence;
+}
+console.log(getPrimeFactors(12));
+//6
+function fib(n) {
+    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+}
+console.log(fib(4));
+console.log(fib(8));

@@ -679,7 +679,7 @@
 
 // let string2 = 'Getafe'
 //  function vowels(string2) {
-    
+
 //     let vowels = ["a", "e", "i", "o", "u"];
 //    let vowelCount = 0
 //     for(let j = 0; j < string2.length; j++) 
@@ -780,7 +780,7 @@
 // }   
 // console.log(countAverageWord(offer))
 
- // 10 Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
+// 10 Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 // строке. Также вывести, сколько всего раз встречается этот символ в строке.
 
 // function findSymbol(str,symb) {
@@ -831,7 +831,7 @@
 //   const showPurchaseButton = document.querySelector('.showPurchase')
 //   const addPurchaseButton = document.querySelector('.addPurchase')
 //   const setPurchasedButton = document.querySelector('.setPurchased')
-  
+
 //   function showPurchase() {
 //     if (purchasedol) {
 //       purchasedol.innerHTML = ``
@@ -851,7 +851,7 @@
 //       }
 //     }
 //   }
-  
+
 //   function addPurchase() {
 //     const name = prompt('Введите название покупки') as string
 //     const count = +(prompt('Введите количество') as string)
@@ -880,7 +880,7 @@
 //       showPurchase()
 //     }
 //   }
-  
+
 //   showPurchaseButton?.addEventListener('click', showPurchase)
 //   addPurchaseButton?.addEventListener('click', addPurchase)
 //   setPurchasedButton?.addEventListener('click', setPurchased)
@@ -909,13 +909,13 @@
 //       price: '80',
 //     },
 //   ]
-  
+
 //   function showCheck(arr: any[]) {
 //     console.log(arr)
 //   }
 //   showCheck(check)
-  
-  
+
+
 //   function getSum(arr: any[]) {
 //     let sum = 0
 //     for (let el of arr) {
@@ -924,7 +924,7 @@
 //     return sum
 //   }
 //   console.log(getSum(check))
-  
+
 //   function maxPurchase(arr: any[]) {
 //     let res = [...arr];
 //     let maxCost = 0;
@@ -936,9 +936,9 @@
 //     }
 //     return maxCost;
 //   }
-  
+
 //   console.log(maxPurchase(check))
-  
+
 //   function averagePurchase(arr: any[]) {
 //     let res = [...arr];
 //     let averagePurch = 0
@@ -946,7 +946,7 @@
 //     for (const product of res) {
 //       sum += product.price * product.count;
 //     }
-  
+
 //     return (sum / res.length).toFixed(2);
 //   }
 //   console.log(averagePurchase(check));
@@ -975,9 +975,9 @@
 //       value: '20px'
 //     },
 //   ]
-  
+
 //   const printTextDiv = document.querySelector('.print.Text')
-  
+
 //   function printText(style: any[], text: string) {
 //     let styleStr = ''
 //     for (let el of style) {
@@ -1017,7 +1017,7 @@
 //     console.log(arr)
 //   }
 //   showAudience(audience)
-  
+
 //   function showAudienceForFaculty(arr: any[]) {
 //     let faculty = prompt('Введите название факультета') as string
 //     const auditories = [] as any
@@ -1029,7 +1029,7 @@
 //     return auditories
 //   }
 //   console.log(showAudienceForFaculty(audience));
-  
+
 //   function showAudienceForGroup(arr: any[]) {
 //     let students = +(prompt('Введите количество студентов') as string)
 //     const group = [] as any
@@ -1052,39 +1052,38 @@
 // 6 Функция удаления элемента из массива по указанному индексу.
 
 // 1 
-let arr = [3,6,7,2,5,5,7,3,6,4]
-function showArr (arr) {
-return arr    
+let arr = [3, 6, 7, 2, 5, 5, 7, 3, 6, 4]
+function showArr(arr) {
+  return arr
 }
 console.log(showArr(arr))
 
 // 2  
-function even (arr) {
-for (let i = 2; i <=arr.length; i++)   
-{ 
-if (arr[i] % 2 == 0) 
-return (arr[i])    
-}
+function even(arr) {
+  for (let i = 2; i <= arr.length; i++) {
+    if (arr[i] % 2 == 0)
+      return (arr[i])
+  }
 }
 console.log(even(arr))
 
 // 3
-function sum (arr) {
-let sum = 0
-for (let i in arr) {
-sum = sum + arr[i]    
-}    
-return sum
+function sum(arr) {
+  let sum = 0
+  for (let i in arr) {
+    sum = sum + arr[i]
+  }
+  return sum
 }
 console.log(sum(arr))
 
 //4 
-function maxElement (arr) {
- for (let i = 0; i <arr.length; i++) {
- if(arr[i] > arr[0]) {
- arr[0] = arr[i]   
- }  
- }   
+function maxElement(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[0]) {
+      arr[0] = arr[i]
+    }
+  }
 }
 
 // 5
@@ -1114,64 +1113,64 @@ console.log('arr', arr4)
 let arr1 = [1, 1, 2, 3, 5, 8, 7, 9, 10, 7]
 let arr2 = [5, 1, 6, 3, 2]
 function getUnicArray(a: any[], b: any[]) {
-let arr = [] as any
-for (let el of a) {
-if (!arr.includes(el)) arr.push(el)
-}
-for (let el of b) {
-for(let i=0;i<arr.lenght;i++)
-console.log('arr[+i+],arr[i]')
-if (!arr.includes(el)) arr.push(el)
-}
-return arr
+  let arr = [] as any
+  for (let el of a) {
+    if (!arr.includes(el)) arr.push(el)
+  }
+  for (let el of b) {
+    for (let i = 0; i < arr.lenght; i++)
+      console.log('arr[+i+],arr[i]')
+    if (!arr.includes(el)) arr.push(el)
+  }
+  return arr
 }
 console.log(getUnicArray(arr1, arr2))
 
 // 2
 let arr02 = [5, 1, 6, 3, 2]
-function getNewUniqueArray(arr1,arr2) {
+function getNewUniqueArray(arr1, arr2) {
   let arr = [] as any[]
   arr1.forEach(el => {
-    if (!arr.includes(el)&&arr2.includes(el)) {
+    if (!arr.includes(el) && arr2.includes(el)) {
       arr.push(el)
     }
-  })  
+  })
   return arr
 }
-console.log(getNewUniqueArray(arr4,arr02))
+console.log(getNewUniqueArray(arr4, arr02))
 
 // 3
-function newMassive(arr1,arr2) {
+function newMassive(arr1, arr2) {
   let unique = arr1.filter((item) => arr2.indexOf(item) == -1)
   return unique
 }
 console.log(arr02)
 console.log(arr4)
-console.log(newMassive(arr4,arr02))
+console.log(newMassive(arr4, arr02))
 
 // Создать массив фруктов и отсортировать его по алфавиту. Написать следующие функции.
 // 1. Вывод на экран с помощью document.write() в виде списка (с помощью тегов ul и li).
 // 2. Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1, если не найден. Поиск должен быть нерегистрозависимым
 
 // 1  
-let fruits = ['Яблоко', 'Апельсин', 'Мандарин', 'Клубника', 'Груша'] 
+let fruits = ['Яблоко', 'Апельсин', 'Мандарин', 'Клубника', 'Груша']
 function sortFruits(arr) {
-fruits.sort(arr)
-return sortFruits
+  fruits.sort(arr)
+  return sortFruits
 }
-console.log (sortFruits((a, b) => a > b))
+console.log(sortFruits((a, b) => a > b))
 
 //2 
-function findFruits(a,b) {
-    if (a.toLowerCase() < b.toLowerCase()) {
-        return -1;
-      }
-      if (a.toLowerCase() > b.toLowerCase()) {
-        return 1;
-      }
-      return 0;
-    }
-console.log (fruits.indexOf('Мандарин'))
+function findFruits(a, b) {
+  if (a.toLowerCase() < b.toLowerCase()) {
+    return -1;
+  }
+  if (a.toLowerCase() > b.toLowerCase()) {
+    return 1;
+  }
+  return 0;
+}
+console.log(fruits.indexOf('Мандарин'))
 
 // pz1-5
 // Во всех заданиях обязательно использовать рекурсию.
@@ -1187,25 +1186,25 @@ console.log (fruits.indexOf('Мандарин'))
 function factorial(n) {
   return (n != 1) ? n * factorial(n - 1) : 1;
 }
-console.log( factorial(4))
+console.log(factorial(4))
 
 //2
 //в прямом порядке
-function rightNumbers (s) {
-  return s ? rightNumbers(s- 1) + s.toString() : ""
+function rightNumbers(s) {
+  return s ? rightNumbers(s - 1) + s.toString() : ""
 }
 console.log(rightNumbers(7))
 
 //в обратном порядке
-function backNumbers (s) {
+function backNumbers(s) {
   return (s > 1) ? s.toString() + backNumbers(s - 1) : 1;
 }
 console.log(backNumbers(7));
 
 //3
 function reverseNumber(f) {
-f = f + ''
-return f.split('').reverse().join('')
+  f = f + ''
+  return f.split('').reverse().join('')
 }
 console.log(reverseNumber(6421))
 
@@ -1213,21 +1212,21 @@ console.log(reverseNumber(6421))
 function sumNumber(s) {
   var ss = s.toString();
   if (ss.length == 1) {
-      return s;
+    return s;
   }
   else {
-      return +ss[0] + sumNumber(+ss.slice(1));
+    return +ss[0] + sumNumber(+ss.slice(1));
   }
 }
 console.log(sumNumber(8751));
 
 //5
- function sumBracket(s) {
-if (s==0) 
-return ''
-return '(' + sumBracket(s-1) + ')'
- }
- console.log(sumBracket(3))
+function sumBracket(s) {
+  if (s == 0)
+    return ''
+  return '(' + sumBracket(s - 1) + ')'
+}
+console.log(sumBracket(3))
 
 //  dz1-5
 // Во всех заданиях обязательно использовать рекурсию
@@ -1250,17 +1249,17 @@ function pow(x, n) {
   }
 }
 
-console.log( pow(4, 3) );
+console.log(pow(4, 3));
 
 // 2 
-function maxDevider(a,b) {
-if (b > a) 
-return maxDevider (b,a)
-if (!b)
-return a
-return maxDevider(b, a % b)
+function maxDevider(a, b) {
+  if (b > a)
+    return maxDevider(b, a)
+  if (!b)
+    return a
+  return maxDevider(b, a % b)
 }
-console.log(maxDevider(5,15))
+console.log(maxDevider(5, 15))
 
 // 3
 // let num = 1463
@@ -1285,14 +1284,46 @@ console.log(maxDevider(5,15))
 // console.log(maxNumber(arrElements))
 
 // 4
-function primeNumber (n) {
- let i = 2 
- if (n == i && n % i == 0) {
- return 'Простое число'
- } else if(n > i && n % i == 0) {
- return 'Составное число' 
- } else {
-  return primeNumber(n)
-}
+function primeNumber(n) {
+  let i = 2
+  if (n == i && n % i == 0) {
+    return 'Простое число'
+  } else if (n > i && n % i == 0) {
+    return 'Составное число'
+  } else {
+    return primeNumber(n)
+  }
 }
 console.log(primeNumber(16))
+
+//5 
+
+function getPrimeFactors(n) {
+  function primeNumber(n) {
+    let i
+    for (i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  var i, sequence = [];
+
+  for (i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0 && primeNumber(i)) {
+      }
+  }
+return sequence;
+}
+
+console.log(getPrimeFactors(12))
+
+
+//6
+function fib(n) {
+  return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+}
+console.log(fib(4) )
+console.log(fib(8) )
