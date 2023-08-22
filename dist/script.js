@@ -1183,3 +1183,280 @@ function fib(n) {
 }
 console.log(fib(4));
 console.log(fib(8));
+//dz4-2
+//1
+//Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+// ■ поле, хранящее радиус окружности;
+// ■ get-свойство, возвращающее радиус окружности;
+// ■ set-свойство, устанавливающее радиус окружности;
+// ■ get-свойство, возвращающее диаметр окружности;
+// ■ метод, вычисляющий площадь окружности;
+// ■ метод, вычисляющий длину окружности.
+// Продемонстрировать работу свойств и методов.
+var Circle = /** @class */ (function () {
+    function Circle(radius) {
+        // все, что в комментариях происходит неявно
+        // this = {}  
+        this._radius = radius;
+        // console.log(this) // {_radius:r, prototype:Circle}
+    }
+    Object.defineProperty(Circle.prototype, "radius", {
+        get: function () {
+            return this._radius;
+        },
+        set: function (value) {
+            this._radius = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(Circle.prototype, "diametr", {
+        get: function () {
+            var diametr = this._radius * 2;
+            return diametr;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Circle.prototype.getSquare = function () {
+        return Math.PI * Math.pow(this._radius, 2);
+    };
+    Circle.prototype.getCircleLength = function () {
+        return Math.PI * (this._radius * 2);
+    };
+    return Circle;
+}());
+var myCircle = new Circle(5);
+// console.log(myCircle._radius)
+console.log(myCircle.radius);
+myCircle.radius = 10;
+console.log(myCircle.radius);
+console.log(myCircle.diametr);
+console.log(myCircle.getSquare());
+console.log(myCircle.getCircleLength());
+console.log(myCircle);
+//2
+// Реализовать класс, описывающий html элемент.
+// Класс HtmlElement должен содержать внутри себя:
+// ■ название тега;
+// ■ самозакрывающийся тег или нет;
+// ■ текстовое содержимое;
+// ■ массив атрибутов;
+// ■ массив стилей;
+// ■ массив вложенных таких же тегов;
+// ■ метод для установки атрибута;
+// ■ метод для установки стиля;
+// ■ метод для добавления вложенного элемента в конец текущего элемента;
+// ■ метод для добавления вложенного элемента в начало текущего элемента;
+// ■ метод getHtml(), который возвращает html код в виде строки, включая html код вложенных элементов.
+var HtmlElement = /** @class */ (function () {
+    function HtmlElement(tag, single, text) {
+        this.attrs = [];
+        this.styles = [];
+        this.elements = [];
+        this.tag = tag;
+        this.single = single;
+        this.text = text;
+    }
+    HtmlElement.prototype.setAttr = function (attr) {
+        this.attrs.push(attr);
+    };
+    HtmlElement.prototype.setStyle = function (style) {
+        this.styles.push(style);
+    };
+    HtmlElement.prototype.appendElement = function (element) {
+        this.elements.push(element);
+    };
+    HtmlElement.prototype.prependElement = function (element) {
+        this.elements.unshift(element);
+    };
+    HtmlElement.prototype.getHtml = function () {
+        if (this.single) {
+            return "<" + this.tag + " " + this.attrs.join(' ') + " value=\"" + this.text + "\" >";
+        }
+        else {
+            var begin = "<" + this.tag + " " + this.attrs.join(' ') + ">" + this.text;
+            var end = "</" + this.tag + ">";
+            return begin + this.elements.map(function (el) { return el.getHtml(); }).join('') + end;
+        }
+    };
+    return HtmlElement;
+}());
+var imgElement = new HtmlElement('img', true, '');
+var pElement = new HtmlElement('p', false, 'Getafe');
+var h3Element = new HtmlElement('h3', false, 'Getafe');
+h3Element.setAttr('class="colorRed"');
+console.log(imgElement);
+imgElement.setAttr('src=https://upload.wikimedia.org/wikipedia/ru/thumb/3/3f/Getafe_cf_200px_RU.png/200px-Getafe_cf_200px_RU.png');
+imgElement.setStyle('color:red');
+imgElement.setStyle('padding:10px');
+imgElement.setAttr("style=\"" + imgElement.styles.join(';') + "\"");
+console.log(imgElement.getHtml());
+pElement.appendElement(imgElement);
+console.log(pElement.getHtml());
+var divElement = new HtmlElement('div', false, '');
+divElement.setAttr('style="width:300px; margin:10px"');
+var wrapperElement = new HtmlElement('div', false, '');
+wrapperElement.setAttr('id="wrapper"');
+wrapperElement.setStyle('display: flex');
+wrapperElement.appendElement(divElement);
+divElement.appendElement(h3Element);
+divElement.appendElement(imgElement);
+divElement.appendElement(pElement);
+//3
+// Реализовать класс, который описывает css класс. Класс CssClass должен содержать внутри себя:
+// ■ название css класса;
+// ■ массив стилей;
+// ■ метод для установки стиля;
+// ■ метод для удаления стиля;
+// ■ метод getCss(), который возвращает css код в виде строки
+var CssClass = /** @class */ (function () {
+    function CssClass(name) {
+        this.styles = [];
+        this.name = name;
+    }
+    CssClass.prototype.setStyle = function (style) {
+        this.styles.push(style);
+    };
+    CssClass.prototype.delStyle = function (style) {
+        var id = this.styles.findIndex(function (el) { el == style; });
+        if (id != 1)
+            this.styles.splice(id, 1);
+    };
+    CssClass.prototype.getCss = function () {
+        return "." + this.name + " {" + (this.styles.join(';')) + "}";
+    };
+    return CssClass;
+}());
+var colorRed = new CssClass('colorRed');
+colorRed.setStyle('color:red');
+colorRed.setStyle('font-size:24px');
+var colorGreen = new CssClass('colorGreen');
+colorGreen.setStyle('color:green');
+//4
+// Реализовать класс, описывающий блок html документ.
+// Класс HtmlBlock должен содержать внутри себя:
+// ■ коллекцию стилей, описанных с помощью класса CssClass;
+// ■ корневой элемент, описанный с помощью класса
+// HtmlElement;
+// ■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом
+// все html содержимое из корневого тега и его вложенных элементов).
+var MainBlockHtml = /** @class */ (function () {
+    function MainBlockHtml(h, a) {
+        this.htmlObject = h;
+        this.cssArray = a;
+    }
+    MainBlockHtml.prototype.getCode = function () {
+        document.head.innerHTML += "<style>" + this.cssArray.map(function (el) { return el.getCss(); }).join('\n') + "</style>";
+        document.body.innerHTML += this.htmlObject.getHtml();
+    };
+    return MainBlockHtml;
+}());
+var pageObj = new MainBlockHtml(divElement, [colorRed, colorGreen]);
+pageObj.getCode();
+//pz4-2
+//1
+// Реализовать класс PrintMaсhine, которой состоит из:
+// ■ размера шрифта;
+// ■ цвета шрифта;
+// ■ семейства шрифта;
+// ■ метода print(), который принимает текст и печатает его соответствующим шрифтом с помощью document.write().
+// Создать объект такого класса и продемонстрировать работу метода.
+var PrintMachine = /** @class */ (function () {
+    function PrintMachine(size, color, font, tag) {
+        if (tag === void 0) {
+            tag = 'p';
+        }
+        this.size = 14;
+        this.color = 'red';
+        this.font = 'Arial';
+        this.tag = 'p';
+        this.print = function (text) {
+            // @ts-ignore
+            document.write("<" + this.tag + " style=\"font-size:" + this.size + "; color: " + this.color + "; font-family:" + this.font + "\">" + text + "</" + this.tag + ">");
+        };
+        this.size = size;
+        this.color = color;
+        this.font = font;
+        this.tag = tag;
+    }
+    return PrintMachine;
+}());
+console.log(PrintMachine);
+function PM(size, color, font, tag) {
+    if (tag === void 0) {
+        tag = 'p';
+    }
+    return function print(text) {
+        document.write("<" + tag + " style=\"font-size:" + size + "; color: " + color + "; font-family:" + font + "\">" + text + "</" + tag + ">");
+        var rPA14 = PM(14, 'red', 'Arial', 'st');
+        rPA14('sfdsfsdfwerwersdf sdfds fsdfs');
+        var bHT16 = PM(16, 'blue', 'Tahoma', 'h1');
+        bHT16('sdfsdfjwiooiwe nkuhyiuo hfsd');
+        var redParagraphArial14 = new PrintMachine(14, 'red', 'Arial', 'st');
+        var blueHeaderTahoma16 = new PrintMachine(16, 'blue', 'Tahoma', 'h1');
+        blueHeaderTahoma16.tag = 'h2';
+        blueHeaderTahoma16.print('sdfhsdkjfhsdk kjh ksjfdh sdk');
+        redParagraphArial14.print('fsddsfdsfsd');
+    };
+}
+;
+[0, 1, 2].forEach(function (el) {
+    console.log(el);
+});
+function forEach(arr, fn) {
+    for (var i = 0; i < arr.length; i++) {
+        fn(arr[i], i, arr);
+    }
+}
+forEach([0, 1, 2], (function (el, i) {
+    console.log(el, i);
+}));
+//2
+//Реализовать класс, описывающий новость (заголовок, текст, массив тегов, дата публикации). В классе необходимо реализовать один метод print.
+// Обратите внимание на то, как выводится дата:
+// ■ если с даты публикации прошло менее дня, то выводится «сегодня»
+// ■ если с даты публикации прошло менее недели, то выводится «N дней назад»
+// ■ в остальных случаях, полная дата в формате «дд.мм.гггг».
+var infoNews = /** @class */ (function () {
+    function infoNews(heading, text, arrayTags, date) {
+        this.heading = heading;
+        this.text = text;
+        this.arrayTags = arrayTags;
+        this.date = new Date(date);
+    }
+    infoNews.prototype.getDate = function () {
+        var today = new Date();
+        var yesterday = new Date(today.valueOf() - 1000 * 60 * 60 * 24);
+        if (this.date.toLocaleDateString() == today.toLocaleDateString()) {
+            return 'today';
+        }
+        else if (this.date.valueOf() > (today.valueOf() - 1000 * 60 * 60 * 24 * 7)) {
+            return ((today.valueOf() - this.date.valueOf()) / (1000 * 60 * 60 * 24)).toFixed(0) + 'days ago ';
+        }
+        else {
+            return this.date.toLocaleDateString();
+        }
+    };
+    return infoNews;
+}());
+var post = new infoNews('you', 'never', ['walk', 'alone'], '2023-07-29');
+console.log(post.getDate);
+//3
+// Реализовать класс, описывающий новостную ленту. Класс должен содержать:
+// ■ массив новостей;
+// ■ get-свойство, которое возвращает количество новостей;
+// ■ метод для вывода на экран всех новостей;
+// ■ метод для добавления новости;
+// ■ метод для удаления новости;
+// ■ метод для сортировки новостей по дате (от последних новостей до старых);
+// ■ метод для поиска новостей по тегу (возвращает массив новостей, в которых указан переданный в метод тег).
+// Продемонстрировать работу написанных методов.
+var NewsFeed = /** @class */ (function () {
+    function NewsFeed(array, text, arrayTags, date) {
+        this.array = array;
+        this.text = text;
+        this.arrayTags = arrayTags;
+        this.date = date;
+    }
+});
