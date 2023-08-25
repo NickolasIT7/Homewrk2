@@ -1519,6 +1519,8 @@ pageObj.getCode()
 // ■ метода print(), который принимает текст и печатает его соответствующим шрифтом с помощью document.write().
 // Создать объект такого класса и продемонстрировать работу метода.
 
+
+
 let PrintMachine = /** @class */ (function () {
   function PrintMachine(size, color, font, tag) {
     if (tag === void 0) { tag = 'p'; }
@@ -1537,17 +1539,23 @@ let PrintMachine = /** @class */ (function () {
   }
   return PrintMachine;
 }());
+
 console.log(PrintMachine);
+
+let header = new PrintMachine(20, 'black', 'Arial', 'h2');
+let text = new PrintMachine(16, 'black', 'Arial', 'p');
+let datePrint = new PrintMachine(18, 'black', 'Arial', 'p')
+
 function PM(size, color, font, tag) {
   if (tag === void 0) { tag = 'p'; }
   return function print(text) {
     document.write("<" + tag + " style=\"font-size:" + size + "; color: " + color + "; font-family:" + font + "\">" + text + "</" + tag + ">")
     let rPA14 = PM(14, 'red', 'Arial', 'st')
     rPA14('sfdsfsdfwerwersdf sdfds fsdfs')
-    var bHT16 = PM(16, 'blue', 'Tahoma', 'h1')
+    let bHT16 = PM(16, 'blue', 'Tahoma', 'h1')
     bHT16('sdfsdfjwiooiwe nkuhyiuo hfsd')
-    var redParagraphArial14 = new PrintMachine(14, 'red', 'Arial', 'st')
-    var blueHeaderTahoma16 = new PrintMachine(16, 'blue', 'Tahoma', 'h1')
+    let redParagraphArial14 = new PrintMachine(14, 'red', 'Arial', 'st')
+    let blueHeaderTahoma16 = new PrintMachine(16, 'blue', 'Tahoma', 'h1')
     blueHeaderTahoma16.tag = 'h2'
     blueHeaderTahoma16.print('sdfhsdkjfhsdk kjh ksjfdh sdk')
     redParagraphArial14.print('fsddsfdsfsd')
@@ -1573,31 +1581,38 @@ forEach([0, 1, 2], (function (el, i) {
 // ■ если с даты публикации прошло менее недели, то выводится «N дней назад»
 // ■ в остальных случаях, полная дата в формате «дд.мм.гггг».
 
-let infoNews = /** @class */ (function () {
-  function infoNews(heading, text, arrayTags, date) {
-    this.heading = heading
-    this.text = text
-    this.arrayTags = arrayTags
-    this.date = new Date(date)
+class infoNews {
+  heading;
+  text;
+  arrayTags:Array<string>
+  date: Date;
+
+  constructor(heading, text, arrayTags, date: string) {
+    this.heading = heading;
+    this.text = text;
+    this.arrayTags = arrayTags;
+    this.date = new Date(date);
   }
-  infoNews.prototype.getDate = function () {
+  getDate() {
     let today = new Date()
     let yesterday = new Date(today.valueOf() - 1000 * 60 * 60 * 24)
     if (this.date.toLocaleDateString() == today.toLocaleDateString()) {
       return 'today'
+    } else if (this.date.valueOf() > (today.valueOf() - 1000 * 60 * 60 * 24 * 7)) {
+      return ((today.valueOf() - this.date.valueOf()) / (1000 * 60 * 60 * 24)).toFixed(0) + ' days ago'
+    } else {
+      return this.date.toLocaleDateString()
     }
-    else if (this.date.valueOf() > (today.valueOf() - 1000 * 60 * 60 * 24 * 7)) {
-      return ((today.valueOf() - this.date.valueOf()) / (1000 * 60 * 60 * 24)).toFixed(0) + 'days ago ';
-    }
-    else {
-      return this.date.toLocaleDateString();
-    }
-
   }
-  return infoNews;
-}());
-let post = new infoNews('you', 'never', ['walk', 'alone'], '2023-07-29')
-console.log(post.getDate)
+  print() {
+    header.print(this.heading)  
+    text.print(this.text)  
+    datePrint.print(`<i>${this.getDate()}<i>`)
+    text.print(this.arrayTags.join('  '))  
+  }
+}
+const post = new infoNews('you', 'never', ['walk', 'alone'], '2023-07-29')
+console.log(post.getDate())
 
 //3
 
@@ -1611,11 +1626,37 @@ console.log(post.getDate)
 // ■ метод для поиска новостей по тегу (возвращает массив новостей, в которых указан переданный в метод тег).
 // Продемонстрировать работу написанных методов.
 
-let NewsFeed = /** @class */ (function () {
-   function NewsFeed(array,text,arrayTags,date){
-    this.array = array;
-    this.text = text;
-    this.arrayTags = arrayTags;
-    this.date = date;
-   }
-})
+class NewsFeed {
+  array: infoNews[]
+  constructor(NewsArray: infoNews[]){
+    this.array = NewsArray
+  }
+  get count() {
+    return this.array.length
+  }
+  print() {
+    this.array.forEach(el=>{
+      el.print()
+    })
+  }
+}
+
+const feed = new NewsFeed([
+  new infoNews('you', 'never', ['walk', 'alone'], '2023-08-23'),
+  new infoNews('you2', 'never', ['walk', 'alone'], '2023-08-21'),
+  new infoNews('you3', 'never', ['walk', 'alone'], '2023-07-24'),
+  new infoNews('you4', 'never', ['walk', 'alone'], '2023-07-09'),
+])
+
+infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25')
+console.log(NewsFeed)
+
+let index = arr.findIndex(el=>el.this.heading == this.heading)
+infoNews.splice(index,1)
+console.log(NewsFeed)
+
+infoNews.sort(a.date - b.date)
+console.log(NewsFeed)
+
+infoNews.filter(this.arrayTags='you')
+console.log(NewsFeed)

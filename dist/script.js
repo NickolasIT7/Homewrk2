@@ -8,6 +8,7 @@
 // range1++
 // }
 // console.log (sum);
+var _this = this;
 //2 Запросить 2 числа и найти только наибольший общий делитель.
 // let a = +(prompt ('введите первое число') as string)
 // let b = +(prompt ('введите второе число') as string)
@@ -1383,6 +1384,9 @@ var PrintMachine = /** @class */ (function () {
     return PrintMachine;
 }());
 console.log(PrintMachine);
+var header = new PrintMachine(20, 'black', 'Arial', 'h2');
+var text = new PrintMachine(16, 'black', 'Arial', 'p');
+var datePrint = new PrintMachine(18, 'black', 'Arial', 'p');
 function PM(size, color, font, tag) {
     if (tag === void 0) {
         tag = 'p';
@@ -1432,16 +1436,22 @@ var infoNews = /** @class */ (function () {
             return 'today';
         }
         else if (this.date.valueOf() > (today.valueOf() - 1000 * 60 * 60 * 24 * 7)) {
-            return ((today.valueOf() - this.date.valueOf()) / (1000 * 60 * 60 * 24)).toFixed(0) + 'days ago ';
+            return ((today.valueOf() - this.date.valueOf()) / (1000 * 60 * 60 * 24)).toFixed(0) + ' days ago';
         }
         else {
             return this.date.toLocaleDateString();
         }
     };
+    infoNews.prototype.print = function () {
+        header.print(this.heading);
+        text.print(this.text);
+        datePrint.print("<i>" + this.getDate() + "<i>");
+        text.print(this.arrayTags.join('  '));
+    };
     return infoNews;
 }());
 var post = new infoNews('you', 'never', ['walk', 'alone'], '2023-07-29');
-console.log(post.getDate);
+console.log(post.getDate());
 //3
 // Реализовать класс, описывающий новостную ленту. Класс должен содержать:
 // ■ массив новостей;
@@ -1453,10 +1463,35 @@ console.log(post.getDate);
 // ■ метод для поиска новостей по тегу (возвращает массив новостей, в которых указан переданный в метод тег).
 // Продемонстрировать работу написанных методов.
 var NewsFeed = /** @class */ (function () {
-    function NewsFeed(array, text, arrayTags, date) {
-        this.array = array;
-        this.text = text;
-        this.arrayTags = arrayTags;
-        this.date = date;
+    function NewsFeed(NewsArray) {
+        this.array = NewsArray;
     }
-});
+    Object.defineProperty(NewsFeed.prototype, "count", {
+        get: function () {
+            return this.array.length;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    NewsFeed.prototype.print = function () {
+        this.array.forEach(function (el) {
+            el.print();
+        });
+    };
+    return NewsFeed;
+}());
+var feed = new NewsFeed([
+    new infoNews('you', 'never', ['walk', 'alone'], '2023-08-23'),
+    new infoNews('you2', 'never', ['walk', 'alone'], '2023-08-21'),
+    new infoNews('you3', 'never', ['walk', 'alone'], '2023-07-24'),
+    new infoNews('you4', 'never', ['walk', 'alone'], '2023-07-09'),
+]);
+infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25');
+console.log(NewsFeed);
+var index = arr.findIndex(function (el) { return el["this"].heading == _this.heading; });
+infoNews.splice(index, 1);
+console.log(NewsFeed);
+infoNews.sort(a.date - b.date);
+console.log(NewsFeed);
+infoNews.filter(this.arrayTags = 'you');
+console.log(NewsFeed);
