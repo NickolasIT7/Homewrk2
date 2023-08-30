@@ -1660,3 +1660,30 @@ console.log(NewsFeed)
 
 infoNews.filter(this.arrayTags='you')
 console.log(NewsFeed)
+
+//dz3-2
+//1 Написать функцию, которая принимает строку и выводит статистику о ней: количество букв, количество цифр и количество других знаков.
+
+let str = 'as35dfsj24Stsas#'
+function stat(sumNumbers,sumLetters) {
+sumNumbers = str.match(/\d+/g)?.join('').length
+sumLetters = str.match(/[a-z]/gi)?.join('').length
+}
+console.log(stat(sumNumbers,sumLetters))
+
+//2 Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
+// Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
+
+let num = 35
+function numberToString(num) {
+let textNumber = num.toString() 
+return textNumber
+}
+console.log(numberToString(textNumber))
+
+//3 Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а цифры – на знак нижнего подчеркивания.
+
+
+//4 Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size в fontSize, background-color в backgroundColor, text- align в textAlign.
+
+//5 Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру. Например: cascading style sheets в CSS, объектно- ориентированное программирование в ООП.
