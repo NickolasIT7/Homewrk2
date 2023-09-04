@@ -1664,26 +1664,140 @@ console.log(NewsFeed)
 //dz3-2
 //1 Написать функцию, которая принимает строку и выводит статистику о ней: количество букв, количество цифр и количество других знаков.
 
-let str = 'as35dfsj24Stsas#'
-function stat(sumNumbers,sumLetters) {
-sumNumbers = str.match(/\d+/g)?.join('').length
-sumLetters = str.match(/[a-z]/gi)?.join('').length
+function displayStringStatistics(strc) {
+  let letters = 'abcdefghijklmnopqrstuvwxyz';
+  let digits = '0123456789';
+  let chars = '_+=-!@#$%^&*()~`*[]{}\\|/';
+  let l = 0, d = 0, c = 0;
+  for (let _i = 0, strc_1 = strc; _i < strc_1.length; _i++) {
+      let char = strc_1[_i];
+      if (letters.includes(char))
+          l++;
+      if (digits.includes(char))
+          d++;
+      if (chars.includes(char))
+          c++;
+  }
+  console.log("num of letters " + l + "\nnum of digits " + d + "\nnum of chars " + c);
+  // return {letters:l,digits:d,chars:c}
 }
-console.log(stat(sumNumbers,sumLetters))
+displayStringStatistics('as35dfsj24Stsas#');
 
 //2 Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
 // Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
 
-let num = 35
-function numberToString(num) {
-let textNumber = num.toString() 
-return textNumber
+function textToString(num) {
+let firstNumber = ['один','два','три','четыре','пять','шесть','семь','восемь','девять']
+let secondNumber = ['десять','одиннадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать']
+let thirdNumber = ['двадцать','тридцать','сорок','пятьдесят','шестьдесят','семьдесят','восемьдесят','девяносто']
+if (num > 0 && num <=9) {
+return firstNumber[num -1]  
 }
-console.log(numberToString(textNumber))
+if (num >=10 && num <=20) {
+return secondNumber[num - 1]  
+}
+if (num >= 20 && num <= 99) {
+let str = (`${num}` )
+str = str.split('');
+let first = str[0]
+let second = str[1]
+return `${thirdNumber[first - 2]} ${firstNumber[second -1]}`
+}
+}
+console.log(textToString(24))
+console.log(textToString(36))
+console.log(textToString(61))
 
 //3 Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а цифры – на знак нижнего подчеркивания.
 
+function changeSymbol(str: string) {
+  const arr = str.split('')//превращение строки в массив 
+  const big = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let small = 'abcdefghijklmnopqrstuvwxyz'
+  const num = '0123456789'
+  for (let i = 0; i < arr.length; i++) {
+    if (big.includes(arr[i])) {
+      arr[i] = arr[i].toLowerCase()
+    } else if (small.includes(arr[i])) {
+      arr[i] = arr[i].toUpperCase()
+    } else if (num.includes(arr[i])) {
+      arr[i] = '_'
+    }
+  }
+  return arr.join('')
+}
+console.log(changeSymbol('12axcSs2'))
 
 //4 Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size в fontSize, background-color в backgroundColor, text- align в textAlign.
 
-//5 Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру. Например: cascading style sheets в CSS, объектно- ориентированное программирование в ООП.
+function changeStyleName(style: string) {
+  let arr = style.split('-')
+  console.log('arr', arr)
+  arr.forEach((el, i, arr) => {
+    if (i > 0) {
+      console.log('el', el)
+      arr[i] = el[0].toUpperCase() + el.slice(1)
+    }
+  })
+  console.log('arr', arr)
+  return arr.join('')
+}
+console.log(changeStyleName('font-size-normal'))
+
+//5 Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру. Например: cascading style sheets в CSS, объектно-ориентированное программирование в ООП.
+
+function wordToAbbr(word: string) {
+  return word.split(' ').map(i => i[0].toUpperCase()).join('')
+}
+console.log(wordToAbbr('cascading style sheets'))
+
+//6 Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и возвращает ее.
+
+function joinStr(str, str2: string) {
+  const arr = str.split('')
+  const arr2 = str2.split('')
+  let arr1 = arr.concat([arr,arr2])
+  return arr.join('')
+}
+console.log(joinStr('Google', 'Opera'))
+
+//7 Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
+
+function calculate(num1,num,operator) {
+
+}
+
+//8 Написать функцию, которая получает url и выводит подробную информацию о нем. Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
+
+function task(url) {
+let arr
+let protocol
+let domain
+let arr1
+let way
+arr2 = url.split("://")
+for (let index = 0; index < arr.lenght; index++) {
+protocol = arr[0]
+arr1 = arr[0].split("/")
+domain = arr1[0]  
+}  
+arr1.shift()
+way = arr1.join("/")
+
+return "Информация\протокол: " + protocol + "\домен: "+ domain + "\путь: " + way; 
+}
+
+console.log(task("https:itstep.org/ua/about"))
+
+//9 Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью указанного разделителя.
+// Например: строка “10/08/2020”, разделитель “/”, результат: “10”, “08”, “2020”.
+
+function devide(str:string,devide:any) {
+let arr = str.split('')
+const dev = '/.,:'
+
+}
+
+//10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
+// При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
+// Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”
