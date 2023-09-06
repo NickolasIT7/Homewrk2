@@ -8,6 +8,26 @@
 // range1++
 // }
 // console.log (sum);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 var _this = this;
 //2 Запросить 2 числа и найти только наибольший общий делитель.
 // let a = +(prompt ('введите первое число') as string)
@@ -1615,3 +1635,73 @@ function devide(str, devide) {
 //10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
 // При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
 // Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”
+// dz2-5
+//1
+// Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
+// ■ поле, которое хранит цвет маркера;
+// ■ поле, которое хранит количество чернил в маркере (в процентах);
+// ■ метод для печати (метод принимает строку и выводит текст соответствующим цветом; текст выводится до тех пор, пока в маркере есть чернила; один не пробельный
+// символ – это 0,5% чернил в маркере).
+// Реализовать класс, описывающий заправляющийся маркер, унаследовав его от простого маркера и добавив метод для заправки маркера.Продемонстрировать работу написанных методов.
+var Marker = /** @class */ (function () {
+    function Marker(colour, ink) {
+        this.colour = colour;
+        this.ink = ink;
+    }
+    Object.defineProperty(Marker.prototype, "markerProperties", {
+        get: function () {
+            return [this.colour, this.ink];
+        },
+        set: function (newProperties) {
+            var _a;
+            _a = __spreadArrays(newProperties), this.colour = _a[0], this.ink = _a[1];
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Marker.prototype.print = function (line) {
+        var m = document.getElementById("content");
+        for (var i = 0; i < line.lenght; i++) {
+            if (this.ink != 0) {
+                if (line[i] == " ") {
+                    this.ink += 0.5;
+                }
+                m.innerHTML += line[i];
+                m.style.color = this.colour;
+                this.ink -= 0.5;
+            }
+            else {
+                document.write("Marker is over");
+                break;
+            }
+        }
+    };
+    return Marker;
+}());
+var FilledMarker = /** @class */ (function (_super) {
+    __extends(FilledMarker, _super);
+    function FilledMarker() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    FilledMarker.prototype.fill = function (ink) {
+        if (ink > 100) {
+            ink = 100;
+        }
+        else {
+            this.ink += ink;
+        }
+    };
+    return FilledMarker;
+}(Marker));
+var marker = new FilledMarker("#432", 15);
+marker.fill(32);
+var l = 'hello';
+marker.print(l);
+document.body.setAttribute("style", "font-size: 15px; text-align:center;");
+//2
+//Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
+// метод для вывода даты (числа и месяца) текстом;
+// метод для проверки – это прошедшая дата или будущая
+// (если прошедшая, то метод возвращает false; если будущая или текущая, то true);
+// метод для проверки – високосный год или нет;
+// метод, возвращающий следующую дату.

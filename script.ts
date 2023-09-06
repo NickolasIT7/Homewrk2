@@ -1584,7 +1584,7 @@ forEach([0, 1, 2], (function (el, i) {
 class infoNews {
   heading;
   text;
-  arrayTags:Array<string>
+  arrayTags: Array<string>
   date: Date;
 
   constructor(heading, text, arrayTags, date: string) {
@@ -1605,10 +1605,10 @@ class infoNews {
     }
   }
   print() {
-    header.print(this.heading)  
-    text.print(this.text)  
+    header.print(this.heading)
+    text.print(this.text)
     datePrint.print(`<i>${this.getDate()}<i>`)
-    text.print(this.arrayTags.join('  '))  
+    text.print(this.arrayTags.join('  '))
   }
 }
 const post = new infoNews('you', 'never', ['walk', 'alone'], '2023-07-29')
@@ -1628,14 +1628,14 @@ console.log(post.getDate())
 
 class NewsFeed {
   array: infoNews[]
-  constructor(NewsArray: infoNews[]){
+  constructor(NewsArray: infoNews[]) {
     this.array = NewsArray
   }
   get count() {
     return this.array.length
   }
   print() {
-    this.array.forEach(el=>{
+    this.array.forEach(el => {
       el.print()
     })
   }
@@ -1651,14 +1651,14 @@ const feed = new NewsFeed([
 infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25')
 console.log(NewsFeed)
 
-let index = arr.findIndex(el=>el.this.heading == this.heading)
-infoNews.splice(index,1)
+let index = arr.findIndex(el => el.this.heading == this.heading)
+infoNews.splice(index, 1)
 console.log(NewsFeed)
 
 infoNews.sort(a.date - b.date)
 console.log(NewsFeed)
 
-infoNews.filter(this.arrayTags='you')
+infoNews.filter(this.arrayTags = 'you')
 console.log(NewsFeed)
 
 //dz3-2
@@ -1670,13 +1670,13 @@ function displayStringStatistics(strc) {
   let chars = '_+=-!@#$%^&*()~`*[]{}\\|/';
   let l = 0, d = 0, c = 0;
   for (let _i = 0, strc_1 = strc; _i < strc_1.length; _i++) {
-      let char = strc_1[_i];
-      if (letters.includes(char))
-          l++;
-      if (digits.includes(char))
-          d++;
-      if (chars.includes(char))
-          c++;
+    let char = strc_1[_i];
+    if (letters.includes(char))
+      l++;
+    if (digits.includes(char))
+      d++;
+    if (chars.includes(char))
+      c++;
   }
   console.log("num of letters " + l + "\nnum of digits " + d + "\nnum of chars " + c);
   // return {letters:l,digits:d,chars:c}
@@ -1687,22 +1687,22 @@ displayStringStatistics('as35dfsj24Stsas#');
 // Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
 
 function textToString(num) {
-let firstNumber = ['один','два','три','четыре','пять','шесть','семь','восемь','девять']
-let secondNumber = ['десять','одиннадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать']
-let thirdNumber = ['двадцать','тридцать','сорок','пятьдесят','шестьдесят','семьдесят','восемьдесят','девяносто']
-if (num > 0 && num <=9) {
-return firstNumber[num -1]  
-}
-if (num >=10 && num <=20) {
-return secondNumber[num - 1]  
-}
-if (num >= 20 && num <= 99) {
-let str = (`${num}` )
-str = str.split('');
-let first = str[0]
-let second = str[1]
-return `${thirdNumber[first - 2]} ${firstNumber[second -1]}`
-}
+  let firstNumber = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+  let secondNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+  let thirdNumber = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+  if (num > 0 && num <= 9) {
+    return firstNumber[num - 1]
+  }
+  if (num >= 10 && num <= 20) {
+    return secondNumber[num - 1]
+  }
+  if (num >= 20 && num <= 99) {
+    let str = (`${num}`)
+    str = str.split('');
+    let first = str[0]
+    let second = str[1]
+    return `${thirdNumber[first - 2]} ${firstNumber[second - 1]}`
+  }
 }
 console.log(textToString(24))
 console.log(textToString(36))
@@ -1756,35 +1756,35 @@ console.log(wordToAbbr('cascading style sheets'))
 function joinStr(str, str2: string) {
   const arr = str.split('')
   const arr2 = str2.split('')
-  let arr1 = arr.concat([arr,arr2])
+  let arr1 = arr.concat([arr, arr2])
   return arr.join('')
 }
 console.log(joinStr('Google', 'Opera'))
 
 //7 Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
 
-function calculate(num1,num,operator) {
+function calculate(num1, num, operator) {
 
 }
 
 //8 Написать функцию, которая получает url и выводит подробную информацию о нем. Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
 
 function task(url) {
-let arr
-let protocol
-let domain
-let arr1
-let way
-arr2 = url.split("://")
-for (let index = 0; index < arr.lenght; index++) {
-protocol = arr[0]
-arr1 = arr[0].split("/")
-domain = arr1[0]  
-}  
-arr1.shift()
-way = arr1.join("/")
+  let arr
+  let protocol
+  let domain
+  let arr1
+  let way
+  arr2 = url.split("://")
+  for (let index = 0; index < arr.lenght; index++) {
+    protocol = arr[0]
+    arr1 = arr[0].split("/")
+    domain = arr1[0]
+  }
+  arr1.shift()
+  way = arr1.join("/")
 
-return "Информация\протокол: " + protocol + "\домен: "+ domain + "\путь: " + way; 
+  return "Информация\протокол: " + protocol + "\домен: " + domain + "\путь: " + way;
 }
 
 console.log(task("https:itstep.org/ua/about"))
@@ -1792,12 +1792,80 @@ console.log(task("https:itstep.org/ua/about"))
 //9 Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью указанного разделителя.
 // Например: строка “10/08/2020”, разделитель “/”, результат: “10”, “08”, “2020”.
 
-function devide(str:string,devide:any) {
-let arr = str.split('')
-const dev = '/.,:'
+function devide(str: string, devide: any) {
+  let arr = str.split('')
+  const dev = '/.,:'
 
 }
 
 //10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
 // При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
 // Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”
+
+// dz2-5
+
+//1
+// Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
+// ■ поле, которое хранит цвет маркера;
+// ■ поле, которое хранит количество чернил в маркере (в процентах);
+// ■ метод для печати (метод принимает строку и выводит текст соответствующим цветом; текст выводится до тех пор, пока в маркере есть чернила; один не пробельный
+// символ – это 0,5% чернил в маркере).
+// Реализовать класс, описывающий заправляющийся маркер, унаследовав его от простого маркера и добавив метод для заправки маркера.Продемонстрировать работу написанных методов.
+
+class Marker {
+  colour;
+  ink;
+
+  constructor(colour, ink) {
+    this.colour = colour;
+    this.ink = ink
+  }
+  get markerProperties() {
+    return [this.colour, this.ink]
+  }
+  set markerProperties(newProperties) {
+    [this.colour, this.ink] = [...newProperties]
+  }
+
+  print(line) {
+    let m = document.getElementById("content")
+    for (let i = 0; i < line.lenght; i++) {
+      if (this.ink != 0) {
+        if (line[i] == " ") {
+          this.ink += 0.5;
+        }
+        m.innerHTML += line[i]
+        m.style.color = this.colour
+        this.ink -= 0.5;
+      } else {
+        document.write("Marker is over")
+        break
+      }
+    }
+  }
+}
+
+class FilledMarker extends Marker {
+fill(ink) {
+if (ink>100) {
+ ink = 100 
+} else {
+this.ink += ink
+}  
+}
+}
+
+let marker = new FilledMarker("#432",15)
+marker.fill(32)
+const l = 'hello'
+
+marker.print(l)
+document.body.setAttribute("style","font-size: 15px; text-align:center;");
+
+//2
+//Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
+// метод для вывода даты (числа и месяца) текстом;
+// метод для проверки – это прошедшая дата или будущая
+// (если прошедшая, то метод возвращает false; если будущая или текущая, то true);
+// метод для проверки – високосный год или нет;
+// метод, возвращающий следующую дату.
