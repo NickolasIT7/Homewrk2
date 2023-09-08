@@ -1846,21 +1846,21 @@ class Marker {
 }
 
 class FilledMarker extends Marker {
-fill(ink) {
-if (ink>100) {
- ink = 100 
-} else {
-this.ink += ink
-}  
-}
+  fill(ink) {
+    if (ink > 100) {
+      ink = 100
+    } else {
+      this.ink += ink
+    }
+  }
 }
 
-let marker = new FilledMarker("#432",15)
+let marker = new FilledMarker("#432", 15)
 marker.fill(32)
 const l = 'hello'
 
 marker.print(l)
-document.body.setAttribute("style","font-size: 15px; text-align:center;");
+document.body.setAttribute("style", "font-size: 15px; text-align:center;");
 
 //2
 //Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
@@ -1869,3 +1869,27 @@ document.body.setAttribute("style","font-size: 15px; text-align:center;");
 // (если прошедшая, то метод возвращает false; если будущая или текущая, то true);
 // метод для проверки – високосный год или нет;
 // метод, возвращающий следующую дату.
+
+class ExtendedDate extends Date {
+  getRussianDate() {
+    const month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+  }
+  now() {
+    this.now()
+  }
+  parse(val:string) {
+    this.parse(val)
+  }
+}
+console.log ((new ExtendedDate('2020-12-26')).getRussianDate())
+
+function checkDate(ExtendedDate) {
+if (this.now > ExtendedDate) {
+  return false
+}
+if (this.now <= ExtendedDate) {
+  return true
+}  
+}
+console.log(checkDate('2023-08-18'))
+

@@ -1705,3 +1705,29 @@ document.body.setAttribute("style", "font-size: 15px; text-align:center;");
 // (если прошедшая, то метод возвращает false; если будущая или текущая, то true);
 // метод для проверки – високосный год или нет;
 // метод, возвращающий следующую дату.
+var ExtendedDate = /** @class */ (function (_super) {
+    __extends(ExtendedDate, _super);
+    function ExtendedDate() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ExtendedDate.prototype.getRussianDate = function () {
+        var month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+    };
+    ExtendedDate.prototype.now = function () {
+        this.now();
+    };
+    ExtendedDate.prototype.parse = function (val) {
+        this.parse(val);
+    };
+    return ExtendedDate;
+}(Date));
+console.log((new ExtendedDate('2020-12-26')).getRussianDate());
+function checkDate(ExtendedDate) {
+    if (this.now > ExtendedDate) {
+        return false;
+    }
+    if (this.now <= ExtendedDate) {
+        return true;
+    }
+}
+console.log(checkDate('2023-08-18'));
