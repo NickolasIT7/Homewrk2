@@ -1893,3 +1893,40 @@ if (this.now <= ExtendedDate) {
 }
 console.log(checkDate('2023-08-18'))
 
+//3
+//Реализовать класс Employee, описывающий работника, и создать массив работников банка.
+// Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка. 
+// Массив работников необходимо передавать через конструктор, а получать html код с помощью метода getHtml().
+// Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
+
+//4
+//Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
+// строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
+// метод getHtml() из родительского класса. Создать объект класса StyledEmpTable и вывести на экран результат работы метода getHtml().
+
+//Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+// Сделайте два варианта решения.
+// 1.Используя setInterval.
+// 2.Используя рекурсивный setTimeout.
+
+//1
+function printNumbers(from,to) {
+ setInterval(function go() { 
+let i = from
+while (i<=to)
+setInterval(go,1000)
+i++
+ },1000)
+}
+printNumbers(2,5)
+
+//2
+function printNumbersRecursion(from,to) {
+   setTimeout(function go() {
+if (from < to) {
+  setTimeout(go,1000)
+}
+from++  
+}, 1000)
+} 
+printNumbersRecursion(5,10)
