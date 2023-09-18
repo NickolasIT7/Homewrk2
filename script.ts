@@ -1753,19 +1753,32 @@ console.log(wordToAbbr('cascading style sheets'))
 
 //6 Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и возвращает ее.
 
-function joinStr(str, str2: string) {
-  const arr = str.split('')
-  const arr2 = str2.split('')
-  let arr1 = arr.concat([arr, arr2])
-  return arr.join('')
+function joinStrings(...strings) {
+  return strings.join('');
 }
-console.log(joinStr('Google', 'Opera'))
+console.log(joinStrings('Google', 'Opera', 'fsfs'));
 
 //7 Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
 
-function calculate(num1, num, operator) {
-
+function calculate(num1, num2, operator) {
+  switch (operator) {
+      case "+":
+          return num1 + num2;
+      case "-":
+          return num1 - num2;
+      case "*":
+          return num1 * num2;
+      case "/":
+          if (num2 != 0) {
+              return num1 / num2;
+          }
+          else {
+              return "на 0 делить нельзя";
+          }
+  }
 }
+console.log(calculate(4, 6, "-"));
+console.log(calculate(2, 5, "*"));
 
 //8 Написать функцию, которая получает url и выводит подробную информацию о нем. Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
 
@@ -1792,11 +1805,10 @@ console.log(task("https:itstep.org/ua/about"))
 //9 Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью указанного разделителя.
 // Например: строка “10/08/2020”, разделитель “/”, результат: “10”, “08”, “2020”.
 
-function devide(str: string, devide: any) {
-  let arr = str.split('')
-  const dev = '/.,:'
-
+function devide(str, devide) {
+  return arr = str.split(devide);
 }
+console.log(devide('10/08/2020', '/'));
 
 //10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
 // При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
@@ -1895,9 +1907,16 @@ console.log(checkDate('2023-08-18'))
 
 //3
 //Реализовать класс Employee, описывающий работника, и создать массив работников банка.
-// Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка. 
-// Массив работников необходимо передавать через конструктор, а получать html код с помощью метода getHtml().
-// Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
+//Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка. 
+//Массив работников необходимо передавать через конструктор, а получать html код с помощью метода getHtml().
+//Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
+
+class Employee {
+
+}
+
+
+
 
 //4
 //Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
