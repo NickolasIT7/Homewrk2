@@ -1762,19 +1762,19 @@ console.log(joinStrings('Google', 'Opera', 'fsfs'));
 
 function calculate(num1, num2, operator) {
   switch (operator) {
-      case "+":
-          return num1 + num2;
-      case "-":
-          return num1 - num2;
-      case "*":
-          return num1 * num2;
-      case "/":
-          if (num2 != 0) {
-              return num1 / num2;
-          }
-          else {
-              return "на 0 делить нельзя";
-          }
+    case "+":
+      return num1 + num2;
+    case "-":
+      return num1 - num2;
+    case "*":
+      return num1 * num2;
+    case "/":
+      if (num2 != 0) {
+        return num1 / num2;
+      }
+      else {
+        return "на 0 делить нельзя";
+      }
   }
 }
 console.log(calculate(4, 6, "-"));
@@ -1813,6 +1813,13 @@ console.log(devide('10/08/2020', '/'));
 //10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
 // При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
 // Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”
+
+function textConclusion(template, ...strings) {
+  [...strings].forEach((item, index) => template = template.replace('%' + (index + 1), item));
+  return template;
+}
+console.log(textConclusion('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020));
+console.log(textConclusion('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020));
 
 // dz2-5
 
@@ -1889,19 +1896,19 @@ class ExtendedDate extends Date {
   now() {
     this.now()
   }
-  parse(val:string) {
+  parse(val: string) {
     this.parse(val)
   }
 }
-console.log ((new ExtendedDate('2020-12-26')).getRussianDate())
+console.log((new ExtendedDate('2020-12-26')).getRussianDate())
 
 function checkDate(ExtendedDate) {
-if (this.now > ExtendedDate) {
-  return false
-}
-if (this.now <= ExtendedDate) {
-  return true
-}  
+  if (this.now > ExtendedDate) {
+    return false
+  }
+  if (this.now <= ExtendedDate) {
+    return true
+  }
 }
 console.log(checkDate('2023-08-18'))
 
@@ -1912,10 +1919,31 @@ console.log(checkDate('2023-08-18'))
 //Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
 
 class Employee {
+  name;
+  age;
+  post;
+  constructor(name, age, post) {
+    this.name = name;
+    this.age = age;
+    this.post = post;
+  }
+}
+const Empl = [
+  new Employee("Matthew McConaughey", 44, "investment specialist"),
+  new Employee("Jon Flanagan", 30, "credit specialist"),
+  new Employee("Jamie Carragher", 45, "auditor"),
+  new Employee("Robert Fowler", 48, "accountant"),
+  new Employee("Jamie Vardy", 36, "accountant")
+]
+
+class EmpTable {
+  constructor(arr) {
+    this.arr = arr;
+  }
+}
+getHtml() {
 
 }
-
-
 
 
 //4
@@ -1929,23 +1957,23 @@ class Employee {
 // 2.Используя рекурсивный setTimeout.
 
 //1
-function printNumbers(from,to) {
- setInterval(function go() { 
-let i = from
-while (i<=to)
-setInterval(go,1000)
-i++
- },1000)
+function printNumbers(from, to) {
+  setInterval(function go() {
+    let i = from
+    while (i <= to)
+      setInterval(go, 1000)
+    i++
+  }, 1000)
 }
-printNumbers(2,5)
+printNumbers(2, 5)
 
 //2
-function printNumbersRecursion(from,to) {
-   setTimeout(function go() {
-if (from < to) {
-  setTimeout(go,1000)
+function printNumbersRecursion(from, to) {
+  setTimeout(function go() {
+    if (from < to) {
+      setTimeout(go, 1000)
+    }
+    from++
+  }, 1000)
 }
-from++  
-}, 1000)
-} 
-printNumbersRecursion(5,10)
+printNumbersRecursion(5, 10)

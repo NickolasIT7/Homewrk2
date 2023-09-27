@@ -1653,6 +1653,16 @@ console.log(devide('10/08/2020', '/'));
 //10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
 // При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
 // Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”
+function textConclusion(template) {
+    var strings = [];
+    for (var _a = 1; _a < arguments.length; _a++) {
+        strings[_a - 1] = arguments[_a];
+    }
+    __spreadArrays(strings).forEach(function (item, index) { return template = template.replace('%' + (index + 1), item); });
+    return template;
+}
+console.log(textConclusion('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020));
+console.log(textConclusion('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020));
 // dz2-5
 //1
 // Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
@@ -1755,10 +1765,29 @@ console.log(checkDate('2023-08-18'));
 //Массив работников необходимо передавать через конструктор, а получать html код с помощью метода getHtml().
 //Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
 var Employee = /** @class */ (function () {
-    function Employee() {
+    function Employee(name, age, post) {
+        this.name = name;
+        this.age = age;
+        this.post = post;
     }
     return Employee;
 }());
+var Empl = [
+    new Employee("Matthew McConaughey", 44, "investment specialist"),
+    new Employee("Jon Flanagan", 30, "credit specialist"),
+    new Employee("Jamie Carragher", 45, "auditor"),
+    new Employee("Robert Fowler", 48, "accountant"),
+    new Employee("Jamie Vardy", 36, "accountant")
+];
+var EmpTable = /** @class */ (function () {
+    function EmpTable(arr) {
+        this.arr = arr;
+    }
+    return EmpTable;
+}());
+getHtml();
+{
+}
 //4
 //Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
 // строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
