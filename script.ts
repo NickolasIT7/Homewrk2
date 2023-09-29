@@ -1922,7 +1922,7 @@ class Employee {
   name;
   age;
   post;
-  constructor(name:string, age:number, post:string) {
+  constructor(name: string, age: number, post: string) {
     this.name = name;
     this.age = age;
     this.post = post;
@@ -1939,12 +1939,12 @@ const empl = [
 
 class EmpTable {
   arr
-  constructor(arr:Employee[]) {
+  constructor(arr: Employee[]) {
     this.arr = arr;
   }
 
-getHtml() {
-  const html = `<table>
+  getHtml() {
+    const html = `<table>
     <thead>
     <tr>
     <th>name</th>
@@ -1953,14 +1953,14 @@ getHtml() {
       </tr>
     </thead>
     <tbody>
-      ${this.arr.map(el=>`<tr><td>${el.name}</td><td>${el.age}</td><td>${el.post}</td></tr>`).join('')}
+      ${this.arr.map(el => `<tr><td>${el.name}</td><td>${el.age}</td><td>${el.post}</td></tr>`).join('')}
       </tbody>
       </table>`
     document.body.insertAdjacentHTML('beforeend', html)
     return html
   }
 }
-  const table = new EmpTable(empl)
+const table = new EmpTable(empl)
 
 
 
@@ -2011,3 +2011,40 @@ function printNumbersRecursion(from, to) {
   }, 1000)
 }
 printNumbersRecursion(5, 10)
+
+// pz2-5
+//1
+// Реализовать класс Button, который содержит ширину, высоту, текст кнопки и метод showBtn(), который выводит кнопку на экран с помощью тега button и функции document.write().
+// Реализовать класс BootstrapButton, унаследовав его от класса Button. Добавить поле color и переопределить метод showBtn() так, чтобы кнопка выводилась со стилями и указанным цветом.
+
+
+//2
+// Реализовать класс, описывающий геометрическую фигуру со свойствами и методами:
+// ■ get-свойство для получения названия фигуры;
+// ■ метод для вывода информации о фигуре (стороны и их длина);
+// ■ метод для вычисления площади фигуры;
+// ■ метод для вычисления периметра фигуры.
+// Реализуйте классы-наследники: квадрат, прямоугольник и треугольник. Переопределите методы вывода и вычислений в  классах-наследниках.
+// Создайте массив с различными фигурами и выведите информацию о каждой фигуре, включая площадь и периметр.
+
+class Figure {
+  name
+  length
+  constructor(name:string,length:string) {
+    this.name = name;
+    this.length = length;
+  }
+  get figureName() {
+    return this.name
+  }
+  get figureLength() {
+    return this.length
+  }
+}
+
+//3
+// Реализуйте класс ExtentedArray, унаследовав его от стандартного класса Array и добавив следующие методы:
+// ■ метод getString(separator) – для получения строки со всеми элементами массива, перечисленными через указанный разделитель: запятая, тире, пробел и т. д.;
+// ■ метод getHtml(tagName) – для получения строки с html кодом, где каждый элемент массива будет обернут в указанный тег (учтите, если указывается тег li, то все элементы
+// дополнительно необходимо обернуть в ul).
+// Создайте объект класса ExtentedArray, заполните его данными и выведите на экран результаты работы методов getString() и getHtml().
