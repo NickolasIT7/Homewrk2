@@ -1648,18 +1648,18 @@ const feed = new NewsFeed([
   new infoNews('you4', 'never', ['walk', 'alone'], '2023-07-09'),
 ])
 
-infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25')
-console.log(NewsFeed)
+// infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25')
+// console.log(NewsFeed)
 
-let index = arr.findIndex(el => el.this.heading == this.heading)
-infoNews.splice(index, 1)
-console.log(NewsFeed)
+// let index = arr.findIndex(el => el.this.heading == this.heading)
+// infoNews.splice(index, 1)
+// console.log(NewsFeed)
 
-infoNews.sort(a.date - b.date)
-console.log(NewsFeed)
+// infoNews.sort(a.date - b.date)
+// console.log(NewsFeed)
 
-infoNews.filter(this.arrayTags = 'you')
-console.log(NewsFeed)
+// infoNews.filter(this.arrayTags = 'you')
+// console.log(NewsFeed)
 
 //dz3-2
 //1 Написать функцию, которая принимает строку и выводит статистику о ней: количество букв, количество цифр и количество других знаков.
@@ -1686,27 +1686,27 @@ displayStringStatistics('as35dfsj24Stsas#');
 //2 Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
 // Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
 
-function textToString(num) {
-  let firstNumber = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
-  let secondNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
-  let thirdNumber = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
-  if (num > 0 && num <= 9) {
-    return firstNumber[num - 1]
-  }
-  if (num >= 10 && num <= 20) {
-    return secondNumber[num - 1]
-  }
-  if (num >= 20 && num <= 99) {
-    let str = (`${num}`)
-    str = str.split('');
-    let first = str[0]
-    let second = str[1]
-    return `${thirdNumber[first - 2]} ${firstNumber[second - 1]}`
-  }
-}
-console.log(textToString(24))
-console.log(textToString(36))
-console.log(textToString(61))
+// function textToString(num) {
+//   let firstNumber = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+//   let secondNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+//   let thirdNumber = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+//   if (num > 0 && num <= 9) {
+//     return firstNumber[num - 1]
+//   }
+//   if (num >= 10 && num <= 20) {
+//     return secondNumber[num - 1]
+//   }
+//   if (num >= 20 && num <= 99) {
+//     let str = (`${num}`)
+//     str = str.split('');
+//     let first = str[0]
+//     let second = str[1]
+//     return `${thirdNumber[first - 2]} ${firstNumber[second - 1]}`
+//   }
+// }
+// console.log(textToString(24))
+// console.log(textToString(36))
+// console.log(textToString(61))
 
 //3 Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а цифры – на знак нижнего подчеркивания.
 
@@ -1922,13 +1922,14 @@ class Employee {
   name;
   age;
   post;
-  constructor(name, age, post) {
+  constructor(name:string, age:number, post:string) {
     this.name = name;
     this.age = age;
     this.post = post;
   }
 }
-const Empl = [
+
+const empl = [
   new Employee("Matthew McConaughey", 44, "investment specialist"),
   new Employee("Jon Flanagan", 30, "credit specialist"),
   new Employee("Jamie Carragher", 45, "auditor"),
@@ -1937,19 +1938,52 @@ const Empl = [
 ]
 
 class EmpTable {
-  constructor(arr) {
+  arr
+  constructor(arr:Employee[]) {
     this.arr = arr;
   }
-}
-getHtml() {
 
+getHtml() {
+  const html = `<table>
+    <thead>
+    <tr>
+    <th>name</th>
+    <th>age</th>
+        <th>post</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${this.arr.map(el=>`<tr><td>${el.name}</td><td>${el.age}</td><td>${el.post}</td></tr>`).join('')}
+      </tbody>
+      </table>`
+    document.body.insertAdjacentHTML('beforeend', html)
+    return html
+  }
 }
+  const table = new EmpTable(empl)
+
 
 
 //4
 //Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
 // строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
 // метод getHtml() из родительского класса. Создать объект класса StyledEmpTable и вывести на экран результат работы метода getHtml().
+
+class StyledEmpTable extends EmpTable {
+  getStyles() {
+    return `<style> table { color:red } </style>`
+  }
+  getHtml(): string {
+    document.head.insertAdjacentHTML('beforeend', this.getStyles())
+    return super.getHtml()
+  }
+}
+
+const StyledTable = new StyledEmpTable(empl)
+StyledTable.getHtml()
+
+
+
 
 //Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
 // Сделайте два варианта решения.

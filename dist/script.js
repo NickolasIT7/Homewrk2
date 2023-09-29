@@ -28,7 +28,6 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-var _this = this;
 //2 Запросить 2 числа и найти только наибольший общий делитель.
 // let a = +(prompt ('введите первое число') as string)
 // let b = +(prompt ('введите второе число') as string)
@@ -1506,15 +1505,15 @@ var feed = new NewsFeed([
     new infoNews('you3', 'never', ['walk', 'alone'], '2023-07-24'),
     new infoNews('you4', 'never', ['walk', 'alone'], '2023-07-09'),
 ]);
-infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25');
-console.log(NewsFeed);
-var index = arr.findIndex(function (el) { return el["this"].heading == _this.heading; });
-infoNews.splice(index, 1);
-console.log(NewsFeed);
-infoNews.sort(a.date - b.date);
-console.log(NewsFeed);
-infoNews.filter(this.arrayTags = 'you');
-console.log(NewsFeed);
+// infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25')
+// console.log(NewsFeed)
+// let index = arr.findIndex(el => el.this.heading == this.heading)
+// infoNews.splice(index, 1)
+// console.log(NewsFeed)
+// infoNews.sort(a.date - b.date)
+// console.log(NewsFeed)
+// infoNews.filter(this.arrayTags = 'you')
+// console.log(NewsFeed)
 //dz3-2
 //1 Написать функцию, которая принимает строку и выводит статистику о ней: количество букв, количество цифр и количество других знаков.
 function displayStringStatistics(strc) {
@@ -1537,27 +1536,27 @@ function displayStringStatistics(strc) {
 displayStringStatistics('as35dfsj24Stsas#');
 //2 Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
 // Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
-function textToString(num) {
-    var firstNumber = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'];
-    var secondNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'];
-    var thirdNumber = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто'];
-    if (num > 0 && num <= 9) {
-        return firstNumber[num - 1];
-    }
-    if (num >= 10 && num <= 20) {
-        return secondNumber[num - 1];
-    }
-    if (num >= 20 && num <= 99) {
-        var str = ("" + num);
-        str = str.split('');
-        var first = str[0];
-        var second = str[1];
-        return thirdNumber[first - 2] + " " + firstNumber[second - 1];
-    }
-}
-console.log(textToString(24));
-console.log(textToString(36));
-console.log(textToString(61));
+// function textToString(num) {
+//   let firstNumber = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+//   let secondNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+//   let thirdNumber = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+//   if (num > 0 && num <= 9) {
+//     return firstNumber[num - 1]
+//   }
+//   if (num >= 10 && num <= 20) {
+//     return secondNumber[num - 1]
+//   }
+//   if (num >= 20 && num <= 99) {
+//     let str = (`${num}`)
+//     str = str.split('');
+//     let first = str[0]
+//     let second = str[1]
+//     return `${thirdNumber[first - 2]} ${firstNumber[second - 1]}`
+//   }
+// }
+// console.log(textToString(24))
+// console.log(textToString(36))
+// console.log(textToString(61))
 //3 Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а цифры – на знак нижнего подчеркивания.
 function changeSymbol(str) {
     var arr = str.split(''); //превращение строки в массив 
@@ -1634,7 +1633,7 @@ function task(url) {
     var arr1;
     var way;
     arr2 = url.split("://");
-    for (var index_1 = 0; index_1 < arr.lenght; index_1++) {
+    for (var index = 0; index < arr.lenght; index++) {
         protocol = arr[0];
         arr1 = arr[0].split("/");
         domain = arr1[0];
@@ -1772,7 +1771,7 @@ var Employee = /** @class */ (function () {
     }
     return Employee;
 }());
-var Empl = [
+var empl = [
     new Employee("Matthew McConaughey", 44, "investment specialist"),
     new Employee("Jon Flanagan", 30, "credit specialist"),
     new Employee("Jamie Carragher", 45, "auditor"),
@@ -1783,15 +1782,34 @@ var EmpTable = /** @class */ (function () {
     function EmpTable(arr) {
         this.arr = arr;
     }
+    EmpTable.prototype.getHtml = function () {
+        var html = "<table>\n    <thead>\n    <tr>\n    <th>name</th>\n    <th>age</th>\n        <th>post</th>\n      </tr>\n    </thead>\n    <tbody>\n      " + this.arr.map(function (el) { return "<tr><td>" + el.name + "</td><td>" + el.age + "</td><td>" + el.post + "</td></tr>"; }).join('') + "\n      </tbody>\n      </table>";
+        document.body.insertAdjacentHTML('beforeend', html);
+        return html;
+    };
     return EmpTable;
 }());
-getHtml();
-{
-}
+var table = new EmpTable(empl);
 //4
 //Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
 // строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
 // метод getHtml() из родительского класса. Создать объект класса StyledEmpTable и вывести на экран результат работы метода getHtml().
+var StyledEmpTable = /** @class */ (function (_super) {
+    __extends(StyledEmpTable, _super);
+    function StyledEmpTable() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    StyledEmpTable.prototype.getStyles = function () {
+        return "<style> table { color:red } </style>";
+    };
+    StyledEmpTable.prototype.getHtml = function () {
+        document.head.insertAdjacentHTML('beforeend', this.getStyles());
+        return _super.prototype.getHtml.call(this);
+    };
+    return StyledEmpTable;
+}(EmpTable));
+var StyledTable = new StyledEmpTable(empl);
+StyledTable.getHtml();
 //Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
 // Сделайте два варианта решения.
 // 1.Используя setInterval.
