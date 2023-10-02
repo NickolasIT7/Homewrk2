@@ -1686,23 +1686,6 @@ var Marker = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Marker.prototype.print = function (line) {
-        var m = document.getElementById("content");
-        for (var i = 0; i < line.lenght; i++) {
-            if (this.ink != 0) {
-                if (line[i] == " ") {
-                    this.ink += 0.5;
-                }
-                m.innerHTML += line[i];
-                m.style.color = this.colour;
-                this.ink -= 0.5;
-            }
-            else {
-                document.write("Marker is over");
-                break;
-            }
-        }
-    };
     return Marker;
 }());
 var FilledMarker = /** @class */ (function (_super) {
@@ -1723,7 +1706,7 @@ var FilledMarker = /** @class */ (function (_super) {
 var marker = new FilledMarker("#432", 15);
 marker.fill(32);
 var l = 'hello';
-marker.print(l);
+// marker.print(l)
 document.body.setAttribute("style", "font-size: 15px; text-align:center;");
 //2
 //Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
@@ -1838,6 +1821,35 @@ printNumbersRecursion(5, 10);
 //1
 // Реализовать класс Button, который содержит ширину, высоту, текст кнопки и метод showBtn(), который выводит кнопку на экран с помощью тега button и функции document.write().
 // Реализовать класс BootstrapButton, унаследовав его от класса Button. Добавить поле color и переопределить метод showBtn() так, чтобы кнопка выводилась со стилями и указанным цветом.
+var Button = /** @class */ (function () {
+    function Button(width, height, text) {
+        this.width = width;
+        this.height = height;
+        this.text = text;
+    }
+    Button.prototype.showBtn = function () {
+        document.body.insertAdjacentHTML('beforeend', "<button style=\"width:" + this.width + "; height:" + this.height + ";\">" + this.text + "</button>");
+    };
+    return Button;
+}());
+var newButton = new Button(200, 100, 'Stop');
+newButton.showBtn();
+var BootstrapButton = /** @class */ (function (_super) {
+    __extends(BootstrapButton, _super);
+    function BootstrapButton(width, height, text, color) {
+        var _this = _super.call(this, width, height, text) //вызов конструктора родителя
+         || this;
+        _this.color = color; //this доступен только после вызова конструктора родителя
+        return _this;
+    }
+    BootstrapButton.prototype.showBtn = function () {
+        // super.showBtn()//вызов метода родителя
+        document.body.insertAdjacentHTML('beforeend', "<button style=\"width:" + this.width + "; height:" + this.height + ";background-color:" + this.color + "\">" + this.text + "</button>");
+    };
+    return BootstrapButton;
+}(Button));
+var newButton2 = new BootstrapButton(200, 100, 'STOP', 'start');
+newButton2.showBtn();
 //2
 // Реализовать класс, описывающий геометрическую фигуру со свойствами и методами:
 // ■ get-свойство для получения названия фигуры;
@@ -1847,9 +1859,8 @@ printNumbersRecursion(5, 10);
 // Реализуйте классы-наследники: квадрат, прямоугольник и треугольник. Переопределите методы вывода и вычислений в  классах-наследниках.
 // Создайте массив с различными фигурами и выведите информацию о каждой фигуре, включая площадь и периметр.
 var Figure = /** @class */ (function () {
-    function Figure(name, length) {
+    function Figure(name) {
         this.name = name;
-        this.length = length;
     }
     Object.defineProperty(Figure.prototype, "figureName", {
         get: function () {
@@ -1858,18 +1869,75 @@ var Figure = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(Figure.prototype, "figureLength", {
-        get: function () {
-            return this.length;
-        },
-        enumerable: false,
-        configurable: true
-    });
+    Figure.prototype.getFigureInfo = function () {
+    };
+    Figure.prototype.getFigureSquare = function () {
+    };
+    Figure.prototype.getFigurePerimetr = function () {
+    };
     return Figure;
 }());
+var Triangle = /** @class */ (function (_super) {
+    __extends(Triangle, _super);
+    function Triangle(length1, length2, length3) {
+        return _super.call(this) || this;
+    }
+    Triangle.prototype.getFigureSquare = function () {
+        Sq = (this.length1 * this.length2) / 2;
+    };
+    Triangle.prototype.getFigurePerimetr = function () {
+        perimetr = this.length1 + this.length2 + this.length3;
+    };
+    return Triangle;
+}(Figure));
+var Square = /** @class */ (function (_super) {
+    __extends(Square, _super);
+    function Square(length3) {
+        var _this = this;
+        getFigureSquare();
+        {
+            Sq = _this.length3 * 2;
+        }
+        getFigurePerimetr();
+        {
+            perimetr = _this.length3 * 4;
+        }
+        return _this;
+    }
+    return Square;
+}(Figure));
+var Rectangle = /** @class */ (function (_super) {
+    __extends(Rectangle, _super);
+    function Rectangle(length4, length5) {
+        var _this = this;
+        getFigureSquare();
+        {
+            Sq = _this.length4 * _this.length5;
+        }
+        getFigurePerimetr();
+        {
+            perimetr = _this.length4 * 2 + _this.length5 * 2;
+        }
+        return _this;
+    }
+    return Rectangle;
+}(Figure));
+var figures = [
+    new Triangle(4, 6, 3),
+    new Square(6),
+    new Rectangle(4, 7)
+];
+console.log;
 //3
 // Реализуйте класс ExtentedArray, унаследовав его от стандартного класса Array и добавив следующие методы:
 // ■ метод getString(separator) – для получения строки со всеми элементами массива, перечисленными через указанный разделитель: запятая, тире, пробел и т. д.;
 // ■ метод getHtml(tagName) – для получения строки с html кодом, где каждый элемент массива будет обернут в указанный тег (учтите, если указывается тег li, то все элементы
 // дополнительно необходимо обернуть в ul).
 // Создайте объект класса ExtentedArray, заполните его данными и выведите на экран результаты работы методов getString() и getHtml().
+var ExtentedArray = /** @class */ (function (_super) {
+    __extends(ExtentedArray, _super);
+    function ExtentedArray() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return ExtentedArray;
+}(Array));

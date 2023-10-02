@@ -1846,22 +1846,22 @@ class Marker {
     [this.colour, this.ink] = [...newProperties]
   }
 
-  print(line) {
-    let m = document.getElementById("content")
-    for (let i = 0; i < line.lenght; i++) {
-      if (this.ink != 0) {
-        if (line[i] == " ") {
-          this.ink += 0.5;
-        }
-        m.innerHTML += line[i]
-        m.style.color = this.colour
-        this.ink -= 0.5;
-      } else {
-        document.write("Marker is over")
-        break
-      }
-    }
-  }
+  // print(line) {
+  //   let m = document.getElementById("content")
+  //   for (let i = 0; i < line.lenght; i++) {
+  //     if (this.ink != 0) {
+  //       if (line[i] == " ") {
+  //         this.ink += 0.5;
+  //       }
+  //       m.innerHTML += line[i]
+  //       m.style.color = this.colour
+  //       this.ink -= 0.5;
+  //     } else {
+  //       document.write("Marker is over")
+  //       break
+  //     }
+  //   }
+  // }
 }
 
 class FilledMarker extends Marker {
@@ -1878,7 +1878,7 @@ let marker = new FilledMarker("#432", 15)
 marker.fill(32)
 const l = 'hello'
 
-marker.print(l)
+// marker.print(l)
 document.body.setAttribute("style", "font-size: 15px; text-align:center;");
 
 //2
@@ -2017,6 +2017,35 @@ printNumbersRecursion(5, 10)
 // Реализовать класс Button, который содержит ширину, высоту, текст кнопки и метод showBtn(), который выводит кнопку на экран с помощью тега button и функции document.write().
 // Реализовать класс BootstrapButton, унаследовав его от класса Button. Добавить поле color и переопределить метод showBtn() так, чтобы кнопка выводилась со стилями и указанным цветом.
 
+class Button {
+  width
+  height
+  text
+  constructor(width: number, height: number, text: string) {
+    this.width = width
+    this.height = height
+    this.text = text
+  }
+  showBtn() {
+    document.body.insertAdjacentHTML('beforeend', `<button style="width:${this.width}; height:${this.height};">${this.text}</button>`)
+  }
+}
+const newButton = new Button(200, 100, 'Stop')
+newButton.showBtn()
+class BootstrapButton extends Button {
+  color
+  constructor(width: number, height: number, text: string, color: string) {
+    super(width, height, text)//вызов конструктора родителя
+    this.color = color//this доступен только после вызова конструктора родителя
+  }
+  showBtn() {
+    // super.showBtn()//вызов метода родителя
+    document.body.insertAdjacentHTML('beforeend', `<button style="width:${this.width}; height:${this.height};background-color:${this.color}">${this.text}</button>`)
+  }
+}
+
+const newButton2 = new BootstrapButton(200, 100, 'STOP', 'start')
+newButton2.showBtn()
 
 //2
 // Реализовать класс, описывающий геометрическую фигуру со свойствами и методами:
@@ -2029,18 +2058,67 @@ printNumbersRecursion(5, 10)
 
 class Figure {
   name
-  length
-  constructor(name:string,length:string) {
+  constructor(name: string) {
     this.name = name;
-    this.length = length;
   }
   get figureName() {
     return this.name
   }
-  get figureLength() {
-    return this.length
+  getFigureInfo() {
+  }
+  getFigureSquare() {
+  }
+  getFigurePerimetr() {
   }
 }
+
+class Triangle extends Figure {
+  length1
+  length2
+  length3
+  constructor(length1: number, length2: number, length3: number) {
+    super()
+  }
+  getFigureSquare() {
+    Sq = (this.length1 * this.length2) / 2
+  }
+  getFigurePerimetr() {
+    perimetr = this.length1 + this.length2 + this.length3
+  }
+}
+
+class Square extends Figure {
+  length3
+  constructor(length3) {
+    getFigureSquare() {
+      Sq = this.length3 * 2
+    }
+    getFigurePerimetr() {
+      perimetr = this.length3 * 4
+    }
+  }
+}
+
+class Rectangle extends Figure {
+  length4
+  length5
+  constructor(length4,length5) {
+    getFigureSquare() {
+      Sq = this.length4*this.length5
+    }
+    getFigurePerimetr() {
+      perimetr = this.length4*2+this.length5*2
+    }
+  }
+}
+
+let figures = [
+  new Triangle(4,6,3),
+  new Square(6),
+  new Rectangle(4,7)
+]
+console.log 
+
 
 //3
 // Реализуйте класс ExtentedArray, унаследовав его от стандартного класса Array и добавив следующие методы:
@@ -2048,3 +2126,7 @@ class Figure {
 // ■ метод getHtml(tagName) – для получения строки с html кодом, где каждый элемент массива будет обернут в указанный тег (учтите, если указывается тег li, то все элементы
 // дополнительно необходимо обернуть в ul).
 // Создайте объект класса ExtentedArray, заполните его данными и выведите на экран результаты работы методов getString() и getHtml().
+
+class ExtentedArray extends Array {
+  
+}
