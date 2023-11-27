@@ -2072,52 +2072,52 @@ class Figure {
   }
 }
 
-class Triangle extends Figure {
-  length1
-  length2
-  length3
-  constructor(length1: number, length2: number, length3: number) {
-    super()
-  }
-  getFigureSquare() {
-    Sq = (this.length1 * this.length2) / 2
-  }
-  getFigurePerimetr() {
-    perimetr = this.length1 + this.length2 + this.length3
-  }
-}
+// class Triangle extends Figure {
+//   length1
+//   length2
+//   length3
+//   constructor(length1: number, length2: number, length3: number) {
+//     super()
+//   }
+//   getFigureSquare() {
+//     Sq = (this.length1 * this.length2) / 2
+//   }
+//   getFigurePerimetr() {
+//     perimetr = this.length1 + this.length2 + this.length3
+//   }
+// }
 
-class Square extends Figure {
-  length3
-  constructor(length3) {
-    getFigureSquare() {
-      Sq = this.length3 * 2
-    }
-    getFigurePerimetr() {
-      perimetr = this.length3 * 4
-    }
-  }
-}
+// class Square extends Figure {
+//   length3
+//   constructor(length3) {
+//     getFigureSquare() {
+//       Sq = this.length3 * 2
+//     }
+//     getFigurePerimetr() {
+//       perimetr = this.length3 * 4
+//     }
+//   }
+// }
 
-class Rectangle extends Figure {
-  length4
-  length5
-  constructor(length4,length5) {
-    getFigureSquare() {
-      Sq = this.length4*this.length5
-    }
-    getFigurePerimetr() {
-      perimetr = this.length4*2+this.length5*2
-    }
-  }
-}
+// class Rectangle extends Figure {
+//   length4
+//   length5
+//   constructor(length4,length5) {
+//     getFigureSquare() {
+//       Sq = this.length4*this.length5
+//     }
+//     getFigurePerimetr() {
+//       perimetr = this.length4*2+this.length5*2
+//     }
+//   }
+// }
 
-let figures = [
-  new Triangle(4,6,3),
-  new Square(6),
-  new Rectangle(4,7)
-]
-console.log 
+// let figures = [
+//   new Triangle(4,6,3),
+//   new Square(6),
+//   new Rectangle(4,7)
+// ]
+// console.log 
 
 
 //3
@@ -2130,3 +2130,30 @@ console.log
 class ExtentedArray extends Array {
   
 }
+
+// dz 3-1
+//Создать html-страницу для ввода имени пользователя.
+// Необходимо проверять каждый символ, который вводит пользователь. Если он ввел цифру, то не отображать ее в input.
+
+//1
+let validate
+validate.addEventListener("input", function (e) {
+  let regex = /[A-Za-zА-Яа-я -]/;
+  let chars = e.target.value.split("");
+  let char = chars.pop();
+  if (!regex.test(char)) {
+    e.target.value = chars.join("");
+  }
+})
+
+//2
+// Создать html-страницу с кнопкой Открыть и модальным окном. На модальном окне должен быть текст и кнопка Закрыть.
+// Изначально модальное окно не отображается. При клике на кнопку Открыть появляется модальное окно, на кнопку Закрыть – исчезает.
+
+openModal.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+
+closeModal.addEventListener("click", function () {
+  modal.style.display = "none";
+});

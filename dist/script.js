@@ -1877,57 +1877,49 @@ var Figure = /** @class */ (function () {
     };
     return Figure;
 }());
-var Triangle = /** @class */ (function (_super) {
-    __extends(Triangle, _super);
-    function Triangle(length1, length2, length3) {
-        return _super.call(this) || this;
-    }
-    Triangle.prototype.getFigureSquare = function () {
-        Sq = (this.length1 * this.length2) / 2;
-    };
-    Triangle.prototype.getFigurePerimetr = function () {
-        perimetr = this.length1 + this.length2 + this.length3;
-    };
-    return Triangle;
-}(Figure));
-var Square = /** @class */ (function (_super) {
-    __extends(Square, _super);
-    function Square(length3) {
-        var _this = this;
-        getFigureSquare();
-        {
-            Sq = _this.length3 * 2;
-        }
-        getFigurePerimetr();
-        {
-            perimetr = _this.length3 * 4;
-        }
-        return _this;
-    }
-    return Square;
-}(Figure));
-var Rectangle = /** @class */ (function (_super) {
-    __extends(Rectangle, _super);
-    function Rectangle(length4, length5) {
-        var _this = this;
-        getFigureSquare();
-        {
-            Sq = _this.length4 * _this.length5;
-        }
-        getFigurePerimetr();
-        {
-            perimetr = _this.length4 * 2 + _this.length5 * 2;
-        }
-        return _this;
-    }
-    return Rectangle;
-}(Figure));
-var figures = [
-    new Triangle(4, 6, 3),
-    new Square(6),
-    new Rectangle(4, 7)
-];
-console.log;
+// class Triangle extends Figure {
+//   length1
+//   length2
+//   length3
+//   constructor(length1: number, length2: number, length3: number) {
+//     super()
+//   }
+//   getFigureSquare() {
+//     Sq = (this.length1 * this.length2) / 2
+//   }
+//   getFigurePerimetr() {
+//     perimetr = this.length1 + this.length2 + this.length3
+//   }
+// }
+// class Square extends Figure {
+//   length3
+//   constructor(length3) {
+//     getFigureSquare() {
+//       Sq = this.length3 * 2
+//     }
+//     getFigurePerimetr() {
+//       perimetr = this.length3 * 4
+//     }
+//   }
+// }
+// class Rectangle extends Figure {
+//   length4
+//   length5
+//   constructor(length4,length5) {
+//     getFigureSquare() {
+//       Sq = this.length4*this.length5
+//     }
+//     getFigurePerimetr() {
+//       perimetr = this.length4*2+this.length5*2
+//     }
+//   }
+// }
+// let figures = [
+//   new Triangle(4,6,3),
+//   new Square(6),
+//   new Rectangle(4,7)
+// ]
+// console.log 
 //3
 // Реализуйте класс ExtentedArray, унаследовав его от стандартного класса Array и добавив следующие методы:
 // ■ метод getString(separator) – для получения строки со всеми элементами массива, перечисленными через указанный разделитель: запятая, тире, пробел и т. д.;
@@ -1941,3 +1933,25 @@ var ExtentedArray = /** @class */ (function (_super) {
     }
     return ExtentedArray;
 }(Array));
+// dz 3-1
+//Создать html-страницу для ввода имени пользователя.
+// Необходимо проверять каждый символ, который вводит пользователь. Если он ввел цифру, то не отображать ее в input.
+//1
+var validate;
+validate.addEventListener("input", function (e) {
+    var regex = /[A-Za-zА-Яа-я -]/;
+    var chars = e.target.value.split("");
+    var char = chars.pop();
+    if (!regex.test(char)) {
+        e.target.value = chars.join("");
+    }
+});
+//2
+// Создать html-страницу с кнопкой Открыть и модальным окном. На модальном окне должен быть текст и кнопка Закрыть.
+// Изначально модальное окно не отображается. При клике на кнопку Открыть появляется модальное окно, на кнопку Закрыть – исчезает.
+openModal.addEventListener("click", function () {
+    modal.style.display = "block";
+});
+closeModal.addEventListener("click", function () {
+    modal.style.display = "none";
+});
