@@ -1,3 +1,4 @@
+import './style.css'
 
 // dz3-module1
 // 1 Подсчитать сумму всех чисел в заданном пользователем диапазоне. 
@@ -2150,6 +2151,9 @@ validate.addEventListener("input", function (e) {
 // Создать html-страницу с кнопкой Открыть и модальным окном. На модальном окне должен быть текст и кнопка Закрыть.
 // Изначально модальное окно не отображается. При клике на кнопку Открыть появляется модальное окно, на кнопку Закрыть – исчезает.
 
+let openModal = document.getElementById('openModal')
+let modal = document.getElementById('modal')
+let closeModal = document.getElementById('closeModal')
 openModal.addEventListener("click", function () {
   modal.style.display = "block";
 });
@@ -2159,3 +2163,39 @@ closeModal.addEventListener("click", function () {
 });
 
 //3
+// Создать html-страницу с футбольным полем, которое занимает всю ширину и высоту экрана, и мячом размером 100 на 100 пикселей.
+// Сделать так, чтобы при клике мышкой по полю, мяч плавно перемещался на место клика. Учтите: необходимо, чтобы центр
+// мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.
+
+
+const field = document.getElementById('field')
+  const ball = document.getElementById('ball')
+  
+  const ballWidth = ball?.clientWidth
+  const ballHeight = ball?.clientHeight
+  const fieldWidth = field?.clientWidth
+  const fieldHeight = field?.clientHeight
+  
+  let deg = 0
+
+  field?.addEventListener('click', (e)=>{
+    if (e.target == field) {
+      let x = e.offsetX
+      let y = e.offsetY
+      console.log(x,y)
+      if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
+        if (deg == 360) deg = 0
+        x = x - (ballWidth/2)
+        y = y - (ballHeight/2)
+        if (x < 0) x = 0
+        if (y < 0) y = 0
+        if (x + (ballWidth) > fieldWidth) x = fieldWidth - (ballWidth)
+        if (y + (ballHeight) > fieldHeight) y = fieldHeight - (ballHeight)
+        ball.style.left = x + 'px'
+        ball.style.top = y + 'px'
+        console.log(x,y)
+        deg += 180
+        ball.style.transform = `rotate(${deg}deg)`
+      }
+    }    
+  })

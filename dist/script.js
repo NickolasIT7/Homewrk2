@@ -1,13 +1,4 @@
-// dz3-module1
-// 1 Подсчитать сумму всех чисел в заданном пользователем диапазоне. 
-// let range1 = +(prompt ('введите начало диапазона') as string)
-// let range2 = +(prompt ('введите конец диапозона') as string)
-// let sum = 0;
-// while (range1 <= range2) {
-// sum+=range1
-// range1++
-// }
-// console.log (sum);
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -28,6 +19,18 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
+exports.__esModule = true;
+require("./style.css");
+// dz3-module1
+// 1 Подсчитать сумму всех чисел в заданном пользователем диапазоне. 
+// let range1 = +(prompt ('введите начало диапазона') as string)
+// let range2 = +(prompt ('введите конец диапозона') as string)
+// let sum = 0;
+// while (range1 <= range2) {
+// sum+=range1
+// range1++
+// }
+// console.log (sum);
 //2 Запросить 2 числа и найти только наибольший общий делитель.
 // let a = +(prompt ('введите первое число') as string)
 // let b = +(prompt ('введите второе число') as string)
@@ -1949,6 +1952,9 @@ validate.addEventListener("input", function (e) {
 //2
 // Создать html-страницу с кнопкой Открыть и модальным окном. На модальном окне должен быть текст и кнопка Закрыть.
 // Изначально модальное окно не отображается. При клике на кнопку Открыть появляется модальное окно, на кнопку Закрыть – исчезает.
+var openModal = document.getElementById('openModal');
+var modal = document.getElementById('modal');
+var closeModal = document.getElementById('closeModal');
 openModal.addEventListener("click", function () {
     modal.style.display = "block";
 });
@@ -1956,3 +1962,39 @@ closeModal.addEventListener("click", function () {
     modal.style.display = "none";
 });
 //3
+// Создать html-страницу с футбольным полем, которое занимает всю ширину и высоту экрана, и мячом размером 100 на 100 пикселей.
+// Сделать так, чтобы при клике мышкой по полю, мяч плавно перемещался на место клика. Учтите: необходимо, чтобы центр
+// мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.
+var field = document.getElementById('field');
+var ball = document.getElementById('ball');
+var ballWidth = ball === null || ball === void 0 ? void 0 : ball.clientWidth;
+var ballHeight = ball === null || ball === void 0 ? void 0 : ball.clientHeight;
+var fieldWidth = field === null || field === void 0 ? void 0 : field.clientWidth;
+var fieldHeight = field === null || field === void 0 ? void 0 : field.clientHeight;
+var deg = 0;
+field === null || field === void 0 ? void 0 : field.addEventListener('click', function (e) {
+    if (e.target == field) {
+        var x = e.offsetX;
+        var y = e.offsetY;
+        console.log(x, y);
+        if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
+            if (deg == 360)
+                deg = 0;
+            x = x - (ballWidth / 2);
+            y = y - (ballHeight / 2);
+            if (x < 0)
+                x = 0;
+            if (y < 0)
+                y = 0;
+            if (x + (ballWidth) > fieldWidth)
+                x = fieldWidth - (ballWidth);
+            if (y + (ballHeight) > fieldHeight)
+                y = fieldHeight - (ballHeight);
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+            console.log(x, y);
+            deg += 180;
+            ball.style.transform = "rotate(" + deg + "deg)";
+        }
+    }
+});
