@@ -1,6 +1,48 @@
 "use strict";
 
-// dz3-module1
+var __extends = void 0 && (void 0).__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __spreadArrays = void 0 && (void 0).__spreadArrays || function () {
+  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
+    s += arguments[i].length;
+  }
+
+  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
+    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
+      r[k] = a[j];
+    }
+  }
+
+  return r;
+};
+
+exports.__esModule = true;
+
+require("./style.css"); // dz3-module1
 // 1 Подсчитать сумму всех чисел в заданном пользователем диапазоне. 
 // let range1 = +(prompt ('введите начало диапазона') as string)
 // let range2 = +(prompt ('введите конец диапозона') as string)
@@ -71,7 +113,7 @@
 //     let answer = eval(`${firstNumber} ${operator} ${secondNumber}`)
 //     alert(answer);
 // } while (confirm(' Решить еще один пример?'));
-// 7 Запросить у пользователя число и на сколько цифр егосдвинуть. Сдвинуть цифрычисла и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
+// 7 Запросить у пользователя число и на сколько цифр его сдвинуть. Сдвинуть цифрычисла и вывести результат (если число 123456 сдвинуть на 2 цифры, то получится 345612).
 // let input 
 // do {
 // input = prompt ('введите число') as string
@@ -938,6 +980,8 @@
 // 5 Функция добавления нового элемента в массив по указанному индексу.
 // 6 Функция удаления элемента из массива по указанному индексу.
 // 1 
+
+
 var arr = [3, 6, 7, 2, 5, 5, 7, 3, 6, 4];
 
 function showArr(arr) {
@@ -1001,13 +1045,13 @@ var arr2 = [5, 1, 6, 3, 2];
 function getUnicArray(a, b) {
   var arr = [];
 
-  for (var _i = 0, a_1 = a; _i < a_1.length; _i++) {
-    var el = a_1[_i];
+  for (var _a = 0, a_1 = a; _a < a_1.length; _a++) {
+    var el = a_1[_a];
     if (!arr.includes(el)) arr.push(el);
   }
 
-  for (var _a = 0, b_1 = b; _a < b_1.length; _a++) {
-    var el = b_1[_a];
+  for (var _b = 0, b_1 = b; _b < b_1.length; _b++) {
+    var el = b_1[_b];
 
     for (var i = 0; i < arr.lenght; i++) {
       console.log('arr[+i+],arr[i]');
@@ -1052,8 +1096,1109 @@ console.log(newMassive(arr4, arr02)); // Создать массив фрукт�
 var fruits = ['Яблоко', 'Апельсин', 'Мандарин', 'Клубника', 'Груша'];
 
 function sortFruits(arr) {
-  arr.sort(fruits);
+  fruits.sort(arr);
   return sortFruits;
 }
 
-console.log(sortFruits(fruits));
+console.log(sortFruits(function (a, b) {
+  return a > b;
+})); //2 
+
+function findFruits(a, b) {
+  if (a.toLowerCase() < b.toLowerCase()) {
+    return -1;
+  }
+
+  if (a.toLowerCase() > b.toLowerCase()) {
+    return 1;
+  }
+
+  return 0;
+}
+
+console.log(fruits.indexOf('Мандарин')); // pz1-5
+// Во всех заданиях обязательно использовать рекурсию.
+// 1 Написать функцию, которая вычисляет факториал заданного числа.
+// 2 Написать функцию, которая выводит все числа из заданного пользователем диапазона в прямом порядке. И еще одну функцию – для вывода в обратном порядке.
+// 3 Написать функцию, которая выводит переданное ей число задом наперед.
+// Например: число 1234 вывести как 4321
+// 4 Написать функцию, которая считает сумму цифр числа.
+// Например: число 1357, сумма 1 + 3 + 5 + 7 = 16
+// 5 Написать функцию, которая принимает число и выводит соответствующее количество вложенных пар круглых скобок.Например: число 4 – (((()))).
+//1
+
+function factorial(n) {
+  return n != 1 ? n * factorial(n - 1) : 1;
+}
+
+console.log(factorial(4)); //2
+//в прямом порядке
+
+function rightNumbers(s) {
+  return s ? rightNumbers(s - 1) + s.toString() : "";
+}
+
+console.log(rightNumbers(7)); //в обратном порядке
+
+function backNumbers(s) {
+  return s > 1 ? s.toString() + backNumbers(s - 1) : 1;
+}
+
+console.log(backNumbers(7)); //3
+
+function reverseNumber(f) {
+  f = f + '';
+  return f.split('').reverse().join('');
+}
+
+console.log(reverseNumber(6421)); //4
+
+function sumNumber(s) {
+  var ss = s.toString();
+
+  if (ss.length == 1) {
+    return s;
+  } else {
+    return +ss[0] + sumNumber(+ss.slice(1));
+  }
+}
+
+console.log(sumNumber(8751)); //5
+
+function sumBracket(s) {
+  if (s == 0) return '';
+  return '(' + sumBracket(s - 1) + ')';
+}
+
+console.log(sumBracket(3)); //  dz1-5
+// Во всех заданиях обязательно использовать рекурсию
+//  1 Написать функцию возведения числа в степень.
+//  2 Написать функцию поиска наибольшего общего делителя.
+//  3 Написать функцию для поиска максимальной цифры в числе.
+//  4 Написать функцию, которая определяет простое ли переданное число.
+//  5 Написать функцию для вывода всех множителей переданного числа в возрастающем порядке.
+//  Например: число 18 – множители 2 * 3 * 3
+//  6 Написать функцию, которая возвращает число Фибоначчи по переданному порядковому номеру.
+//  Числа Фибоначчи: 1, 1, 2, 3, 5, 8, 13… Ряд основывается на том, что каждое число равно сумме двух предыдущих чисел.
+//  Например: порядковый номер 3 – число 2, порядковый номер 6 – число 8
+// 1  
+
+function pow(x, n) {
+  if (n == 1) {
+    return x;
+  } else {
+    return x * pow(x, n - 1);
+  }
+}
+
+console.log(pow(4, 3)); // 2 
+
+function maxDevider(a, b) {
+  if (b > a) return maxDevider(b, a);
+  if (!b) return a;
+  return maxDevider(b, a % b);
+}
+
+console.log(maxDevider(5, 15)); // 3
+// let num = 1463
+// function maxNumber(arrElements) {
+//  let arr = [] 
+//  arr.push(arrElements)
+//  while(arr.length>0)
+//  arrElements = arr.pop()
+// for (let s=0; s < arr.length; s++)
+// {
+// let el = arr[s]
+// if(arr.isArray(el)) {
+// arr.push(el)
+// continue  
+// }
+// if (el>max) {
+// max=el  
+// }
+// }
+// return max
+// }
+// console.log(maxNumber(arrElements))
+// 4
+
+function primeNumber(n) {
+  var i = 2;
+
+  if (n == i && n % i == 0) {
+    return 'Простое число';
+  } else if (n > i && n % i == 0) {
+    return 'Составное число';
+  } else {
+    return primeNumber(n);
+  }
+}
+
+console.log(primeNumber(16)); //5 
+
+function getPrimeFactors(n) {
+  function primeNumber(n) {
+    var i;
+
+    for (i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  var i,
+      sequence = [];
+
+  for (i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0 && primeNumber(i)) {}
+  }
+
+  return sequence;
+}
+
+console.log(getPrimeFactors(12)); //6
+
+function fib(n) {
+  return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+}
+
+console.log(fib(4));
+console.log(fib(8)); //dz4-2
+//1
+//Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+// ■ поле, хранящее радиус окружности;
+// ■ get-свойство, возвращающее радиус окружности;
+// ■ set-свойство, устанавливающее радиус окружности;
+// ■ get-свойство, возвращающее диаметр окружности;
+// ■ метод, вычисляющий площадь окружности;
+// ■ метод, вычисляющий длину окружности.
+// Продемонстрировать работу свойств и методов.
+
+var Circle =
+/** @class */
+function () {
+  function Circle(radius) {
+    // все, что в комментариях происходит неявно
+    // this = {}  
+    this._radius = radius; // console.log(this) // {_radius:r, prototype:Circle}
+  }
+
+  Object.defineProperty(Circle.prototype, "radius", {
+    get: function get() {
+      return this._radius;
+    },
+    set: function set(value) {
+      this._radius = value;
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(Circle.prototype, "diametr", {
+    get: function get() {
+      var diametr = this._radius * 2;
+      return diametr;
+    },
+    enumerable: false,
+    configurable: true
+  });
+
+  Circle.prototype.getSquare = function () {
+    return Math.PI * Math.pow(this._radius, 2);
+  };
+
+  Circle.prototype.getCircleLength = function () {
+    return Math.PI * (this._radius * 2);
+  };
+
+  return Circle;
+}();
+
+var myCircle = new Circle(5); // console.log(myCircle._radius)
+
+console.log(myCircle.radius);
+myCircle.radius = 10;
+console.log(myCircle.radius);
+console.log(myCircle.diametr);
+console.log(myCircle.getSquare());
+console.log(myCircle.getCircleLength());
+console.log(myCircle); //2
+// Реализовать класс, описывающий html элемент.
+// Класс HtmlElement должен содержать внутри себя:
+// ■ название тега;
+// ■ самозакрывающийся тег или нет;
+// ■ текстовое содержимое;
+// ■ массив атрибутов;
+// ■ массив стилей;
+// ■ массив вложенных таких же тегов;
+// ■ метод для установки атрибута;
+// ■ метод для установки стиля;
+// ■ метод для добавления вложенного элемента в конец текущего элемента;
+// ■ метод для добавления вложенного элемента в начало текущего элемента;
+// ■ метод getHtml(), который возвращает html код в виде строки, включая html код вложенных элементов.
+
+var HtmlElement =
+/** @class */
+function () {
+  function HtmlElement(tag, single, text) {
+    this.attrs = [];
+    this.styles = [];
+    this.elements = [];
+    this.tag = tag;
+    this.single = single;
+    this.text = text;
+  }
+
+  HtmlElement.prototype.setAttr = function (attr) {
+    this.attrs.push(attr);
+  };
+
+  HtmlElement.prototype.setStyle = function (style) {
+    this.styles.push(style);
+  };
+
+  HtmlElement.prototype.appendElement = function (element) {
+    this.elements.push(element);
+  };
+
+  HtmlElement.prototype.prependElement = function (element) {
+    this.elements.unshift(element);
+  };
+
+  HtmlElement.prototype.getHtml = function () {
+    if (this.single) {
+      return "<" + this.tag + " " + this.attrs.join(' ') + " value=\"" + this.text + "\" >";
+    } else {
+      var begin = "<" + this.tag + " " + this.attrs.join(' ') + ">" + this.text;
+      var end = "</" + this.tag + ">";
+      return begin + this.elements.map(function (el) {
+        return el.getHtml();
+      }).join('') + end;
+    }
+  };
+
+  return HtmlElement;
+}();
+
+var imgElement = new HtmlElement('img', true, '');
+var pElement = new HtmlElement('p', false, 'Getafe');
+var h3Element = new HtmlElement('h3', false, 'Getafe');
+h3Element.setAttr('class="colorRed"');
+console.log(imgElement);
+imgElement.setAttr('src=https://upload.wikimedia.org/wikipedia/ru/thumb/3/3f/Getafe_cf_200px_RU.png/200px-Getafe_cf_200px_RU.png');
+imgElement.setStyle('color:red');
+imgElement.setStyle('padding:10px');
+imgElement.setAttr("style=\"" + imgElement.styles.join(';') + "\"");
+console.log(imgElement.getHtml());
+pElement.appendElement(imgElement);
+console.log(pElement.getHtml());
+var divElement = new HtmlElement('div', false, '');
+divElement.setAttr('style="width:300px; margin:10px"');
+var wrapperElement = new HtmlElement('div', false, '');
+wrapperElement.setAttr('id="wrapper"');
+wrapperElement.setStyle('display: flex');
+wrapperElement.appendElement(divElement);
+divElement.appendElement(h3Element);
+divElement.appendElement(imgElement);
+divElement.appendElement(pElement); //3
+// Реализовать класс, который описывает css класс. Класс CssClass должен содержать внутри себя:
+// ■ название css класса;
+// ■ массив стилей;
+// ■ метод для установки стиля;
+// ■ метод для удаления стиля;
+// ■ метод getCss(), который возвращает css код в виде строки
+
+var CssClass =
+/** @class */
+function () {
+  function CssClass(name) {
+    this.styles = [];
+    this.name = name;
+  }
+
+  CssClass.prototype.setStyle = function (style) {
+    this.styles.push(style);
+  };
+
+  CssClass.prototype.delStyle = function (style) {
+    var id = this.styles.findIndex(function (el) {
+      el == style;
+    });
+    if (id != 1) this.styles.splice(id, 1);
+  };
+
+  CssClass.prototype.getCss = function () {
+    return "." + this.name + " {" + this.styles.join(';') + "}";
+  };
+
+  return CssClass;
+}();
+
+var colorRed = new CssClass('colorRed');
+colorRed.setStyle('color:red');
+colorRed.setStyle('font-size:24px');
+var colorGreen = new CssClass('colorGreen');
+colorGreen.setStyle('color:green'); //4
+// Реализовать класс, описывающий блок html документ.
+// Класс HtmlBlock должен содержать внутри себя:
+// ■ коллекцию стилей, описанных с помощью класса CssClass;
+// ■ корневой элемент, описанный с помощью класса
+// HtmlElement;
+// ■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом
+// все html содержимое из корневого тега и его вложенных элементов).
+
+var MainBlockHtml =
+/** @class */
+function () {
+  function MainBlockHtml(h, a) {
+    this.htmlObject = h;
+    this.cssArray = a;
+  }
+
+  MainBlockHtml.prototype.getCode = function () {
+    document.head.innerHTML += "<style>" + this.cssArray.map(function (el) {
+      return el.getCss();
+    }).join('\n') + "</style>";
+    document.body.innerHTML += this.htmlObject.getHtml();
+  };
+
+  return MainBlockHtml;
+}();
+
+var pageObj = new MainBlockHtml(divElement, [colorRed, colorGreen]);
+pageObj.getCode(); //pz4-2
+//1
+// Реализовать класс PrintMaсhine, которой состоит из:
+// ■ размера шрифта;
+// ■ цвета шрифта;
+// ■ семейства шрифта;
+// ■ метода print(), который принимает текст и печатает его соответствующим шрифтом с помощью document.write().
+// Создать объект такого класса и продемонстрировать работу метода.
+
+var PrintMachine =
+/** @class */
+function () {
+  function PrintMachine(size, color, font, tag) {
+    if (tag === void 0) {
+      tag = 'p';
+    }
+
+    this.size = 14;
+    this.color = 'red';
+    this.font = 'Arial';
+    this.tag = 'p';
+
+    this.print = function (text) {
+      // @ts-ignore
+      document.write("<" + this.tag + " style=\"font-size:" + this.size + "; color: " + this.color + "; font-family:" + this.font + "\">" + text + "</" + this.tag + ">");
+    };
+
+    this.size = size;
+    this.color = color;
+    this.font = font;
+    this.tag = tag;
+  }
+
+  return PrintMachine;
+}();
+
+console.log(PrintMachine);
+var header = new PrintMachine(20, 'black', 'Arial', 'h2');
+var text = new PrintMachine(16, 'black', 'Arial', 'p');
+var datePrint = new PrintMachine(18, 'black', 'Arial', 'p');
+
+function PM(size, color, font, tag) {
+  if (tag === void 0) {
+    tag = 'p';
+  }
+
+  return function print(text) {
+    document.write("<" + tag + " style=\"font-size:" + size + "; color: " + color + "; font-family:" + font + "\">" + text + "</" + tag + ">");
+    var rPA14 = PM(14, 'red', 'Arial', 'st');
+    rPA14('sfdsfsdfwerwersdf sdfds fsdfs');
+    var bHT16 = PM(16, 'blue', 'Tahoma', 'h1');
+    bHT16('sdfsdfjwiooiwe nkuhyiuo hfsd');
+    var redParagraphArial14 = new PrintMachine(14, 'red', 'Arial', 'st');
+    var blueHeaderTahoma16 = new PrintMachine(16, 'blue', 'Tahoma', 'h1');
+    blueHeaderTahoma16.tag = 'h2';
+    blueHeaderTahoma16.print('sdfhsdkjfhsdk kjh ksjfdh sdk');
+    redParagraphArial14.print('fsddsfdsfsd');
+  };
+}
+
+;
+[0, 1, 2].forEach(function (el) {
+  console.log(el);
+});
+
+function forEach(arr, fn) {
+  for (var i = 0; i < arr.length; i++) {
+    fn(arr[i], i, arr);
+  }
+}
+
+forEach([0, 1, 2], function (el, i) {
+  console.log(el, i);
+}); //2
+//Реализовать класс, описывающий новость (заголовок, текст, массив тегов, дата публикации). В классе необходимо реализовать один метод print.
+// Обратите внимание на то, как выводится дата:
+// ■ если с даты публикации прошло менее дня, то выводится «сегодня»
+// ■ если с даты публикации прошло менее недели, то выводится «N дней назад»
+// ■ в остальных случаях, полная дата в формате «дд.мм.гггг».
+
+var infoNews =
+/** @class */
+function () {
+  function infoNews(heading, text, arrayTags, date) {
+    this.heading = heading;
+    this.text = text;
+    this.arrayTags = arrayTags;
+    this.date = new Date(date);
+  }
+
+  infoNews.prototype.getDate = function () {
+    var today = new Date();
+    var yesterday = new Date(today.valueOf() - 1000 * 60 * 60 * 24);
+
+    if (this.date.toLocaleDateString() == today.toLocaleDateString()) {
+      return 'today';
+    } else if (this.date.valueOf() > today.valueOf() - 1000 * 60 * 60 * 24 * 7) {
+      return ((today.valueOf() - this.date.valueOf()) / (1000 * 60 * 60 * 24)).toFixed(0) + ' days ago';
+    } else {
+      return this.date.toLocaleDateString();
+    }
+  };
+
+  infoNews.prototype.print = function () {
+    header.print(this.heading);
+    text.print(this.text);
+    datePrint.print("<i>" + this.getDate() + "<i>");
+    text.print(this.arrayTags.join('  '));
+  };
+
+  return infoNews;
+}();
+
+var post = new infoNews('you', 'never', ['walk', 'alone'], '2023-07-29');
+console.log(post.getDate()); //3
+// Реализовать класс, описывающий новостную ленту. Класс должен содержать:
+// ■ массив новостей;
+// ■ get-свойство, которое возвращает количество новостей;
+// ■ метод для вывода на экран всех новостей;
+// ■ метод для добавления новости;
+// ■ метод для удаления новости;
+// ■ метод для сортировки новостей по дате (от последних новостей до старых);
+// ■ метод для поиска новостей по тегу (возвращает массив новостей, в которых указан переданный в метод тег).
+// Продемонстрировать работу написанных методов.
+
+var NewsFeed =
+/** @class */
+function () {
+  function NewsFeed(NewsArray) {
+    this.array = NewsArray;
+  }
+
+  Object.defineProperty(NewsFeed.prototype, "count", {
+    get: function get() {
+      return this.array.length;
+    },
+    enumerable: false,
+    configurable: true
+  });
+
+  NewsFeed.prototype.print = function () {
+    this.array.forEach(function (el) {
+      el.print();
+    });
+  };
+
+  return NewsFeed;
+}();
+
+var feed = new NewsFeed([new infoNews('you', 'never', ['walk', 'alone'], '2023-08-23'), new infoNews('you2', 'never', ['walk', 'alone'], '2023-08-21'), new infoNews('you3', 'never', ['walk', 'alone'], '2023-07-24'), new infoNews('you4', 'never', ['walk', 'alone'], '2023-07-09')]); // infoNews.push('you', 'never', ['walk', 'alone'], '2023-08-25')
+// console.log(NewsFeed)
+// let index = arr.findIndex(el => el.this.heading == this.heading)
+// infoNews.splice(index, 1)
+// console.log(NewsFeed)
+// infoNews.sort(a.date - b.date)
+// console.log(NewsFeed)
+// infoNews.filter(this.arrayTags = 'you')
+// console.log(NewsFeed)
+//dz3-2
+//1 Написать функцию, которая принимает строку и выводит статистику о ней: количество букв, количество цифр и количество других знаков.
+
+function displayStringStatistics(strc) {
+  var letters = 'abcdefghijklmnopqrstuvwxyz';
+  var digits = '0123456789';
+  var chars = '_+=-!@#$%^&*()~`*[]{}\\|/';
+  var l = 0,
+      d = 0,
+      c = 0;
+
+  for (var _i = 0, strc_1 = strc; _i < strc_1.length; _i++) {
+    var _char = strc_1[_i];
+    if (letters.includes(_char)) l++;
+    if (digits.includes(_char)) d++;
+    if (chars.includes(_char)) c++;
+  }
+
+  console.log("num of letters " + l + "\nnum of digits " + d + "\nnum of chars " + c); // return {letters:l,digits:d,chars:c}
+}
+
+displayStringStatistics('as35dfsj24Stsas#'); //2 Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
+// Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
+// function textToString(num) {
+//   let firstNumber = ['один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+//   let secondNumber = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+//   let thirdNumber = ['двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+//   if (num > 0 && num <= 9) {
+//     return firstNumber[num - 1]
+//   }
+//   if (num >= 10 && num <= 20) {
+//     return secondNumber[num - 1]
+//   }
+//   if (num >= 20 && num <= 99) {
+//     let str = (`${num}`)
+//     str = str.split('');
+//     let first = str[0]
+//     let second = str[1]
+//     return `${thirdNumber[first - 2]} ${firstNumber[second - 1]}`
+//   }
+// }
+// console.log(textToString(24))
+// console.log(textToString(36))
+// console.log(textToString(61))
+//3 Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а цифры – на знак нижнего подчеркивания.
+
+function changeSymbol(str) {
+  var arr = str.split(''); //превращение строки в массив 
+
+  var big = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var small = 'abcdefghijklmnopqrstuvwxyz';
+  var num = '0123456789';
+
+  for (var i = 0; i < arr.length; i++) {
+    if (big.includes(arr[i])) {
+      arr[i] = arr[i].toLowerCase();
+    } else if (small.includes(arr[i])) {
+      arr[i] = arr[i].toUpperCase();
+    } else if (num.includes(arr[i])) {
+      arr[i] = '_';
+    }
+  }
+
+  return arr.join('');
+}
+
+console.log(changeSymbol('12axcSs2')); //4 Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size в fontSize, background-color в backgroundColor, text- align в textAlign.
+
+function changeStyleName(style) {
+  var arr = style.split('-');
+  console.log('arr', arr);
+  arr.forEach(function (el, i, arr) {
+    if (i > 0) {
+      console.log('el', el);
+      arr[i] = el[0].toUpperCase() + el.slice(1);
+    }
+  });
+  console.log('arr', arr);
+  return arr.join('');
+}
+
+console.log(changeStyleName('font-size-normal')); //5 Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру. Например: cascading style sheets в CSS, объектно-ориентированное программирование в ООП.
+
+function wordToAbbr(word) {
+  return word.split(' ').map(function (i) {
+    return i[0].toUpperCase();
+  }).join('');
+}
+
+console.log(wordToAbbr('cascading style sheets')); //6 Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и возвращает ее.
+
+function joinStrings() {
+  var strings = [];
+
+  for (var _a = 0; _a < arguments.length; _a++) {
+    strings[_a] = arguments[_a];
+  }
+
+  return strings.join('');
+}
+
+console.log(joinStrings('Google', 'Opera', 'fsfs')); //7 Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
+
+function calculate(num1, num2, operator) {
+  switch (operator) {
+    case "+":
+      return num1 + num2;
+
+    case "-":
+      return num1 - num2;
+
+    case "*":
+      return num1 * num2;
+
+    case "/":
+      if (num2 != 0) {
+        return num1 / num2;
+      } else {
+        return "на 0 делить нельзя";
+      }
+
+  }
+}
+
+console.log(calculate(4, 6, "-"));
+console.log(calculate(2, 5, "*")); //8 Написать функцию, которая получает url и выводит подробную информацию о нем. Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
+// function task(url) {
+//   let arr
+//   let protocol
+//   let domain
+//   let arr1
+//   let way
+//   arr2 = url.split("://")
+//   for (let index = 0; index < arr.lenght; index++) {
+//     protocol = arr[0]
+//     arr1 = arr[0].split("/")
+//     domain = arr1[0]
+//   }
+//   arr1.shift()
+//   way = arr1.join("/")
+//   return "Информация\протокол: " + protocol + "\домен: " + domain + "\путь: " + way;
+// }
+// console.log(task("https://itstep.org/ua/about"))
+//9 Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью указанного разделителя.
+// Например: строка “10/08/2020”, разделитель “/”, результат: “10”, “08”, “2020”.
+
+function devide(str, devide) {
+  return arr = str.split(devide);
+}
+
+console.log(devide('10/08/2020', '/')); //10 Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте которого может использоваться %, после символа % указывается индекс входного параметра.
+// При выводе вместо %индекс необходимо вывести значение соответствующего входного параметра.
+// Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”
+
+function textConclusion(template) {
+  var strings = [];
+
+  for (var _a = 1; _a < arguments.length; _a++) {
+    strings[_a - 1] = arguments[_a];
+  }
+
+  __spreadArrays(strings).forEach(function (item, index) {
+    return template = template.replace('%' + (index + 1), item);
+  });
+
+  return template;
+}
+
+console.log(textConclusion('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020));
+console.log(textConclusion('Today is %1 %2.%3.%4', 'Monday', 10, 8, 2020)); // dz2-5
+//1
+// Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
+// ■ поле, которое хранит цвет маркера;
+// ■ поле, которое хранит количество чернил в маркере (в процентах);
+// ■ метод для печати (метод принимает строку и выводит текст соответствующим цветом; текст выводится до тех пор, пока в маркере есть чернила; один не пробельный
+// символ – это 0,5% чернил в маркере).
+// Реализовать класс, описывающий заправляющийся маркер, унаследовав его от простого маркера и добавив метод для заправки маркера.Продемонстрировать работу написанных методов.
+
+var Marker =
+/** @class */
+function () {
+  function Marker(colour, ink) {
+    this.colour = colour;
+    this.ink = ink;
+  }
+
+  Object.defineProperty(Marker.prototype, "markerProperties", {
+    get: function get() {
+      return [this.colour, this.ink];
+    },
+    set: function set(newProperties) {
+      var _a;
+
+      _a = __spreadArrays(newProperties), this.colour = _a[0], this.ink = _a[1];
+    },
+    enumerable: false,
+    configurable: true
+  });
+  return Marker;
+}();
+
+var FilledMarker =
+/** @class */
+function (_super) {
+  __extends(FilledMarker, _super);
+
+  function FilledMarker() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  FilledMarker.prototype.fill = function (ink) {
+    if (ink > 100) {
+      ink = 100;
+    } else {
+      this.ink += ink;
+    }
+  };
+
+  return FilledMarker;
+}(Marker);
+
+var marker = new FilledMarker("#432", 15);
+marker.fill(32);
+var l = 'hello'; // marker.print(l)
+
+document.body.setAttribute("style", "font-size: 15px; text-align:center;"); //2
+//Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
+// метод для вывода даты (числа и месяца) текстом;
+// метод для проверки – это прошедшая дата или будущая
+// (если прошедшая, то метод возвращает false; если будущая или текущая, то true);
+// метод для проверки – високосный год или нет;
+// метод, возвращающий следующую дату.
+
+var ExtendedDate =
+/** @class */
+function (_super) {
+  __extends(ExtendedDate, _super);
+
+  function ExtendedDate() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  ExtendedDate.prototype.getRussianDate = function () {
+    var month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+  };
+
+  ExtendedDate.prototype.now = function () {
+    this.now();
+  };
+
+  ExtendedDate.prototype.parse = function (val) {
+    this.parse(val);
+  };
+
+  return ExtendedDate;
+}(Date);
+
+console.log(new ExtendedDate('2020-12-26').getRussianDate());
+
+function checkDate(ExtendedDate) {
+  if (this.now > ExtendedDate) {
+    return false;
+  }
+
+  if (this.now <= ExtendedDate) {
+    return true;
+  }
+}
+
+console.log(checkDate('2023-08-18')); //3
+//Реализовать класс Employee, описывающий работника, и создать массив работников банка.
+//Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка. 
+//Массив работников необходимо передавать через конструктор, а получать html код с помощью метода getHtml().
+//Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
+
+var Employee =
+/** @class */
+function () {
+  function Employee(name, age, post) {
+    this.name = name;
+    this.age = age;
+    this.post = post;
+  }
+
+  return Employee;
+}();
+
+var empl = [new Employee("Matthew McConaughey", 44, "investment specialist"), new Employee("Jon Flanagan", 30, "credit specialist"), new Employee("Jamie Carragher", 45, "auditor"), new Employee("Robert Fowler", 48, "accountant"), new Employee("Jamie Vardy", 36, "accountant")];
+
+var EmpTable =
+/** @class */
+function () {
+  function EmpTable(arr) {
+    this.arr = arr;
+  }
+
+  EmpTable.prototype.getHtml = function () {
+    var html = "<table>\n    <thead>\n    <tr>\n    <th>name</th>\n    <th>age</th>\n        <th>post</th>\n      </tr>\n    </thead>\n    <tbody>\n      " + this.arr.map(function (el) {
+      return "<tr><td>" + el.name + "</td><td>" + el.age + "</td><td>" + el.post + "</td></tr>";
+    }).join('') + "\n      </tbody>\n      </table>";
+    document.body.insertAdjacentHTML('beforeend', html);
+    return html;
+  };
+
+  return EmpTable;
+}();
+
+var table = new EmpTable(empl); //4
+//Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
+// строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
+// метод getHtml() из родительского класса. Создать объект класса StyledEmpTable и вывести на экран результат работы метода getHtml().
+
+var StyledEmpTable =
+/** @class */
+function (_super) {
+  __extends(StyledEmpTable, _super);
+
+  function StyledEmpTable() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  StyledEmpTable.prototype.getStyles = function () {
+    return "<style> table { color:red } </style>";
+  };
+
+  StyledEmpTable.prototype.getHtml = function () {
+    document.head.insertAdjacentHTML('beforeend', this.getStyles());
+    return _super.prototype.getHtml.call(this);
+  };
+
+  return StyledEmpTable;
+}(EmpTable);
+
+var StyledTable = new StyledEmpTable(empl);
+StyledTable.getHtml(); //Напишите функцию printNumbers(from, to), которая выводит число каждую секунду, начиная от from и заканчивая to.
+// Сделайте два варианта решения.
+// 1.Используя setInterval.
+// 2.Используя рекурсивный setTimeout.
+//1
+
+function printNumbers(from, to) {
+  setInterval(function go() {
+    var i = from;
+
+    while (i <= to) {
+      setInterval(go, 1000);
+    }
+
+    i++;
+  }, 1000);
+}
+
+printNumbers(2, 5); //2
+
+function printNumbersRecursion(from, to) {
+  setTimeout(function go() {
+    if (from < to) {
+      setTimeout(go, 1000);
+    }
+
+    from++;
+  }, 1000);
+}
+
+printNumbersRecursion(5, 10); // pz2-5
+//1
+// Реализовать класс Button, который содержит ширину, высоту, текст кнопки и метод showBtn(), который выводит кнопку на экран с помощью тега button и функции document.write().
+// Реализовать класс BootstrapButton, унаследовав его от класса Button. Добавить поле color и переопределить метод showBtn() так, чтобы кнопка выводилась со стилями и указанным цветом.
+
+var Button =
+/** @class */
+function () {
+  function Button(width, height, text) {
+    this.width = width;
+    this.height = height;
+    this.text = text;
+  }
+
+  Button.prototype.showBtn = function () {
+    document.body.insertAdjacentHTML('beforeend', "<button style=\"width:" + this.width + "; height:" + this.height + ";\">" + this.text + "</button>");
+  };
+
+  return Button;
+}();
+
+var newButton = new Button(200, 100, 'Stop');
+newButton.showBtn();
+
+var BootstrapButton =
+/** @class */
+function (_super) {
+  __extends(BootstrapButton, _super);
+
+  function BootstrapButton(width, height, text, color) {
+    var _this = _super.call(this, width, height, text) //вызов конструктора родителя
+    || this;
+
+    _this.color = color; //this доступен только после вызова конструктора родителя
+
+    return _this;
+  }
+
+  BootstrapButton.prototype.showBtn = function () {
+    // super.showBtn()//вызов метода родителя
+    document.body.insertAdjacentHTML('beforeend', "<button style=\"width:" + this.width + "; height:" + this.height + ";background-color:" + this.color + "\">" + this.text + "</button>");
+  };
+
+  return BootstrapButton;
+}(Button);
+
+var newButton2 = new BootstrapButton(200, 100, 'STOP', 'start');
+newButton2.showBtn(); //2
+// Реализовать класс, описывающий геометрическую фигуру со свойствами и методами:
+// ■ get-свойство для получения названия фигуры;
+// ■ метод для вывода информации о фигуре (стороны и их длина);
+// ■ метод для вычисления площади фигуры;
+// ■ метод для вычисления периметра фигуры.
+// Реализуйте классы-наследники: квадрат, прямоугольник и треугольник. Переопределите методы вывода и вычислений в  классах-наследниках.
+// Создайте массив с различными фигурами и выведите информацию о каждой фигуре, включая площадь и периметр.
+// class Figure {
+//   name
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+//   get figureName() {
+//     return this.name
+//   }
+//   getFigureInfo() {
+//   }
+//   getFigureSquare() {
+//   }
+//   getFigurePerimetr() {
+//   }
+// }
+// class Triangle extends Figure {
+//   length1
+//   length2
+//   length3
+//   constructor(length1: number, length2: number, length3: number) {
+//     super()
+//   }
+//   getFigureSquare() {
+//     Sq = (this.length1 * this.length2) / 2
+//   }
+//   getFigurePerimetr() {
+//     perimetr = this.length1 + this.length2 + this.length3
+//   }
+// }
+// class Square extends Figure {
+//   length3
+//   constructor(length3) {
+//     getFigureSquare() {
+//       Sq = this.length3 * 2
+//     }
+//     getFigurePerimetr() {
+//       perimetr = this.length3 * 4
+//     }
+//   }
+// }
+// class Rectangle extends Figure {
+//   length4
+//   length5
+//   constructor(length4,length5) {
+//     getFigureSquare() {
+//       Sq = this.length4*this.length5
+//     }
+//     getFigurePerimetr() {
+//       perimetr = this.length4*2+this.length5*2
+//     }
+//   }
+// }
+// let figures = [
+//   new Triangle(4,6,3),
+//   new Square(6),
+//   new Rectangle(4,7)
+// ]
+// console.log 
+//3
+// Реализуйте класс ExtentedArray, унаследовав его от стандартного класса Array и добавив следующие методы:
+// ■ метод getString(separator) – для получения строки со всеми элементами массива, перечисленными через указанный разделитель: запятая, тире, пробел и т. д.;
+// ■ метод getHtml(tagName) – для получения строки с html кодом, где каждый элемент массива будет обернут в указанный тег (учтите, если указывается тег li, то все элементы
+// дополнительно необходимо обернуть в ul).
+// Создайте объект класса ExtentedArray, заполните его данными и выведите на экран результаты работы методов getString() и getHtml().
+
+var ExtentedArray =
+/** @class */
+function (_super) {
+  __extends(ExtentedArray, _super);
+
+  function ExtentedArray() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+
+  return ExtentedArray;
+}(Array); // dz 3-1
+//Создать html-страницу для ввода имени пользователя.
+// Необходимо проверять каждый символ, который вводит пользователь. Если он ввел цифру, то не отображать ее в input.
+//1
+
+
+var validate;
+validate.addEventListener("input", function (e) {
+  var regex = /[A-Za-zА-Яа-я -]/;
+  var chars = e.target.value.split("");
+
+  var _char2 = chars.pop();
+
+  if (!regex.test(_char2)) {
+    e.target.value = chars.join("");
+  }
+}); //2
+// Создать html-страницу с кнопкой Открыть и модальным окном. На модальном окне должен быть текст и кнопка Закрыть.
+// Изначально модальное окно не отображается. При клике на кнопку Открыть появляется модальное окно, на кнопку Закрыть – исчезает.
+
+var openModal = document.getElementById('openModal');
+var modal = document.getElementById('modal');
+var closeModal = document.getElementById('closeModal');
+openModal.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+closeModal.addEventListener("click", function () {
+  modal.style.display = "none";
+}); //3
+// Создать html-страницу с футбольным полем, которое занимает всю ширину и высоту экрана, и мячом размером 100 на 100 пикселей.
+// Сделать так, чтобы при клике мышкой по полю, мяч плавно перемещался на место клика. Учтите: необходимо, чтобы центр
+// мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.
+
+if (window) window.addEventListener('load', function () {
+  var field = document.getElementById('field');
+  var ball = document.getElementById('ball');
+  var ballWidth = ball === null || ball === void 0 ? void 0 : ball.clientWidth;
+  var ballHeight = ball === null || ball === void 0 ? void 0 : ball.clientHeight;
+  var fieldWidth = field === null || field === void 0 ? void 0 : field.clientWidth;
+  var fieldHeight = field === null || field === void 0 ? void 0 : field.clientHeight;
+  var deg = 0;
+  field === null || field === void 0 ? void 0 : field.addEventListener('click', function (e) {
+    var x = e.offsetX;
+    var y = e.offsetY;
+    console.log(x, y);
+
+    if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
+      if (deg == 360) deg = 0;
+      x = x - ballWidth / 2;
+      y = y - ballHeight / 2;
+      if (x < 0) x = 0;
+      if (y < 0) y = 0;
+      if (x + ballWidth > fieldWidth) x = fieldWidth - ballWidth;
+      if (y + ballHeight > fieldHeight) y = fieldHeight - ballHeight;
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+
+      if (e.target == field) {
+        var x_1 = e.offsetX;
+        var y_1 = e.offsetY;
+        console.log(x_1, y_1);
+        deg += 180;
+        ball.style.transform = "rotate(" + deg + "deg)";
+
+        if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
+          if (deg == 360) deg = 0;
+          x_1 = x_1 - ballWidth / 2;
+          y_1 = y_1 - ballHeight / 2;
+          if (x_1 < 0) x_1 = 0;
+          if (y_1 < 0) y_1 = 0;
+          if (x_1 + ballWidth > fieldWidth) x_1 = fieldWidth - ballWidth;
+          if (y_1 + ballHeight > fieldHeight) y_1 = fieldHeight - ballHeight;
+          ball.style.left = x_1 + 'px';
+          ball.style.top = y_1 + 'px';
+          console.log(x_1, y_1);
+          deg += 180;
+          ball.style.transform = "rotate(" + deg + "deg)";
+        }
+      }
+    }
+  });
+});

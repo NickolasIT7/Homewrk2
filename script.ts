@@ -1783,25 +1783,25 @@ console.log(calculate(2, 5, "*"));
 
 //8 Написать функцию, которая получает url и выводит подробную информацию о нем. Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
 
-function task(url) {
-  let arr
-  let protocol
-  let domain
-  let arr1
-  let way
-  arr2 = url.split("://")
-  for (let index = 0; index < arr.lenght; index++) {
-    protocol = arr[0]
-    arr1 = arr[0].split("/")
-    domain = arr1[0]
-  }
-  arr1.shift()
-  way = arr1.join("/")
+// function task(url) {
+//   let arr
+//   let protocol
+//   let domain
+//   let arr1
+//   let way
+//   arr2 = url.split("://")
+//   for (let index = 0; index < arr.lenght; index++) {
+//     protocol = arr[0]
+//     arr1 = arr[0].split("/")
+//     domain = arr1[0]
+//   }
+//   arr1.shift()
+//   way = arr1.join("/")
 
-  return "Информация\протокол: " + protocol + "\домен: " + domain + "\путь: " + way;
-}
+//   return "Информация\протокол: " + protocol + "\домен: " + domain + "\путь: " + way;
+// }
 
-console.log(task("https:itstep.org/ua/about"))
+// console.log(task("https://itstep.org/ua/about"))
 
 //9 Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью указанного разделителя.
 // Например: строка “10/08/2020”, разделитель “/”, результат: “10”, “08”, “2020”.
@@ -2057,21 +2057,21 @@ newButton2.showBtn()
 // Реализуйте классы-наследники: квадрат, прямоугольник и треугольник. Переопределите методы вывода и вычислений в  классах-наследниках.
 // Создайте массив с различными фигурами и выведите информацию о каждой фигуре, включая площадь и периметр.
 
-class Figure {
-  name
-  constructor(name: string) {
-    this.name = name;
-  }
-  get figureName() {
-    return this.name
-  }
-  getFigureInfo() {
-  }
-  getFigureSquare() {
-  }
-  getFigurePerimetr() {
-  }
-}
+// class Figure {
+//   name
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+//   get figureName() {
+//     return this.name
+//   }
+//   getFigureInfo() {
+//   }
+//   getFigureSquare() {
+//   }
+//   getFigurePerimetr() {
+//   }
+// }
 
 // class Triangle extends Figure {
 //   length1
@@ -2168,34 +2168,61 @@ closeModal.addEventListener("click", function () {
 // мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.
 
 
-const field = document.getElementById('field')
-  const ball = document.getElementById('ball')
-  
-  const ballWidth = ball?.clientWidth
-  const ballHeight = ball?.clientHeight
-  const fieldWidth = field?.clientWidth
-  const fieldHeight = field?.clientHeight
-  
-  let deg = 0
+if (window)
+    window.addEventListener('load', () => {
+        const field = document.getElementById('field');
+        const ball = document.getElementById('ball');
+        const ballWidth = ball === null || ball === void 0 ? void 0 : ball.clientWidth;
+        const ballHeight = ball === null || ball === void 0 ? void 0 : ball.clientHeight;
+        const fieldWidth = field === null || field === void 0 ? void 0 : field.clientWidth;
+        const fieldHeight = field === null || field === void 0 ? void 0 : field.clientHeight;
+        let deg = 0;
+        field === null || field === void 0 ? void 0 : field.addEventListener('click', (e) => {
+            let x = e.offsetX;
+            let y = e.offsetY;
+            console.log(x, y);
+            if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
+                if (deg == 360)
+                    deg = 0;
+                x = x - (ballWidth / 2);
+                y = y - (ballHeight / 2);
+                if (x < 0)
+                    x = 0;
+                if (y < 0)
+                    y = 0;
+                if (x + (ballWidth) > fieldWidth)
+                    x = fieldWidth - (ballWidth);
+                if (y + (ballHeight) > fieldHeight)
+                    y = fieldHeight - (ballHeight);
+                ball.style.left = x + 'px';
+                ball.style.top = y + 'px';
+            if (e.target == field) {
+                let x = e.offsetX;
+                let y = e.offsetY;
+                console.log(x, y);
+                deg += 180;
+                ball.style.transform = `rotate(${deg}deg)`;
+                if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
+                    if (deg == 360)
+                        deg = 0;
+                    x = x - (ballWidth / 2);
+                    y = y - (ballHeight / 2);
+                    if (x < 0)
+                        x = 0;
+                    if (y < 0)
+                        y = 0;
+                    if (x + (ballWidth) > fieldWidth)
+                        x = fieldWidth - (ballWidth);
+                    if (y + (ballHeight) > fieldHeight)
+                        y = fieldHeight - (ballHeight);
+                    ball.style.left = x + 'px';
+                    ball.style.top = y + 'px';
+                    console.log(x, y);
+                    deg += 180;
+                    ball.style.transform = `rotate(${deg}deg)`;
+                }
+            }
+        }
+      })
+      })
 
-  field?.addEventListener('click', (e)=>{
-    if (e.target == field) {
-      let x = e.offsetX
-      let y = e.offsetY
-      console.log(x,y)
-      if (ball && ballWidth && ballHeight && fieldWidth && fieldHeight) {
-        if (deg == 360) deg = 0
-        x = x - (ballWidth/2)
-        y = y - (ballHeight/2)
-        if (x < 0) x = 0
-        if (y < 0) y = 0
-        if (x + (ballWidth) > fieldWidth) x = fieldWidth - (ballWidth)
-        if (y + (ballHeight) > fieldHeight) y = fieldHeight - (ballHeight)
-        ball.style.left = x + 'px'
-        ball.style.top = y + 'px'
-        console.log(x,y)
-        deg += 180
-        ball.style.transform = `rotate(${deg}deg)`
-      }
-    }    
-  })
